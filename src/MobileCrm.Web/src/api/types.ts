@@ -125,6 +125,10 @@ export type CompleteActivityRequest = {
   description?: string;
 };
 
+export type AddActivityNoteRequest = {
+  note: string;
+};
+
 export type ActivityDetailResponse = {
   id: string;
   documentNumber?: string;
@@ -142,6 +146,7 @@ export type ActivityDetailResponse = {
   ownerDisplayName?: string;
   canEdit: boolean;
   canComplete: boolean;
+  canAddNote: boolean;
   lastModifiedAt?: string;
   meta?: { schemaVersion?: string };
 };

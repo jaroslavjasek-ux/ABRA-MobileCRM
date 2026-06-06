@@ -27,7 +27,8 @@ public sealed record GenActivityDetail(
     GenContactSummary? Contact,
     string? OwnerId,
     bool CanEdit,
-    bool CanComplete);
+    bool CanComplete,
+    bool CanAddNote);
 
 public static class ActivityMapper
 {
@@ -70,6 +71,12 @@ public static class ActivityMapper
                     }
                     break;
                 }
+            }
+
+            // Gen may return a single row object when take=1 (not wrapped in an array).
+            if (items.Count == 0 && GetCanonicalId(root) is not null)
+            {
+                items.Add(ParseRow(root));
             }
         }
 
@@ -132,18 +139,35 @@ public static class ActivityMapper
         1 => "inProgress",
         2 => "completed",
         3 => "handedOver",
-        _ => "open",
+        null => "unknown",
+        _ => "unknown",
     };
+
+    public static int? GetGenStatusCode(JsonElement el) =>
+        GenJsonHelper.GetInt(el, "Status", "status");
+
+    public static bool IsGenTerminalStatus(int? statusCode) => statusCode is 2 or 3;
 
     public static bool IsOpenStatus(string status) =>
         status is "open" or "inProgress";
 
     public static bool IsTerminalStatus(string status) =>
-        status is "completed" or "handedOver";
+        status is "completed" or "handedOver" or "unknown";
 
     public static bool CanStart(string status) => status == "open";
 
     public static bool CanComplete(string status) => status == "inProgress";
+
+    public static bool CanAddNote(string status) => IsOpenStatus(status);
+
+    public static int ToGenStatusCode(string status) => status switch
+    {
+        "open" => 0,
+        "inProgress" => 1,
+        "completed" => 2,
+        "handedOver" => 3,
+        _ => 0,
+    };
 
     public static GenActivityRow ParseDetailRow(JsonElement el) => ParseRow(el);
 

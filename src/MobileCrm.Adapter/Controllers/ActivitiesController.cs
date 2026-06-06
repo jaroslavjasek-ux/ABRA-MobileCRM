@@ -111,6 +111,47 @@ public sealed class ActivitiesController : ControllerBase
         return MapOperationResult(result);
     }
 
+    [HttpPut("{activityId}/note")]
+    public async Task<ActionResult<ActivityDetailResponseDto>> AddNote(
+        string activityId,
+        [FromBody] AddActivityNoteRequestDto request,
+        CancellationToken ct = default)
+    {
+        _logger.LogInformation(
+            "PUT /api/v1/activities/{ActivityId}/note traceId={TraceId}",
+            activityId,
+            HttpContext.TraceIdentifier);
+
+        if (string.IsNullOrWhiteSpace(request.Note))
+        {
+            return UnprocessableEntity(new ApiErrorDto
+            {
+                Error = new ApiErrorBodyDto
+                {
+                    Code = "VALIDATION_FAILED",
+                    Message = "Note is required.",
+                    Details =
+                    [
+                        new ApiErrorDetailDto { Field = "note", Message = "Note is required." },
+                    ],
+                    TraceId = HttpContext.TraceIdentifier,
+                },
+            });
+        }
+
+        var session = GetSession();
+        var authorDisplayName = await ResolveAuthorDisplayNameAsync(session, ct);
+        var result = await _activities.AddNoteAsync(
+            session.Credentials,
+            activityId,
+            session.RepUserId,
+            request.Note,
+            authorDisplayName,
+            ct);
+
+        return MapOperationResult(result);
+    }
+
     private ActionResult<ActivityDetailResponseDto> MapOperationResult(
         ActivityOperationResult<GenActivityDetail> result)
     {

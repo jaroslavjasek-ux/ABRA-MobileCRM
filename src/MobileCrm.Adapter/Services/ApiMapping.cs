@@ -121,6 +121,7 @@ public static class ApiMapping
         OwnerDisplayName = null,
         CanEdit = detail.CanEdit,
         CanComplete = detail.CanComplete,
+        CanAddNote = detail.CanAddNote,
         Meta = new { schemaVersion = "1.0" },
     };
 

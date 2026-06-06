@@ -154,6 +154,11 @@ public sealed class CompleteActivityRequestDto
     public string? Description { get; init; }
 }
 
+public sealed class AddActivityNoteRequestDto
+{
+    public required string Note { get; init; }
+}
+
 public sealed class ActivityDetailResponseDto
 {
     public required string Id { get; init; }
@@ -172,6 +177,7 @@ public sealed class ActivityDetailResponseDto
     public string? OwnerDisplayName { get; init; }
     public bool CanEdit { get; init; }
     public bool CanComplete { get; init; }
+    public bool CanAddNote { get; init; }
     public string? LastModifiedAt { get; init; }
     public object? Meta { get; init; }
 }

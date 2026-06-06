@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { FormEvent, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { completeActivity, getActivity, startActivity } from "@/api/activities";
+import { addActivityNote, completeActivity, getActivity, startActivity } from "@/api/activities";
 import { queryKeys } from "@/api/queryKeys";
 import {
   activityDetailPath,
@@ -15,7 +15,11 @@ import { ActivityDocumentNumber } from "@/features/activities/ActivityDocumentNu
 type LocationState = { from?: string };
 
 function isTerminalStatus(status: string): boolean {
-  return status === "completed" || status === "handedOver";
+  return status === "completed" || status === "handedOver" || status === "unknown";
+}
+
+function isActionableStatus(status: string): boolean {
+  return status === "open" || status === "inProgress";
 }
 
 export function ActivityDetailPage() {
@@ -27,13 +31,18 @@ export function ActivityDetailPage() {
   const { t, formatScheduleRange, formatActivityStatus } = useI18n();
 
   const [outcome, setOutcome] = useState("");
+  const [noteText, setNoteText] = useState("");
+  const [showNoteForm, setShowNoteForm] = useState(false);
   const [actionError, setActionError] = useState<string | null>(null);
   const [outcomeError, setOutcomeError] = useState<string | null>(null);
+  const [noteError, setNoteError] = useState<string | null>(null);
 
   const detailQuery = useQuery({
     queryKey: queryKeys.activityDetail(activityId ?? ""),
     queryFn: () => getActivity(activityId!),
     enabled: Boolean(activityId),
+    staleTime: 0,
+    refetchOnMount: "always",
   });
 
   const invalidateRelated = (firmId?: string) => {
@@ -71,6 +80,19 @@ export function ActivityDetailPage() {
     onError: (err) => setActionError(resolveActionError(err, t)),
   });
 
+  const noteMutation = useMutation({
+    mutationFn: () => addActivityNote(activityId!, { note: noteText.trim() }),
+    onSuccess: (updated) => {
+      setActionError(null);
+      setNoteError(null);
+      setNoteText("");
+      setShowNoteForm(false);
+      queryClient.setQueryData(queryKeys.activityDetail(activityId!), updated);
+      invalidateRelated(updated.firm?.id);
+    },
+    onError: (err) => setActionError(resolveActionError(err, t, "note")),
+  });
+
   if (detailQuery.isError) {
     const err = detailQuery.error;
     if (isUnauthorized(err)) {
@@ -93,7 +115,18 @@ export function ActivityDetailPage() {
     ? t("activity.backCustomer")
     : t("activity.backMyDay");
   const terminal = data ? isTerminalStatus(data.status) : false;
-  const busy = startMutation.isPending || completeMutation.isPending;
+  const busy = startMutation.isPending || completeMutation.isPending || noteMutation.isPending;
+
+  const handleAddNote = (e: FormEvent) => {
+    e.preventDefault();
+    setActionError(null);
+    if (!noteText.trim()) {
+      setNoteError(t("activity.noteRequired"));
+      return;
+    }
+    setNoteError(null);
+    noteMutation.mutate();
+  };
 
   const handleComplete = (e: FormEvent) => {
     e.preventDefault();
@@ -202,7 +235,7 @@ export function ActivityDetailPage() {
             </section>
           )}
 
-          {!terminal && (data.description || (data.answer && !data.canComplete)) && (
+          {!terminal && (data.description || data.answer) && (
             <section className="detail-section detail-section--compact">
               <h2>{t("activity.notes")}</h2>
               {data.description && (
@@ -211,17 +244,77 @@ export function ActivityDetailPage() {
                   <p className="note-body">{data.description}</p>
                 </div>
               )}
-              {data.answer && !data.canComplete && (
+              {data.answer && (
                 <div className="note-block">
                   <h3 className="note-label">{t("activity.outcome")}</h3>
-                  <p className="note-body">{data.answer}</p>
+                  <p className="note-body note-body--readonly">{data.answer}</p>
                 </div>
               )}
             </section>
           )}
 
-          {!terminal && !data.description && !data.answer && !data.canComplete && (
+          {!terminal && !data.description && !data.answer && (
             <p className="hint">{t("activity.noNotes")}</p>
+          )}
+
+          {isActionableStatus(data.status) && data.canAddNote && (
+            <section className="activity-actions">
+              {!showNoteForm ? (
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  disabled={busy}
+                  onClick={() => {
+                    setShowNoteForm(true);
+                    setActionError(null);
+                    setNoteError(null);
+                  }}
+                >
+                  {t("activity.addNote")}
+                </button>
+              ) : (
+                <form className="activity-note-form" onSubmit={handleAddNote}>
+                  <label className="field">
+                    <span>{t("activity.noteLabel")}</span>
+                    <textarea
+                      rows={4}
+                      value={noteText}
+                      onChange={(e) => {
+                        setNoteText(e.target.value);
+                        if (noteError) {
+                          setNoteError(null);
+                        }
+                      }}
+                      placeholder={t("activity.notePlaceholder")}
+                      disabled={busy}
+                      required
+                    />
+                  </label>
+                  {noteError && (
+                    <p className="error" role="alert">
+                      {noteError}
+                    </p>
+                  )}
+                  <div className="activity-note-form-actions">
+                    <button type="submit" className="btn-primary" disabled={busy}>
+                      {noteMutation.isPending ? t("activity.savingNote") : t("activity.saveNote")}
+                    </button>
+                    <button
+                      type="button"
+                      className="btn-secondary"
+                      disabled={busy}
+                      onClick={() => {
+                        setShowNoteForm(false);
+                        setNoteText("");
+                        setNoteError(null);
+                      }}
+                    >
+                      {t("activity.cancelNote")}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </section>
           )}
 
           {actionError && (
@@ -230,7 +323,7 @@ export function ActivityDetailPage() {
             </p>
           )}
 
-          {data.canEdit && (
+          {isActionableStatus(data.status) && data.canEdit && (
             <section className="activity-actions">
               <button
                 type="button"
@@ -243,15 +336,9 @@ export function ActivityDetailPage() {
             </section>
           )}
 
-          {data.canComplete && (
+          {isActionableStatus(data.status) && data.canComplete && (
             <section className="activity-actions">
               <form className="activity-complete-form" onSubmit={handleComplete}>
-                {data.answer && (
-                  <div className="note-block activity-previous-notes">
-                    <h3 className="note-label">{t("activity.previousNotes")}</h3>
-                    <p className="note-body note-body--readonly">{data.answer}</p>
-                  </div>
-                )}
                 <label className="field">
                   <span>{t("activity.newOutcomeLabel")}</span>
                   <textarea
@@ -288,6 +375,7 @@ export function ActivityDetailPage() {
 function resolveActionError(
   err: unknown,
   t: (key: string) => string,
+  field?: "answer" | "note",
 ): string {
   if (err instanceof ApiError) {
     if (err.code === "NOT_EDITABLE" || err.status === 409) {
@@ -295,8 +383,12 @@ function resolveActionError(
     }
     if (err.code === "VALIDATION_FAILED") {
       const fieldAnswer = err.body?.details?.find((d) => d.field === "answer");
-      if (fieldAnswer) {
+      if (fieldAnswer || field === "answer") {
         return t("activity.outcomeRequired");
+      }
+      const fieldNote = err.body?.details?.find((d) => d.field === "note");
+      if (fieldNote || field === "note") {
+        return t("activity.noteRequired");
       }
     }
     return err.message || t("activity.actionFailed");

@@ -26,6 +26,14 @@ public interface IActivityService
         string? description,
         string? authorDisplayName = null,
         CancellationToken ct = default);
+
+    Task<ActivityOperationResult<GenActivityDetail>> AddNoteAsync(
+        GenCredentials credentials,
+        string activityId,
+        string repUserId,
+        string note,
+        string? authorDisplayName = null,
+        CancellationToken ct = default);
 }
 
 public sealed class ActivityService : IActivityService
@@ -153,6 +161,51 @@ public sealed class ActivityService : IActivityService
         }
 
         return await RefetchAfterWriteAsync(credentials, id, repUserId, "complete", ct);
+    }
+
+    public async Task<ActivityOperationResult<GenActivityDetail>> AddNoteAsync(
+        GenCredentials credentials,
+        string activityId,
+        string repUserId,
+        string note,
+        string? authorDisplayName = null,
+        CancellationToken ct = default)
+    {
+        var lookup = await ActivityLookup.LoadAsync(_gen, credentials, activityId, _logger, ct);
+        if (lookup is null)
+        {
+            return ActivityOperationResult<GenActivityDetail>.Fail(
+                ActivityOperationErrorCode.NotFound,
+                "Activity not found.");
+        }
+
+        var preflight = EvaluateNoteAllowed(lookup.Root, repUserId);
+        if (preflight is not null)
+        {
+            return preflight;
+        }
+
+        var row = ActivityMapper.ParseDetailRow(lookup.Root);
+        var id = string.IsNullOrEmpty(row.Id) ? lookup.CanonicalId : row.Id;
+        var mergedAnswer = ActivityMapper.AppendAnswer(
+            ActivityMapper.GetAnswer(lookup.Root),
+            note,
+            DateTimeOffset.Now,
+            authorDisplayName);
+        var putError = await PutStatusAsync(
+            credentials,
+            id,
+            row.FirmId,
+            status: ActivityMapper.ToGenStatusCode(row.Status),
+            answer: mergedAnswer,
+            description: null,
+            ct);
+        if (putError is not null)
+        {
+            return MapPutError(putError.Value);
+        }
+
+        return await RefetchAfterWriteAsync(credentials, id, repUserId, "note", ct);
     }
 
     private async Task<ActivityOperationResult<GenActivityDetail>> RefetchAfterWriteAsync(
@@ -308,6 +361,13 @@ public sealed class ActivityService : IActivityService
         string repUserId,
         Func<string, bool> allowedStatus)
     {
+        if (ActivityMapper.IsGenTerminalStatus(ActivityMapper.GetGenStatusCode(root)))
+        {
+            return ActivityOperationResult<GenActivityDetail>.Fail(
+                ActivityOperationErrorCode.NotEditable,
+                "Activity is already completed.");
+        }
+
         var row = ActivityMapper.ParseDetailRow(root);
         if (ActivityMapper.IsTerminalStatus(row.Status))
         {
@@ -346,19 +406,23 @@ public sealed class ActivityService : IActivityService
             row = row with { Id = lookup.CanonicalId };
         }
 
-        var status = row.Status;
+        var genStatusRaw = ActivityMapper.GetGenStatusCode(root);
+        var status = ActivityMapper.MapStatus(genStatusRaw);
         var owned = ActivityMapper.IsOwnedByRepresentative(root, repUserId);
-        var terminal = ActivityMapper.IsTerminalStatus(status);
-        var canStart = !terminal && owned && ActivityMapper.CanStart(status);
-        var canComplete = !terminal && owned && ActivityMapper.CanComplete(status);
+        var terminal = ActivityMapper.IsTerminalStatus(status)
+            || ActivityMapper.IsGenTerminalStatus(genStatusRaw);
+        var canStart = !terminal && owned && status == "open";
+        var canComplete = !terminal && owned && status == "inProgress";
+        var canAddNote = !terminal && owned && ActivityMapper.CanAddNote(status);
 
         _logger.LogInformation(
-            "BuildDetailAsync id={Id} status={Status} owned={Owned} canStart={CanStart} canComplete={CanComplete}",
+            "BuildDetailAsync id={Id} status={Status} owned={Owned} canStart={CanStart} canComplete={CanComplete} canAddNote={CanAddNote}",
             row.Id,
             status,
             owned,
             canStart,
-            canComplete);
+            canComplete,
+            canAddNote);
 
         var firm = await ResolveFirmAsync(credentials, row.FirmId, ct)
             ?? new GenFirmSummary("", "Unknown customer", "", null, null, "unknown");
@@ -387,7 +451,44 @@ public sealed class ActivityService : IActivityService
             contact,
             ActivityMapper.GetOwnerId(root),
             canStart,
-            canComplete);
+            canComplete,
+            canAddNote);
+    }
+
+    private static ActivityOperationResult<GenActivityDetail>? EvaluateNoteAllowed(
+        System.Text.Json.JsonElement root,
+        string repUserId)
+    {
+        if (ActivityMapper.IsGenTerminalStatus(ActivityMapper.GetGenStatusCode(root)))
+        {
+            return ActivityOperationResult<GenActivityDetail>.Fail(
+                ActivityOperationErrorCode.NotEditable,
+                "Activity is already completed.");
+        }
+
+        var row = ActivityMapper.ParseDetailRow(root);
+        if (ActivityMapper.IsTerminalStatus(row.Status))
+        {
+            return ActivityOperationResult<GenActivityDetail>.Fail(
+                ActivityOperationErrorCode.NotEditable,
+                "Activity is already completed.");
+        }
+
+        if (!ActivityMapper.IsOwnedByRepresentative(root, repUserId))
+        {
+            return ActivityOperationResult<GenActivityDetail>.Fail(
+                ActivityOperationErrorCode.NotEditable,
+                "Activity is not assigned to you.");
+        }
+
+        if (!ActivityMapper.CanAddNote(row.Status))
+        {
+            return ActivityOperationResult<GenActivityDetail>.Fail(
+                ActivityOperationErrorCode.NotEditable,
+                "Activity is not in a valid state for this action.");
+        }
+
+        return null;
     }
 
     private async Task<GenFirmSummary?> ResolveFirmAsync(
