@@ -1,0 +1,1955 @@
+{
+  "meta": {
+    "discovered_at": "2026-06-04T14:16:51.206107+00:00",
+    "base_url": "http://localhost/demo",
+    "index_url": "http://localhost/demo/api-docs/openapis",
+    "total_controllers": 521,
+    "crm_controller_count": 88
+  },
+  "controllers": [
+    {
+      "name": "busorders",
+      "description": "zákazka",
+      "boclsid": "K2WTYL304VD13ACL03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/busorders",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/busorders?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/busorders",
+        "schema_guess": "busorder",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 20,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "cdconfirmapproveds",
+      "description": "schválený výdaj",
+      "boclsid": "J3OX4YPVKRLONIEJMHS21TWO3S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/cdconfirmapproveds",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/cdconfirmapproveds?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/cdconfirmapproveds",
+        "schema_guess": "cdconfirmapproved",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Firm",
+        "Firm commercial status",
+        "Commercial health signal"
+      ]
+    },
+    {
+      "name": "cdconfirms",
+      "description": "požiadaviek na schválenie výdaje",
+      "boclsid": "TLTR5CW2R4QOFG00KDZZPM2FVO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/cdconfirms",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/cdconfirms?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/cdconfirms",
+        "schema_guess": "cdconfirm",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 19,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Firm",
+        "Firm commercial status",
+        "Commercial health signal"
+      ]
+    },
+    {
+      "name": "crmactivities",
+      "description": "aktivita",
+      "boclsid": "AVV1JYV5AVNOZHQCK0D4CJFUCS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmactivities",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmactivities?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmactivities",
+        "schema_guess": "crmactivitie",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 19,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": []
+    },
+    {
+      "name": "crmactivityareas",
+      "description": "oblasť aktivity",
+      "boclsid": "N53352D4AKB43AMHHSYG1UKFVW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmactivityareas",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmactivityareas?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmactivityareas",
+        "schema_guess": "crmactivityarea",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity",
+        "Activity type / status"
+      ]
+    },
+    {
+      "name": "crmactivityprocesses",
+      "description": "proces aktivít",
+      "boclsid": "SKWQTWWJXVY4X50WACKKGG0YDO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmactivityprocesses",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmactivityprocesses?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmactivityprocesses",
+        "schema_guess": "crmactivityprocesse",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity"
+      ]
+    },
+    {
+      "name": "crmactivityqueues",
+      "description": "rad aktivít",
+      "boclsid": "V4ZWII12WD3O3IRJZW04M00DMK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmactivityqueues",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmactivityqueues?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmactivityqueues",
+        "schema_guess": "crmactivityqueue",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity"
+      ]
+    },
+    {
+      "name": "crmactivitytypes",
+      "description": "typ aktivít",
+      "boclsid": "SMOEDRFJASV4P4XCFPYBZ1UYYO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmactivitytypes",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmactivitytypes?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmactivitytypes",
+        "schema_guess": "crmactivitytype",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 20,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity",
+        "Activity type / status"
+      ]
+    },
+    {
+      "name": "crmcampaignaudiences",
+      "description": "adresát kampane",
+      "boclsid": "P0WXCAK4AILOD4AYT2HT1WGI2K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaignaudiences",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmcampaignaudiences?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmcampaignaudiences",
+        "schema_guess": "crmcampaignaudience",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": []
+    },
+    {
+      "name": "crmcampaignblacklists",
+      "description": "zakázaný adresát kampane",
+      "boclsid": "UN0J1MLRHG0OHI0WEVCPUI2DH4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaignblacklists",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmcampaignblacklists?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmcampaignblacklists",
+        "schema_guess": "crmcampaignblacklist",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": []
+    },
+    {
+      "name": "crmcampaignfeedbacks",
+      "description": "spätná väzba kampane",
+      "boclsid": "XGNUWFK0B0E4D0MKD0YZXBLQNC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaignfeedbacks",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmcampaignfeedbacks?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmcampaignfeedbacks",
+        "schema_guess": "crmcampaignfeedback",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": []
+    },
+    {
+      "name": "crmcampaignprocesses",
+      "description": "spracovanie kampane",
+      "boclsid": "5QP5RNZLZHAO53WGHFDS0LSRU0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaignprocesses",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmcampaignprocesses?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmcampaignprocesses",
+        "schema_guess": "crmcampaignprocesse",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": []
+    },
+    {
+      "name": "crmcampaigns",
+      "description": "kampaň",
+      "boclsid": "2JCEDZ0E4PVODHQFIYTWJINVP0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaigns",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmcampaigns?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmcampaigns",
+        "schema_guess": "crmcampaign",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": []
+    },
+    {
+      "name": "crmcampaigntypes",
+      "description": "typ kampane",
+      "boclsid": "J3V5BNBVPDEON0TE440RZU0QKK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaigntypes",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmcampaigntypes?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmcampaigntypes",
+        "schema_guess": "crmcampaigntype",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": []
+    },
+    {
+      "name": "crmcampaignvariables",
+      "description": "premenná kampane",
+      "boclsid": "TJIF5BI4YS4OFGDOP1KLIH5VSK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaignvariables",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmcampaignvariables?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmcampaignvariables",
+        "schema_guess": "crmcampaignvariable",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": []
+    },
+    {
+      "name": "crmmenuitems",
+      "description": "crm zaradenie",
+      "boclsid": "UWDJUEX43JUOTI10NMKNKW1C5G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmmenuitems",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmmenuitems?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmmenuitems",
+        "schema_guess": "crmmenuitem",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": []
+    },
+    {
+      "name": "crmpipelinestatus",
+      "description": "stav v pipe-line",
+      "boclsid": "0XVIXAV11TY4NIKAG0INVQKJ2C",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmpipelinestatus",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmpipelinestatus?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmpipelinestatus",
+        "schema_guess": "crmpipelinestatu",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales opportunity"
+      ]
+    },
+    {
+      "name": "crmproducts",
+      "description": "produkt",
+      "boclsid": "OPUEYDT40JT4V0ZJTMAG43BWQ4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmproducts",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmproducts?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmproducts",
+        "schema_guess": "crmproduct",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Product"
+      ]
+    },
+    {
+      "name": "crmprogresses",
+      "description": "krok procesu",
+      "boclsid": "BI2G1QCE021OXBQUM3UYAM0OWS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmprogresses",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/crmprogresses?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/crmprogresses",
+        "schema_guess": "crmprogresse",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": []
+    },
+    {
+      "name": "currentuser",
+      "description": "aktuálny používateľ",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/currentuser",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/currentuser?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/currentuser",
+        "schema_guess": "currentuser",
+        "collection_get": true,
+        "collection_post": false,
+        "by_id_get": false,
+        "by_id_put": false,
+        "by_id_delete": false,
+        "path_count": 8,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "R",
+      "matched_entities": [
+        "Sales representative",
+        "Authentication session"
+      ]
+    },
+    {
+      "name": "customsconfirmations",
+      "description": "potvrdenie colnice o vývoze",
+      "boclsid": "JYC4VDEUPYROX3UX1NTGF3AWT0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/customsconfirmations",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/customsconfirmations?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/customsconfirmations",
+        "schema_guess": "customsconfirmation",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 21,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Firm",
+        "Firm commercial status",
+        "Commercial health signal"
+      ]
+    },
+    {
+      "name": "dealercategories",
+      "description": "dílerská trieda",
+      "boclsid": "02NWOCQPBBDL3CL100C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dealercategories",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/dealercategories?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/dealercategories",
+        "schema_guess": "dealercategorie",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 14,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Pipeline snapshot",
+        "Sales opportunity"
+      ]
+    },
+    {
+      "name": "dealerdiscounts",
+      "description": "dílerská zľava",
+      "boclsid": "GWMHT3STARDL3CL100C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dealerdiscounts",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/dealerdiscounts?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/dealerdiscounts",
+        "schema_guess": "dealerdiscount",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 14,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Pipeline snapshot",
+        "Sales opportunity"
+      ]
+    },
+    {
+      "name": "dealerturnoverdefinitions",
+      "description": "tabuľka obratov dílerských skupín",
+      "boclsid": "KNYNZDQ4BVDL3CL100C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dealerturnoverdefinitions",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/dealerturnoverdefinitions?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/dealerturnoverdefinitions",
+        "schema_guess": "dealerturnoverdefinition",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 14,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Pipeline snapshot",
+        "Sales opportunity"
+      ]
+    },
+    {
+      "name": "docconfirmationbreaks",
+      "description": "povolenie opráv",
+      "boclsid": "X22RO5MKFCS4RH13W5B1AFIU0G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docconfirmationbreaks",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/docconfirmationbreaks?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/docconfirmationbreaks",
+        "schema_guess": "docconfirmationbreak",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Firm",
+        "Firm commercial status",
+        "Commercial health signal"
+      ]
+    },
+    {
+      "name": "docconfirmationdefs",
+      "description": "schvaľovacie scenáre",
+      "boclsid": "4FYOJXN5LMV4TIMCQPZOD42WN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docconfirmationdefs",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/docconfirmationdefs?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/docconfirmationdefs",
+        "schema_guess": "docconfirmationdef",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Firm",
+        "Firm commercial status",
+        "Commercial health signal"
+      ]
+    },
+    {
+      "name": "docconfirmations",
+      "description": "schvaľovanie dokladu",
+      "boclsid": "ISAXGZ5QTOKOVDRV2H15P0OTZK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docconfirmations",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/docconfirmations?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/docconfirmations",
+        "schema_guess": "docconfirmation",
+        "collection_get": true,
+        "collection_post": false,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 13,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RUD",
+      "matched_entities": [
+        "Firm",
+        "Firm commercial status",
+        "Commercial health signal"
+      ]
+    },
+    {
+      "name": "employeecountcategories",
+      "description": "počet zamestnancov",
+      "boclsid": "TC30UCFMUOL4P4KZ1NRAULD55S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/employeecountcategories",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/employeecountcategories?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/employeecountcategories",
+        "schema_guess": "employeecountcategorie",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales representative"
+      ]
+    },
+    {
+      "name": "employeeforeignstatus",
+      "description": "employeeforeignstatus",
+      "boclsid": "WYFOE53W4JBOJEPIZZ0IBZXREK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/employeeforeignstatus",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/employeeforeignstatus?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/employeeforeignstatus",
+        "schema_guess": "employeeforeignstatu",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales representative"
+      ]
+    },
+    {
+      "name": "employees",
+      "description": "zamestnanec",
+      "boclsid": "CPP5AZU1CVF13JXS00KEZYD5AW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/employees",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/employees?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/employees",
+        "schema_guess": "employee",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 19,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales representative"
+      ]
+    },
+    {
+      "name": "firminsolvencyrecords",
+      "description": "záznam o insolvencii firmy",
+      "boclsid": "TBBRVTIBGQE4B5H4AY44WP3JMG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/firminsolvencyrecords",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/firminsolvencyrecords?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/firminsolvencyrecords",
+        "schema_guess": "firminsolvencyrecord",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Firm",
+        "Firm commercial status",
+        "Commercial health signal"
+      ]
+    },
+    {
+      "name": "firms",
+      "description": "firma",
+      "boclsid": "4K3EXM5PQBCL35CH000ILPWJF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/firms",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/firms?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/firms",
+        "schema_guess": "firm",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 28,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Firm",
+        "Firm commercial status",
+        "Commercial health signal"
+      ]
+    },
+    {
+      "name": "generalcalendars",
+      "description": "platený sviatok",
+      "boclsid": "W4FDWO3T53F13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/generalcalendars",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/generalcalendars?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/generalcalendars",
+        "schema_guess": "generalcalendar",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Calendar appointment"
+      ]
+    },
+    {
+      "name": "generalissuedorderrows",
+      "description": "pohyby na rámcových zmluvách - nákup",
+      "boclsid": "YJUQQV50PHW4R5A44IPVN441MS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/generalissuedorderrows",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/generalissuedorderrows?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/generalissuedorderrows",
+        "schema_guess": "generalissuedorderrow",
+        "collection_get": true,
+        "collection_post": false,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RUD",
+      "matched_entities": [
+        "Sales offer (Quote)",
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "generalissuedorders",
+      "description": "rámcová zmluva - nákup",
+      "boclsid": "DZ0YBXGGN1C4R1NLVJQLQNQLQC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/generalissuedorders",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/generalissuedorders?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/generalissuedorders",
+        "schema_guess": "generalissuedorder",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 29,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales offer (Quote)",
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "generalreceivedorderrows",
+      "description": "pohyby na rámcových zmluvách - predaj",
+      "boclsid": "TDREK2531PGON5K5FGH1OUWZAG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/generalreceivedorderrows",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/generalreceivedorderrows?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/generalreceivedorderrows",
+        "schema_guess": "generalreceivedorderrow",
+        "collection_get": true,
+        "collection_post": false,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RUD",
+      "matched_entities": [
+        "Sales offer (Quote)",
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "generalreceivedorders",
+      "description": "rámcová zmluva - predaj",
+      "boclsid": "SK2RT1BX0Y2ONDPFUSSBQEXMZ0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/generalreceivedorders",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/generalreceivedorders?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/generalreceivedorders",
+        "schema_guess": "generalreceivedorder",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 29,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales offer (Quote)",
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "issueddepositinvoices",
+      "description": "zálohový list vydaný",
+      "boclsid": "WEN033MLM3DL35J301C0CX3F40",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issueddepositinvoices",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/issueddepositinvoices?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/issueddepositinvoices",
+        "schema_guess": "issueddepositinvoice",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 35,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Receivable position"
+      ]
+    },
+    {
+      "name": "issuedinvoicerows",
+      "description": "pohyby na faktúrach vydaných",
+      "boclsid": "OBBDOKTWEFD13ACM03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedinvoicerows",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/issuedinvoicerows?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/issuedinvoicerows",
+        "schema_guess": "issuedinvoicerow",
+        "collection_get": true,
+        "collection_post": false,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 9,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RUD",
+      "matched_entities": [
+        "Receivable position"
+      ]
+    },
+    {
+      "name": "issuedinvoices",
+      "description": "faktúra vydaná",
+      "boclsid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedinvoices",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/issuedinvoices?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/issuedinvoices",
+        "schema_guess": "issuedinvoice",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 33,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Receivable position"
+      ]
+    },
+    {
+      "name": "issuedofferfailurereasons",
+      "description": "dôvod neúspechu ponuky",
+      "boclsid": "ENADIDXGPNG455B5NIEXVOCBCW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedofferfailurereasons",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/issuedofferfailurereasons?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/issuedofferfailurereasons",
+        "schema_guess": "issuedofferfailurereason",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 14,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales offer (Quote)"
+      ]
+    },
+    {
+      "name": "issuedofferrows",
+      "description": "pohyby na ponukách vydaných",
+      "boclsid": "QUKRMP2B4GN41IJGBQOQGY1GEC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedofferrows",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/issuedofferrows?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/issuedofferrows",
+        "schema_guess": "issuedofferrow",
+        "collection_get": true,
+        "collection_post": false,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RUD",
+      "matched_entities": [
+        "Sales offer (Quote)"
+      ]
+    },
+    {
+      "name": "issuedoffers",
+      "description": "ponuka vydaná",
+      "boclsid": "LN2RG42OWZVODHSAIXNA5PY1PS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedoffers",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/issuedoffers?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/issuedoffers",
+        "schema_guess": "issuedoffer",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 29,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales offer (Quote)"
+      ]
+    },
+    {
+      "name": "issuedofferstates",
+      "description": "stav ponuky",
+      "boclsid": "4IJEFUSI2FK4FASUBCMCZUDEZW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedofferstates",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/issuedofferstates?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/issuedofferstates",
+        "schema_guess": "issuedofferstate",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 16,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales offer (Quote)"
+      ]
+    },
+    {
+      "name": "issuedoffertypes",
+      "description": "typ ponuky",
+      "boclsid": "CDF1OBXVC5J4FD34054MYXAEUO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedoffertypes",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/issuedoffertypes?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/issuedoffertypes",
+        "schema_guess": "issuedoffertype",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 14,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales offer (Quote)"
+      ]
+    },
+    {
+      "name": "issuedorderrows",
+      "description": "pohyby na objednávkach vydaných",
+      "boclsid": "CHMK5QAWZZDL342X01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedorderrows",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/issuedorderrows?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/issuedorderrows",
+        "schema_guess": "issuedorderrow",
+        "collection_get": true,
+        "collection_post": false,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RUD",
+      "matched_entities": [
+        "Sales offer (Quote)",
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "issuedorders",
+      "description": "objednávka vydaná",
+      "boclsid": "CDMK5QAWZZDL342X01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedorders",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/issuedorders?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/issuedorders",
+        "schema_guess": "issuedorder",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 29,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales offer (Quote)",
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "logstoreaddresscodedefs",
+      "description": "definícia adries skladových pozícií",
+      "boclsid": "CRYNTECL2UCOVDLY3BSBCULIGW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/logstoreaddresscodedefs",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/logstoreaddresscodedefs?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/logstoreaddresscodedefs",
+        "schema_guess": "logstoreaddresscodedef",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 14,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Firm address"
+      ]
+    },
+    {
+      "name": "monthfirminformations",
+      "description": "mesačné údaje firmy",
+      "boclsid": "WUFEXZDCWMMOB14HGPMXX2ZI2O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/monthfirminformations",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/monthfirminformations?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/monthfirminformations",
+        "schema_guess": "monthfirminformation",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Firm",
+        "Firm commercial status",
+        "Commercial health signal"
+      ]
+    },
+    {
+      "name": "ordersgenerations",
+      "description": "požiadaviek na objednávku vydanú",
+      "boclsid": "SM1XUDRS2BE1342X01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/ordersgenerations",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/ordersgenerations?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/ordersgenerations",
+        "schema_guess": "ordersgeneration",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 13,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "paymentorderrequests",
+      "description": "Žiadosť o platobný príkaz",
+      "boclsid": "KH3SX0HB4NDL3BLX00C5OG4NF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/paymentorderrequests",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/paymentorderrequests?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/paymentorderrequests",
+        "schema_guess": "paymentorderrequest",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 12,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "paymentorders",
+      "description": "platobný príkaz",
+      "boclsid": "K53SX0HB4NDL3BLX00C5OG4NF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/paymentorders",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/paymentorders?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/paymentorders",
+        "schema_guess": "paymentorder",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 20,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "pdmusers",
+      "description": "používateľ modulu evidencie pošty.",
+      "boclsid": "V4OZZQ4YZHX4J5V1C4TMFJR1Z4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pdmusers",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/pdmusers?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/pdmusers",
+        "schema_guess": "pdmuser",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales representative",
+        "Authentication session"
+      ]
+    },
+    {
+      "name": "penaltyinvoices",
+      "description": "sankčná faktúra",
+      "boclsid": "QE52A32YJN2OH31VHW4T2GO5TS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/penaltyinvoices",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/penaltyinvoices?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/penaltyinvoices",
+        "schema_guess": "penaltyinvoice",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 25,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Receivable position"
+      ]
+    },
+    {
+      "name": "personinsolvencyrecords",
+      "description": "záznam o insolvencii osoby",
+      "boclsid": "DRS5CH3ZEP3O50O0OEODRVHK2W",
+      "ref": "http://localhost:80/demo/api-docs/openapi/personinsolvencyrecords",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/personinsolvencyrecords?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/personinsolvencyrecords",
+        "schema_guess": "personinsolvencyrecord",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Contact",
+        "Sales representative"
+      ]
+    },
+    {
+      "name": "persons",
+      "description": "osoba",
+      "boclsid": "WEC02QYERNCL35CH000ILPWJF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/persons",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/persons?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/persons",
+        "schema_guess": "person",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 20,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Contact",
+        "Sales representative"
+      ]
+    },
+    {
+      "name": "plmjoborders",
+      "description": "výrobný príkaz",
+      "boclsid": "HTI3OTLGNRPO32EEISEPC0XZ0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmjoborders",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/plmjoborders?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/plmjoborders",
+        "schema_guess": "plmjoborder",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 20,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "plmjobordersnotices",
+      "description": "poznámka k výrobnému príkazu",
+      "boclsid": "TS4EQ43XOCT4NHX5EAXXFHVTMO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmjobordersnotices",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/plmjobordersnotices?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/plmjobordersnotices",
+        "schema_guess": "plmjobordersnotice",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 14,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "plmworkers",
+      "description": "pracovník",
+      "boclsid": "53FKKCM5GGGOZ3TF2DJ3E40GSK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmworkers",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/plmworkers?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/plmworkers",
+        "schema_guess": "plmworker",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales representative"
+      ]
+    },
+    {
+      "name": "posusers",
+      "description": "obsluhujúci",
+      "boclsid": "W3YQ0EKOTRD4XA1S01442DSEYS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posusers",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/posusers?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/posusers",
+        "schema_guess": "posuser",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 14,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales representative",
+        "Authentication session"
+      ]
+    },
+    {
+      "name": "receiveddepositinvoices",
+      "description": "zálohový list prijatý",
+      "boclsid": "5424DE5KKZDL35J301C0CX3F40",
+      "ref": "http://localhost:80/demo/api-docs/openapi/receiveddepositinvoices",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/receiveddepositinvoices?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/receiveddepositinvoices",
+        "schema_guess": "receiveddepositinvoice",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 35,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Receivable position"
+      ]
+    },
+    {
+      "name": "receivedinvoices",
+      "description": "faktúra prijatá",
+      "boclsid": "42HE04FZGJD13ACM03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/receivedinvoices",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/receivedinvoices?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/receivedinvoices",
+        "schema_guess": "receivedinvoice",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 37,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Receivable position"
+      ]
+    },
+    {
+      "name": "receivedorderrows",
+      "description": "pohyby na objednávkach prijatých",
+      "boclsid": "05CPMINJW3DL342X01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/receivedorderrows",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/receivedorderrows?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/receivedorderrows",
+        "schema_guess": "receivedorderrow",
+        "collection_get": true,
+        "collection_post": false,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RUD",
+      "matched_entities": [
+        "Sales offer (Quote)",
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "receivedorders",
+      "description": "objednávka prijatá",
+      "boclsid": "01CPMINJW3DL342X01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/receivedorders",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/receivedorders?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/receivedorders",
+        "schema_guess": "receivedorder",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 29,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales offer (Quote)",
+        "Sales order (Order)"
+      ]
+    },
+    {
+      "name": "securityusers",
+      "description": "používateľ",
+      "boclsid": "22AHIVDVAVE13C5S00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/securityusers",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/securityusers?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/securityusers",
+        "schema_guess": "securityuser",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 22,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales representative",
+        "Authentication session"
+      ]
+    },
+    {
+      "name": "shiftcalendars",
+      "description": "pracovný kalendár",
+      "boclsid": "4415LD3MAFF13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/shiftcalendars",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/shiftcalendars?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/shiftcalendars",
+        "schema_guess": "shiftcalendar",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 12,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Calendar appointment"
+      ]
+    },
+    {
+      "name": "storecardcategories",
+      "description": "typ skladovej karty",
+      "boclsid": "K00Q4IS15VDL342P01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storecardcategories",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/storecardcategories?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/storecardcategories",
+        "schema_guess": "storecardcategorie",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 14,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Product",
+        "Stock availability"
+      ]
+    },
+    {
+      "name": "storecards",
+      "description": "skladová karta",
+      "boclsid": "C3V5QDVZ5BDL342M01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storecards",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/storecards?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/storecards",
+        "schema_guess": "storecard",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 26,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Product",
+        "Stock availability"
+      ]
+    },
+    {
+      "name": "taskattachmentdata",
+      "description": "taskattachmentdata",
+      "boclsid": "JOZ2AUPNYH04PAKWH4PJ3NJNR0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taskattachmentdata",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/taskattachmentdata?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/taskattachmentdata",
+        "schema_guess": "taskattachmentdata",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity"
+      ]
+    },
+    {
+      "name": "taskattachments",
+      "description": "taskattachment",
+      "boclsid": "RZDGG0FTKJ3O5IUTAXATSFKW3K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taskattachments",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/taskattachments?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/taskattachments",
+        "schema_guess": "taskattachment",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 15,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity"
+      ]
+    },
+    {
+      "name": "taskchanges",
+      "description": "zmena úlohy",
+      "boclsid": "FFAJDK0B3X1O3HRY3DDJSLVUI4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taskchanges",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/taskchanges?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/taskchanges",
+        "schema_guess": "taskchange",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 2,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity"
+      ]
+    },
+    {
+      "name": "taskcomments",
+      "description": "komentáre k úlohám",
+      "boclsid": "3ANM11UGRKC4FGBJXHY3DKB5FC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taskcomments",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/taskcomments?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/taskcomments",
+        "schema_guess": "taskcomment",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity"
+      ]
+    },
+    {
+      "name": "tasklists",
+      "description": "tasklist",
+      "boclsid": "VTCAVPMYSA4450ZG4XVEUA2JQ0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/tasklists",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/tasklists?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/tasklists",
+        "schema_guess": "tasklist",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity"
+      ]
+    },
+    {
+      "name": "tasknotifications",
+      "description": "tasknotification",
+      "boclsid": "RHG4ZU14QOC43CY5B1NMRO5SWS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/tasknotifications",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/tasknotifications?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/tasknotifications",
+        "schema_guess": "tasknotification",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity"
+      ]
+    },
+    {
+      "name": "taskrelations",
+      "description": "väzby úloh na business objekty",
+      "boclsid": "0JWD5HQPL1IONCKMDVR3A4OZ2W",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taskrelations",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/taskrelations?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/taskrelations",
+        "schema_guess": "taskrelation",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity"
+      ]
+    },
+    {
+      "name": "tasks",
+      "description": "Úlohy",
+      "boclsid": "Q1ZMZREFXWC45CR2NGZYW3R5OO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/tasks",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/tasks?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/tasks",
+        "schema_guess": "task",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity"
+      ]
+    },
+    {
+      "name": "tasktags",
+      "description": "tasktag",
+      "boclsid": "WZ5X20KB5FD4R1XR3CE23CAJTC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/tasktags",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/tasktags?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/tasktags",
+        "schema_guess": "tasktag",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Activity"
+      ]
+    },
+    {
+      "name": "unreliablefirmlogfirms",
+      "description": "kontrola nespoľahlivosti platiteľa dph - firma",
+      "boclsid": "HTPSZVHNHAN4H1IPJIASZYFDBG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/unreliablefirmlogfirms",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/unreliablefirmlogfirms?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/unreliablefirmlogfirms",
+        "schema_guess": "unreliablefirmlogfirm",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Firm",
+        "Firm commercial status",
+        "Commercial health signal"
+      ]
+    },
+    {
+      "name": "unreliablefirmlogs",
+      "description": "kontrola nespoľahlivosti platiteľov dph - protokol",
+      "boclsid": "ABLLBFOSG5V4XFJKNRJDRMFBSO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/unreliablefirmlogs",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/unreliablefirmlogs?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/unreliablefirmlogs",
+        "schema_guess": "unreliablefirmlog",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Firm",
+        "Firm commercial status",
+        "Commercial health signal"
+      ]
+    },
+    {
+      "name": "userdefinedforms",
+      "description": "definovateľný formulár",
+      "boclsid": "G1P50I05CJF13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/userdefinedforms",
+      "openapi_url": "http://localhost:80/demo/api-docs/openapi/userdefinedforms?distrib=false",
+      "fetch_error": null,
+      "summary": {
+        "root_path": "/userdefinedforms",
+        "schema_guess": "userdefinedform",
+        "collection_get": true,
+        "collection_post": true,
+        "by_id_get": true,
+        "by_id_put": true,
+        "by_id_delete": true,
+        "path_count": 11,
+        "deprecated_count": 0,
+        "deprecated_sample": []
+      },
+      "inferred_crud": "RCUD",
+      "matched_entities": [
+        "Sales representative",
+        "Authentication session"
+      ]
+    }
+  ]
+}

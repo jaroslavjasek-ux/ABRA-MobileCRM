@@ -1,0 +1,14 @@
+---
+description: Documentation standards for analysis and docs folders
+globs: analysis/**/*.md,docs/**/*.md,architecture/**/*.md
+alwaysApply: false
+---
+
+# Documentation rules
+
+- Keep markdown concise; use tables and mermaid for structure.
+- Link related files with relative paths.
+- MVP items must reference `analysis/requirements/mvp-scope.md`.
+- Gen API claims must be marked **TBD** until verified on target OpenAPI.
+- ADRs use format in `docs/decisions/README.md` (Status, Context, Decision, Consequences).
+- Czech/Slovak terms in glossary when they match Gen UI.

@@ -1,0 +1,3136 @@
+{
+  "meta": {
+    "discovered_at": "2026-06-04T14:16:51.206107+00:00",
+    "base_url": "http://localhost/demo",
+    "index_url": "http://localhost/demo/api-docs/openapis",
+    "total_controllers": 521
+  },
+  "controllers": [
+    {
+      "name": "abraapps",
+      "description": "abra apps",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/abraapps"
+    },
+    {
+      "name": "absences",
+      "description": "neprítomnosť",
+      "boclsid": "RWSHOFSZTBKOVJ341GPZDOBV2W",
+      "ref": "http://localhost:80/demo/api-docs/openapi/absences"
+    },
+    {
+      "name": "absencetypes",
+      "description": "druh neprítomnosti",
+      "boclsid": "0JWZPDNT4ZF13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/absencetypes"
+    },
+    {
+      "name": "accdepreciationgroups",
+      "description": "Účtovná odpisová skupina",
+      "boclsid": "S4AINFUSBREL314Z00C5PPZRR4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/accdepreciationgroups"
+    },
+    {
+      "name": "accdocqueues",
+      "description": "Účtovný rad dokladov",
+      "boclsid": "OBTMKVQH3ZD13ACL03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/accdocqueues"
+    },
+    {
+      "name": "accountbeginnings",
+      "description": "počiatok účtu",
+      "boclsid": "WAWCQJWTAJD132VA02K2CQM5AW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/accountbeginnings"
+    },
+    {
+      "name": "accounts",
+      "description": "Účet účtovného rozvrhu",
+      "boclsid": "S4JQL5BH1ND13ACL03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/accounts"
+    },
+    {
+      "name": "accpresetdefinitions",
+      "description": "Účtové predkontácie",
+      "boclsid": "W0JQ3RIV5FD13ACL03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/accpresetdefinitions"
+    },
+    {
+      "name": "actionpricelists",
+      "description": "akčný cenník",
+      "boclsid": "RFCEI0OA50YO3EFAZKQ5Q0DS5C",
+      "ref": "http://localhost:80/demo/api-docs/openapi/actionpricelists"
+    },
+    {
+      "name": "annualclearings",
+      "description": "ročné zúčtovanie",
+      "boclsid": "NRGKP3OPYD0OPEDC1UPCRTTDMC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/annualclearings"
+    },
+    {
+      "name": "api-docs",
+      "description": "api dokumentácia",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/api-docs"
+    },
+    {
+      "name": "apiconsumedcredits",
+      "description": "api spotrebované kredity",
+      "boclsid": "EFHFVFBVH22453O3XTS1CWPI1W",
+      "ref": "http://localhost:80/demo/api-docs/openapi/apiconsumedcredits"
+    },
+    {
+      "name": "approvedsuppliers",
+      "description": "hodnotený dodávateľ",
+      "boclsid": "E4X5MPBYBS44HC0FTXHCUTOZOC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/approvedsuppliers"
+    },
+    {
+      "name": "approvingareas",
+      "description": "oblasť hodnotenia",
+      "boclsid": "1HRYJ02A30G4PEOQBH5RBFICT0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/approvingareas"
+    },
+    {
+      "name": "assetbasepricelimits",
+      "description": "limit vstupnej ceny",
+      "boclsid": "O4KDPWBWBFEL31ME00C5PPBIWO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetbasepricelimits"
+    },
+    {
+      "name": "assetcards",
+      "description": "karta majetku",
+      "boclsid": "S0ODIDCD1NEL314Z00C5PPZRR4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetcards"
+    },
+    {
+      "name": "assetdiscards",
+      "description": "vyradenia majetku",
+      "boclsid": "C3CG4OZGHFEL315000C5PPZRR4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetdiscards"
+    },
+    {
+      "name": "assetexpenses",
+      "description": "majetok - súvisiace výdajov",
+      "boclsid": "SBZHQRUJ3FF131MF00C5PPBIWO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetexpenses"
+    },
+    {
+      "name": "assetinvcommittees",
+      "description": "inventarizačná komisia",
+      "boclsid": "RQD11KDMGWKOP2CGDXDYTLVSIC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetinvcommittees"
+    },
+    {
+      "name": "assetinvlistcards",
+      "description": "karta majetku pre inventúru",
+      "boclsid": "CTY3UY5XPAEOD51WQINUFACZM4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetinvlistcards"
+    },
+    {
+      "name": "assetinvlistresults",
+      "description": "majetok výsledok inventúry",
+      "boclsid": "L3WORWAQM3X4D1OGY41OG1BDKK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetinvlistresults"
+    },
+    {
+      "name": "assetinvs",
+      "description": "inventúra majetku",
+      "boclsid": "XDU4SZ5ETE04J5VLNPIAUUZZWC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetinvs"
+    },
+    {
+      "name": "assetlocations",
+      "description": "umiestnenie majetku",
+      "boclsid": "TA0TK3IYPDGONGOIUIWBJMBCI0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetlocations"
+    },
+    {
+      "name": "assetparameters",
+      "description": "parameter majetku",
+      "boclsid": "01BWFQPTJFEL31ME00C5PPBIWO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetparameters"
+    },
+    {
+      "name": "assetputtoevidences",
+      "description": "zaradenia majetku do evidencie",
+      "boclsid": "02AUOZEUHBEL315000C5PPZRR4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetputtoevidences"
+    },
+    {
+      "name": "assetreceipts",
+      "description": "obstaranie majetku",
+      "boclsid": "K0MJQG0A1NEL31ME00C5PPBIWO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetreceipts"
+    },
+    {
+      "name": "assetresponsibles",
+      "description": "zodpovedná osoba",
+      "boclsid": "0AHQJ5OLAREL31ME00C5PPBIWO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetresponsibles"
+    },
+    {
+      "name": "assettypes",
+      "description": "druh majetku",
+      "boclsid": "W21AW4Z3AJEL31ME00C5PPBIWO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assettypes"
+    },
+    {
+      "name": "assetvaluechanges",
+      "description": "zmena ceny majetku",
+      "boclsid": "CBCG4OZGHFEL315000C5PPZRR4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/assetvaluechanges"
+    },
+    {
+      "name": "autoserverscheduleritems",
+      "description": "naplánovaná úloha",
+      "boclsid": "GSOF0GVELBCO50DTXAWJRL5K1W",
+      "ref": "http://localhost:80/demo/api-docs/openapi/autoserverscheduleritems"
+    },
+    {
+      "name": "autoserversettings",
+      "description": "nastavenie automatizačného servera",
+      "boclsid": "FMRFIUNN3CZOR1QA2VMSJUROKW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/autoserversettings"
+    },
+    {
+      "name": "averages",
+      "description": "priemer",
+      "boclsid": "PNIGGK4UW3X4B4ENKI4EWNP4IK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/averages"
+    },
+    {
+      "name": "b2bexports",
+      "description": "definícia b2b exportu",
+      "boclsid": "T0EP5NQOLGK4F5O5OWUR0M3MTG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/b2bexports"
+    },
+    {
+      "name": "balanceexchangedifferences",
+      "description": "kurzový rozdiel aktívny a pasívny",
+      "boclsid": "G2HP1GAHMFDL342V01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/balanceexchangedifferences"
+    },
+    {
+      "name": "bankaccounts",
+      "description": "bankový účet",
+      "boclsid": "S1DAHWVT5ND133N4010DELDFKK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/bankaccounts"
+    },
+    {
+      "name": "bankapiaccesses",
+      "description": "prístup k bankovému účtu",
+      "boclsid": "WNSBNTQ3BXQ4Z32SJU550LS3HS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/bankapiaccesses"
+    },
+    {
+      "name": "bankapisettings",
+      "description": "nastavenie api pre bankovníctvo",
+      "boclsid": "HZPTH1XRWXI4L0C5SCB4OYXRAO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/bankapisettings"
+    },
+    {
+      "name": "bankstatementrows",
+      "description": "prehľad platieb bankou",
+      "boclsid": "OBSCO4S1BRD13FY1010DELDFKK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/bankstatementrows"
+    },
+    {
+      "name": "bankstatements",
+      "description": "bankový výpis",
+      "boclsid": "O3SCO4S1BRD13FY1010DELDFKK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/bankstatements"
+    },
+    {
+      "name": "batch",
+      "description": "dávka",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/batch"
+    },
+    {
+      "name": "billsofdelivery",
+      "description": "dodací list",
+      "boclsid": "050I5SAOS3DL3ACU03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/billsofdelivery"
+    },
+    {
+      "name": "bookentries",
+      "description": "Účtovný zápis/žiadosť",
+      "boclsid": "C3S1BMBT4RD13ACL03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/bookentries"
+    },
+    {
+      "name": "busorders",
+      "description": "zákazka",
+      "boclsid": "K2WTYL304VD13ACL03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/busorders"
+    },
+    {
+      "name": "busprojects",
+      "description": "projekt",
+      "boclsid": "QOKMKIQUJF34L3DUICTBWEDQJC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/busprojects"
+    },
+    {
+      "name": "bustransactions",
+      "description": "obchodný prípad",
+      "boclsid": "KAWTYL304VD13ACL03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/bustransactions"
+    },
+    {
+      "name": "calccharts",
+      "description": "výpočtová schéma",
+      "boclsid": "S0PLTHH4332411HJJ4NZQWVID0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/calccharts"
+    },
+    {
+      "name": "calcfields",
+      "description": "sčítanec",
+      "boclsid": "OEFTI4HWO31OT0SE4B2OND4TY4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/calcfields"
+    },
+    {
+      "name": "cashdesks",
+      "description": "pokladňa",
+      "boclsid": "SDDAHWVT5ND133N4010DELDFKK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/cashdesks"
+    },
+    {
+      "name": "cashpaids",
+      "description": "pokladničný výdaj",
+      "boclsid": "0RXJZGDLBBDL3ACR03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/cashpaids"
+    },
+    {
+      "name": "cashreceivedrows",
+      "description": "pohyby na pokladničných príjmoch",
+      "boclsid": "WK02MSU3BBDL3ACR03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/cashreceivedrows"
+    },
+    {
+      "name": "cashreceiveds",
+      "description": "pokladničný príjem",
+      "boclsid": "WG02MSU3BBDL3ACR03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/cashreceiveds"
+    },
+    {
+      "name": "categoryitemgroups",
+      "description": "skupina kategorizačných údajov.",
+      "boclsid": "IRSOJ52LUTXOJHD1VCXKY2HYNS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/categoryitemgroups"
+    },
+    {
+      "name": "categoryitems",
+      "description": "kategorizačný údaj",
+      "boclsid": "LNMN402BS2ROZIQC1IK1UQVOKW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/categoryitems"
+    },
+    {
+      "name": "cccallhistoryitems",
+      "description": "záznam vyvolanie",
+      "boclsid": "RL3ARAWGNLJ4D1ESFIO3FGJW3O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/cccallhistoryitems"
+    },
+    {
+      "name": "ccphonedevices",
+      "description": "telefónny prístroj",
+      "boclsid": "QBCIJLDGF0I4DGLPKSUMGFWVJK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/ccphonedevices"
+    },
+    {
+      "name": "cdconfirmapproveds",
+      "description": "schválený výdaj",
+      "boclsid": "J3OX4YPVKRLONIEJMHS21TWO3S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/cdconfirmapproveds"
+    },
+    {
+      "name": "cdconfirms",
+      "description": "požiadaviek na schválenie výdaje",
+      "boclsid": "TLTR5CW2R4QOFG00KDZZPM2FVO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/cdconfirms"
+    },
+    {
+      "name": "codestructures",
+      "description": "Štruktúra kódu šarže alebo sériového čísla",
+      "boclsid": "L5L15WE5C5BOT1QI35U3NV2ZKS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/codestructures"
+    },
+    {
+      "name": "commonworkpositions",
+      "description": "všeobecné pracovné pozície",
+      "boclsid": "2ZJ12WI0TVMOJIS1U0BDKICMD0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/commonworkpositions"
+    },
+    {
+      "name": "communicationsettings",
+      "description": "komunikačné nastavenia",
+      "boclsid": "P1I2WFH0ZOSOH1ZXF3XV5LIEVS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/communicationsettings"
+    },
+    {
+      "name": "communicationtypes",
+      "description": "spôsob komunikácie",
+      "boclsid": "QWKYRCFYCMLOFHNYBLSJ010QGO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/communicationtypes"
+    },
+    {
+      "name": "companylegalstatus",
+      "description": "právna forma spoločnosti",
+      "boclsid": "VLLHHCFI42VONG5GEJNJEAVHZG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/companylegalstatus"
+    },
+    {
+      "name": "compensations",
+      "description": "vzájomný zápočet",
+      "boclsid": "01WQTLPOHBD4LEOC2CKCGLO4AG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/compensations"
+    },
+    {
+      "name": "constantsymbols",
+      "description": "konštantný symbol",
+      "boclsid": "4Z5FINKNYNDL3C5P00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/constantsymbols"
+    },
+    {
+      "name": "contracts",
+      "description": "zmluva",
+      "boclsid": "T351ZEZ2LRDOL4AENAIGECHP5G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/contracts"
+    },
+    {
+      "name": "contracttypes",
+      "description": "typ zmluvy",
+      "boclsid": "QCGITBT4ZQUOB0VII4YI0NQON0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/contracttypes"
+    },
+    {
+      "name": "countofftypes",
+      "description": "typ odpočtu/zľavy",
+      "boclsid": "DAEFQSSK5024X4111WYLMWUJ1C",
+      "ref": "http://localhost:80/demo/api-docs/openapi/countofftypes"
+    },
+    {
+      "name": "countries",
+      "description": "krajina",
+      "boclsid": "4J5FINKNYNDL3C5P00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/countries"
+    },
+    {
+      "name": "creditnoteacknowledges",
+      "description": "potvrdenie dobropisu vydaného",
+      "boclsid": "OZSLWQTRK2YOX5MFK4L3Z21OFC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/creditnoteacknowledges"
+    },
+    {
+      "name": "crmactivities",
+      "description": "aktivita",
+      "boclsid": "AVV1JYV5AVNOZHQCK0D4CJFUCS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmactivities"
+    },
+    {
+      "name": "crmactivityareas",
+      "description": "oblasť aktivity",
+      "boclsid": "N53352D4AKB43AMHHSYG1UKFVW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmactivityareas"
+    },
+    {
+      "name": "crmactivityprocesses",
+      "description": "proces aktivít",
+      "boclsid": "SKWQTWWJXVY4X50WACKKGG0YDO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmactivityprocesses"
+    },
+    {
+      "name": "crmactivityqueues",
+      "description": "rad aktivít",
+      "boclsid": "V4ZWII12WD3O3IRJZW04M00DMK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmactivityqueues"
+    },
+    {
+      "name": "crmactivitytypes",
+      "description": "typ aktivít",
+      "boclsid": "SMOEDRFJASV4P4XCFPYBZ1UYYO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmactivitytypes"
+    },
+    {
+      "name": "crmcampaignaudiences",
+      "description": "adresát kampane",
+      "boclsid": "P0WXCAK4AILOD4AYT2HT1WGI2K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaignaudiences"
+    },
+    {
+      "name": "crmcampaignblacklists",
+      "description": "zakázaný adresát kampane",
+      "boclsid": "UN0J1MLRHG0OHI0WEVCPUI2DH4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaignblacklists"
+    },
+    {
+      "name": "crmcampaignfeedbacks",
+      "description": "spätná väzba kampane",
+      "boclsid": "XGNUWFK0B0E4D0MKD0YZXBLQNC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaignfeedbacks"
+    },
+    {
+      "name": "crmcampaignprocesses",
+      "description": "spracovanie kampane",
+      "boclsid": "5QP5RNZLZHAO53WGHFDS0LSRU0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaignprocesses"
+    },
+    {
+      "name": "crmcampaigns",
+      "description": "kampaň",
+      "boclsid": "2JCEDZ0E4PVODHQFIYTWJINVP0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaigns"
+    },
+    {
+      "name": "crmcampaigntypes",
+      "description": "typ kampane",
+      "boclsid": "J3V5BNBVPDEON0TE440RZU0QKK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaigntypes"
+    },
+    {
+      "name": "crmcampaignvariables",
+      "description": "premenná kampane",
+      "boclsid": "TJIF5BI4YS4OFGDOP1KLIH5VSK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmcampaignvariables"
+    },
+    {
+      "name": "crmmenuitems",
+      "description": "crm zaradenie",
+      "boclsid": "UWDJUEX43JUOTI10NMKNKW1C5G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmmenuitems"
+    },
+    {
+      "name": "crmpipelinestatus",
+      "description": "stav v pipe-line",
+      "boclsid": "0XVIXAV11TY4NIKAG0INVQKJ2C",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmpipelinestatus"
+    },
+    {
+      "name": "crmproducts",
+      "description": "produkt",
+      "boclsid": "OPUEYDT40JT4V0ZJTMAG43BWQ4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmproducts"
+    },
+    {
+      "name": "crmprogresses",
+      "description": "krok procesu",
+      "boclsid": "BI2G1QCE021OXBQUM3UYAM0OWS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crmprogresses"
+    },
+    {
+      "name": "crpcalcmethods",
+      "description": "metóda výpočtu kapacitného plánu",
+      "boclsid": "Q1ZP3JJVBEP454PLPCCNV0D34K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crpcalcmethods"
+    },
+    {
+      "name": "crpcolordefinitions",
+      "description": "farebná schéma",
+      "boclsid": "QFSLCP0BDLR43BQFXEWDN5ITYO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crpcolordefinitions"
+    },
+    {
+      "name": "crpcompetencecategories",
+      "description": "kategórie kompetencií",
+      "boclsid": "PXECDOH2FDC43DPNCCBLYCH25O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crpcompetencecategories"
+    },
+    {
+      "name": "crpcompetences",
+      "description": "crpcompetence",
+      "boclsid": "D44DACCBJ0XOPEHSCEZQ4Y4HYW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/crpcompetences"
+    },
+    {
+      "name": "currencies",
+      "description": "mena",
+      "boclsid": "4R5FINKNYNDL3C5P00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/currencies"
+    },
+    {
+      "name": "currentuser",
+      "description": "aktuálny používateľ",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/currentuser"
+    },
+    {
+      "name": "customsconfirmations",
+      "description": "potvrdenie colnice o vývoze",
+      "boclsid": "JYC4VDEUPYROX3UX1NTGF3AWT0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/customsconfirmations"
+    },
+    {
+      "name": "customsdeclarations",
+      "description": "jednotný správny doklad",
+      "boclsid": "CVBIFJVTHJDL3BLX00C5OG4NF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/customsdeclarations"
+    },
+    {
+      "name": "datachangeslogs",
+      "description": "záznam o zmene",
+      "boclsid": "IWMHB1VEOMQO1C4Y1WIHBFBYTG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/datachangeslogs"
+    },
+    {
+      "name": "datachangessettings",
+      "description": "nastavenie sledovania zmien",
+      "boclsid": "5HGPJO0V3C04NBL0KGIBMPVBY4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/datachangessettings"
+    },
+    {
+      "name": "dataprotectiondefinitions",
+      "description": "definície ochrany dát",
+      "boclsid": "KQASJZLWITX45EGA1Q5MUQIL4G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dataprotectiondefinitions"
+    },
+    {
+      "name": "dataprotectiondrivers",
+      "description": "ovládač ochrany dát",
+      "boclsid": "WZ3XDZ1OVSG4LE2UR0IVVVV3B0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dataprotectiondrivers"
+    },
+    {
+      "name": "dataprotectionincidentcategories",
+      "description": "kategórie incidentu",
+      "boclsid": "5QMONNFSFJT4321SYYX5HD0KGC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dataprotectionincidentcategories"
+    },
+    {
+      "name": "dataprotectionincidents",
+      "description": "incident",
+      "boclsid": "Z135TPJZXMRO1EFIMY3TCYHDFO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dataprotectionincidents"
+    },
+    {
+      "name": "dataprotectionpurposes",
+      "description": "dôvod ochrany dát",
+      "boclsid": "VMHDZBS0RAJ4D2VTF1JAJODBOC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dataprotectionpurposes"
+    },
+    {
+      "name": "dataprotectionrules",
+      "description": "pravidlo ochrany dát",
+      "boclsid": "1NEMLK2DTDYOB1VXDASRPZY0QO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dataprotectionrules"
+    },
+    {
+      "name": "dealercategories",
+      "description": "dílerská trieda",
+      "boclsid": "02NWOCQPBBDL3CL100C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dealercategories"
+    },
+    {
+      "name": "dealerdiscounts",
+      "description": "dílerská zľava",
+      "boclsid": "GWMHT3STARDL3CL100C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dealerdiscounts"
+    },
+    {
+      "name": "dealerturnoverdefinitions",
+      "description": "tabuľka obratov dílerských skupín",
+      "boclsid": "KNYNZDQ4BVDL3CL100C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dealerturnoverdefinitions"
+    },
+    {
+      "name": "definedb2bimports",
+      "description": "definovateľný import el. dokladov",
+      "boclsid": "US51DGCVFJX4R1LHDOGQVBQLCS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/definedb2bimports"
+    },
+    {
+      "name": "definitionrecords",
+      "description": "definície",
+      "boclsid": "UHJIYQLJLOBOHHOMB4YYL03V5K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/definitionrecords"
+    },
+    {
+      "name": "deliveryterms",
+      "description": "dodacia podmienka",
+      "boclsid": "12DGNDZ5YL241B4I0WHS3Z2MLG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/deliveryterms"
+    },
+    {
+      "name": "demandanswerfailurereasons",
+      "description": "dôvod neúspechu oslovených dodávateľov",
+      "boclsid": "NWKGNMMAWUYOFBKUPKCGXRW0A0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/demandanswerfailurereasons"
+    },
+    {
+      "name": "demandsheets",
+      "description": "dopytový list",
+      "boclsid": "LRXGCPGOAWZ4BEBLOJLAECPUIC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/demandsheets"
+    },
+    {
+      "name": "devbugs",
+      "description": "vývojová požiadavka",
+      "boclsid": "GHGX5UKIMBDL3HGF01K0LEIOE0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/devbugs"
+    },
+    {
+      "name": "devdocs",
+      "description": "vývojová dokumentácia",
+      "boclsid": "S2MBTCTKOZDL3HGF01K0LEIOE0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/devdocs"
+    },
+    {
+      "name": "devfutureversions",
+      "description": "plánovaná verzie produktu",
+      "boclsid": "ACAXFYO2RVP4B5AWMMW0SKRGOK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/devfutureversions"
+    },
+    {
+      "name": "devices",
+      "description": "konfigurácia periférií",
+      "boclsid": "DLZ5TJQXD3BON1UO32QPXS5OLG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/devices"
+    },
+    {
+      "name": "devparts",
+      "description": "Časť vývojových produktov",
+      "boclsid": "S1QZP5A3LJDL3HGF01K0LEIOE0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/devparts"
+    },
+    {
+      "name": "devproducts",
+      "description": "vývojový produkt",
+      "boclsid": "K0OJVIGELJDL331C00C5OG4NF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/devproducts"
+    },
+    {
+      "name": "devtimerecords",
+      "description": "evidencia času projektovej dokumentácie",
+      "boclsid": "BDP1DNXF5YBOVGF5U4PZGAF2GO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/devtimerecords"
+    },
+    {
+      "name": "devtopics",
+      "description": "vývojové téma",
+      "boclsid": "010F0I2IM3DL3HGF01K0LEIOE0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/devtopics"
+    },
+    {
+      "name": "devversions",
+      "description": "verzia produktu",
+      "boclsid": "C4EXB5RVLRDL3HGF01K0LEIOE0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/devversions"
+    },
+    {
+      "name": "districts",
+      "description": "okres",
+      "boclsid": "0VN14W4ZYX44DBV5T35KFDWNRS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/districts"
+    },
+    {
+      "name": "divisions",
+      "description": "stredisko",
+      "boclsid": "O1X54EUXPZCL35CH000ILPWJF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/divisions"
+    },
+    {
+      "name": "docconfirmationbreaks",
+      "description": "povolenie opráv",
+      "boclsid": "X22RO5MKFCS4RH13W5B1AFIU0G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docconfirmationbreaks"
+    },
+    {
+      "name": "docconfirmationdefs",
+      "description": "schvaľovacie scenáre",
+      "boclsid": "4FYOJXN5LMV4TIMCQPZOD42WN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docconfirmationdefs"
+    },
+    {
+      "name": "docconfirmations",
+      "description": "schvaľovanie dokladu",
+      "boclsid": "ISAXGZ5QTOKOVDRV2H15P0OTZK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docconfirmations"
+    },
+    {
+      "name": "dockdefinitions",
+      "description": "opakovaná zrážka",
+      "boclsid": "S3K2DOKS4FF13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dockdefinitions"
+    },
+    {
+      "name": "docks",
+      "description": "zrážka",
+      "boclsid": "AYXMYI0O0MJ4VAP3TU0YSLRF44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docks"
+    },
+    {
+      "name": "docktypes",
+      "description": "druh zrážky",
+      "boclsid": "00T5YQLD4FF13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docktypes"
+    },
+    {
+      "name": "docpaymentdestinations",
+      "description": "zaplatené doklady",
+      "boclsid": "X14LKKXH1T24X2ADUHKHFTK4MS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docpaymentdestinations"
+    },
+    {
+      "name": "docpaymentsources",
+      "description": "zdroje platieb dokladov",
+      "boclsid": "T1OXOPT4J3U4J0HEJDM10IUFVK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docpaymentsources"
+    },
+    {
+      "name": "docpossiblepaymentdestinations",
+      "description": "doklady k zaplateniu",
+      "boclsid": "Z5TESVIZZ5W4ZBFNR11UO4YME0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docpossiblepaymentdestinations"
+    },
+    {
+      "name": "docpossiblepaymentsources",
+      "description": "možné zdroje platieb dokladov",
+      "boclsid": "E01U4SORNPP4N0NSLBANGJSDJO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docpossiblepaymentsources"
+    },
+    {
+      "name": "docqueueaccsettings",
+      "description": "Špecifické účtovanie skladových dokladov",
+      "boclsid": "3QKHU0KU5AR4HBZ0YSCZDW5G10",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docqueueaccsettings"
+    },
+    {
+      "name": "docqueues",
+      "description": "rad dokladov",
+      "boclsid": "OFTMKVQH3ZD13ACL03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/docqueues"
+    },
+    {
+      "name": "documentblockings",
+      "description": "blokácia dokumentu",
+      "boclsid": "OJZMFEVW2PLOZHHHIXEZF2SBT0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/documentblockings"
+    },
+    {
+      "name": "documentcategories",
+      "description": "kategória dokumentu",
+      "boclsid": "NK0Q4EQET4HOPEYEMHGAGI4VN4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/documentcategories"
+    },
+    {
+      "name": "documents",
+      "description": "dokument",
+      "boclsid": "GAMJ5NQHOZ2OFHL1VV3ISBVUVG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/documents"
+    },
+    {
+      "name": "documentsviewersettings",
+      "description": "nastavenie náhľadu príloh",
+      "boclsid": "H0QLRQEP5JQ4TEN5DVKHJHYOZC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/documentsviewersettings"
+    },
+    {
+      "name": "documenttypes",
+      "description": "typ dokladov",
+      "boclsid": "AW5IAL1JOIHOH5LYMB4HYVGELC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/documenttypes"
+    },
+    {
+      "name": "drcarticles",
+      "description": "kód typu plnenia",
+      "boclsid": "GPNLRNS45JO4X0JEYKW0P0KEB4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/drcarticles"
+    },
+    {
+      "name": "duetermlimits",
+      "description": "hranice pre pohľadávky a záväzky",
+      "boclsid": "FFO2D1OAS4B4D2AT42SC0IX1YK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/duetermlimits"
+    },
+    {
+      "name": "dynsql",
+      "description": "dynsql",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/dynsql"
+    },
+    {
+      "name": "edicommunications",
+      "description": "nastavenie edi komunikácie",
+      "boclsid": "VXTF2JAAC2S4D0CGC22VKK2JAW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/edicommunications"
+    },
+    {
+      "name": "educationbranches",
+      "description": "odbor vzdelania",
+      "boclsid": "5CA2WEAUBGQ4RC40VXSM4OYJF0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/educationbranches"
+    },
+    {
+      "name": "educationgrades",
+      "description": "stupeň vzdelania",
+      "boclsid": "1TTKJQ5L2GD4LDCGSO55K0Z1RC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/educationgrades"
+    },
+    {
+      "name": "eetestablishments",
+      "description": "prevádzkareň eet",
+      "boclsid": "CYCEY2KUNZ2OJ4QTHJIRKFX1VC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/eetestablishments"
+    },
+    {
+      "name": "eetsettings",
+      "description": "nastavenie eet",
+      "boclsid": "TFOO2VNWTF1OVJXW5ZACKVJUQG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/eetsettings"
+    },
+    {
+      "name": "eetturnovers",
+      "description": "tržba eet",
+      "boclsid": "ENOR1TF5WOFODJWGHWKOLF1BTC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/eetturnovers"
+    },
+    {
+      "name": "eldpcodes",
+      "description": "kódy eldp",
+      "boclsid": "44KLBG5VHVD4J0DCEZZBXPBWKC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/eldpcodes"
+    },
+    {
+      "name": "emailaccounts",
+      "description": "e-mailový účet",
+      "boclsid": "MNDZIWXQFTVOX5IUPJCCCB5250",
+      "ref": "http://localhost:80/demo/api-docs/openapi/emailaccounts"
+    },
+    {
+      "name": "emailauthentificationdrivers",
+      "description": "typ e-mailovej autentifikácie",
+      "boclsid": "E3VVVNURDMM4V1V3GPM2SDQEOC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/emailauthentificationdrivers"
+    },
+    {
+      "name": "emailprocessingrules",
+      "description": "pravidlo spracovania doručenej e-mail. pošty",
+      "boclsid": "LIYRQP0GQCX4JGM1NBNRRX5L4O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/emailprocessingrules"
+    },
+    {
+      "name": "emailsents",
+      "description": "odoslaný e-mail",
+      "boclsid": "5C1HWDQDR3J4NAAYZRO5PWHLWK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/emailsents"
+    },
+    {
+      "name": "emailsmtpaccounts",
+      "description": "e-mailový účet odchádzajúceho servera smtp",
+      "boclsid": "42QVH4Z5A0U4TFOLDVNITI1X4O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/emailsmtpaccounts"
+    },
+    {
+      "name": "emailsreceiveds",
+      "description": "doručený e-mail",
+      "boclsid": "B2CGMDYWJKJ4JGEYWBGONOS4H0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/emailsreceiveds"
+    },
+    {
+      "name": "employeecountcategories",
+      "description": "počet zamestnancov",
+      "boclsid": "TC30UCFMUOL4P4KZ1NRAULD55S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/employeecountcategories"
+    },
+    {
+      "name": "employeeforeignstatus",
+      "description": "employeeforeignstatus",
+      "boclsid": "WYFOE53W4JBOJEPIZZ0IBZXREK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/employeeforeignstatus"
+    },
+    {
+      "name": "employees",
+      "description": "zamestnanec",
+      "boclsid": "CPP5AZU1CVF13JXS00KEZYD5AW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/employees"
+    },
+    {
+      "name": "employmentmeasuretypes",
+      "description": "nástroje (opatrenia) podpory pracovných miest",
+      "boclsid": "JW4TRQE5PDKOXFCCIVCNRKUVQ0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/employmentmeasuretypes"
+    },
+    {
+      "name": "employpatterns",
+      "description": "druh pracovného pomeru",
+      "boclsid": "4TLNCJ4XS3BOBHD4SQGQQFIHHK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/employpatterns"
+    },
+    {
+      "name": "eslindicators",
+      "description": "rozlíšenie typu plnenia (esl)",
+      "boclsid": "YPZCQKMOVPBOLGHNKNLIUX3KIS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/eslindicators"
+    },
+    {
+      "name": "evaluationcriterions",
+      "description": "hodnotiace kritérium",
+      "boclsid": "R0LWHLAXOTSOVHXWU11U2WHOLW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/evaluationcriterions"
+    },
+    {
+      "name": "exchangedifferences",
+      "description": "kurzový rozdiel",
+      "boclsid": "W3MYVWZEINDL342V01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/exchangedifferences"
+    },
+    {
+      "name": "exchangerates",
+      "description": "kurzový lístok",
+      "boclsid": "W3AWZR451FD133N2010DELDFKK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/exchangerates"
+    },
+    {
+      "name": "expensetypes",
+      "description": "typ výdaje",
+      "boclsid": "0AVVSAICKNDL3ACT03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/expensetypes"
+    },
+    {
+      "name": "exports",
+      "description": "definícia exportu",
+      "boclsid": "VRNLUNOJDFM435WUZVN1MVAOKW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/exports"
+    },
+    {
+      "name": "fastsearchdefinitions",
+      "description": "fulltextové hľadanie - definícia",
+      "boclsid": "ID2ENZQXR4PO5IKZWOYSKMATM4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/fastsearchdefinitions"
+    },
+    {
+      "name": "filequeuerules",
+      "description": "pravidlo spracovania fronty súborov",
+      "boclsid": "GQDT35XX0WOOX12PP0OH2CZB1K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/filequeuerules"
+    },
+    {
+      "name": "filequeues",
+      "description": "fronta súborov",
+      "boclsid": "33WP0EDSGEU4TCMHYPHE2U4314",
+      "ref": "http://localhost:80/demo/api-docs/openapi/filequeues"
+    },
+    {
+      "name": "financialcategories",
+      "description": "finančné kategórie",
+      "boclsid": "0EPJQKDQJ5H411JPYAFE2ZOKHO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/financialcategories"
+    },
+    {
+      "name": "financialdiscounts",
+      "description": "finančná zľava",
+      "boclsid": "05RZTVCHYRDL3C5P00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/financialdiscounts"
+    },
+    {
+      "name": "firminsolvencyrecords",
+      "description": "záznam o insolvencii firmy",
+      "boclsid": "TBBRVTIBGQE4B5H4AY44WP3JMG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/firminsolvencyrecords"
+    },
+    {
+      "name": "firms",
+      "description": "firma",
+      "boclsid": "4K3EXM5PQBCL35CH000ILPWJF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/firms"
+    },
+    {
+      "name": "gdprprocessingpermitlocations",
+      "description": "umiestnenia povolení na spracovanie dát",
+      "boclsid": "NKPNNVT1555432AOVTKZ52H31G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/gdprprocessingpermitlocations"
+    },
+    {
+      "name": "gdprprocessingpermits",
+      "description": "povolenia na spracovanie dát",
+      "boclsid": "54CJLITZLX2O3EUD5UPJWVRXH0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/gdprprocessingpermits"
+    },
+    {
+      "name": "gdprprocessingpermitsources",
+      "description": "zdroj povolenia na spracovanie dát",
+      "boclsid": "QGG0VBK1PZF431HSIABGEKD4FW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/gdprprocessingpermitsources"
+    },
+    {
+      "name": "gdprrequestcategories",
+      "description": "kategória požiadavky gdpr",
+      "boclsid": "VIR3EZEA5054R5Z3ULTZPTK0NW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/gdprrequestcategories"
+    },
+    {
+      "name": "gdprrequests",
+      "description": "požiadavka gdpr",
+      "boclsid": "YP4453EGQFS4B5FLQEYOASODP0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/gdprrequests"
+    },
+    {
+      "name": "generalcalendars",
+      "description": "platený sviatok",
+      "boclsid": "W4FDWO3T53F13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/generalcalendars"
+    },
+    {
+      "name": "generalissuedorderrows",
+      "description": "pohyby na rámcových zmluvách - nákup",
+      "boclsid": "YJUQQV50PHW4R5A44IPVN441MS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/generalissuedorderrows"
+    },
+    {
+      "name": "generalissuedorders",
+      "description": "rámcová zmluva - nákup",
+      "boclsid": "DZ0YBXGGN1C4R1NLVJQLQNQLQC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/generalissuedorders"
+    },
+    {
+      "name": "generalreceivedorderrows",
+      "description": "pohyby na rámcových zmluvách - predaj",
+      "boclsid": "TDREK2531PGON5K5FGH1OUWZAG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/generalreceivedorderrows"
+    },
+    {
+      "name": "generalreceivedorders",
+      "description": "rámcová zmluva - predaj",
+      "boclsid": "SK2RT1BX0Y2ONDPFUSSBQEXMZ0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/generalreceivedorders"
+    },
+    {
+      "name": "globdatas",
+      "description": "firemné údaje",
+      "boclsid": "S1JGT1KMZJDL3C5P00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/globdatas"
+    },
+    {
+      "name": "gpmassemblylists",
+      "description": "výrobný list",
+      "boclsid": "0WKLNXMUBTHO34F2FIE1A5EYGS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/gpmassemblylists"
+    },
+    {
+      "name": "gpmcateringunits",
+      "description": "stravná jednotka",
+      "boclsid": "WGPXWXPODBN4THYRUUIKWOUT44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/gpmcateringunits"
+    },
+    {
+      "name": "gpmnorms",
+      "description": "norma gastrovýroby",
+      "boclsid": "BHMHM3KPLNW4FIWDP5JSYAL04G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/gpmnorms"
+    },
+    {
+      "name": "gpmparameters",
+      "description": "nastavenie gastrovýroby",
+      "boclsid": "KUQZLWE1YT54BDKWGCJD502AYK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/gpmparameters"
+    },
+    {
+      "name": "healthinsannualclearings",
+      "description": "ročné zúčtovanie zp",
+      "boclsid": "I1H4MSKAHEZ4T2W4PJWJJQLDGO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/healthinsannualclearings"
+    },
+    {
+      "name": "hipaysgovernmenttypes",
+      "description": "druhy poistencov štátu",
+      "boclsid": "Q4HFMXW0MAVODHK4J3TAMIHIR0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/hipaysgovernmenttypes"
+    },
+    {
+      "name": "holidays",
+      "description": "nárok na dovolenku",
+      "boclsid": "QLZ30WIK3YA4R5CRL0BJTALUGG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/holidays"
+    },
+    {
+      "name": "holidaytypes",
+      "description": "druh dovolenky",
+      "boclsid": "YQBWF5A23ZF13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/holidaytypes"
+    },
+    {
+      "name": "homecontroller",
+      "description": "získa informácie o verzii api a dostupných spojeniach",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/homecontroller"
+    },
+    {
+      "name": "ieexportrules",
+      "description": "pravidlá spracovania exportov",
+      "boclsid": "NIXKNYV1HHG4NJQGL5W535KEPG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/ieexportrules"
+    },
+    {
+      "name": "ieimportdatasources",
+      "description": "zdroj dát definovateľnéh importu",
+      "boclsid": "N0FB12VTZLHODJY0J1W3ZK2JZS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/ieimportdatasources"
+    },
+    {
+      "name": "ieimportdefinitions",
+      "description": "definícia definovateľného importu",
+      "boclsid": "WUWDDFBB2C2OZECTKU5123O5CG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/ieimportdefinitions"
+    },
+    {
+      "name": "ieimportexportsets",
+      "description": "sada importných a exportných definícií",
+      "boclsid": "4PVMC0DRSIC4TBACK2ZXV0J2K0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/ieimportexportsets"
+    },
+    {
+      "name": "iestates",
+      "description": "stav spracovania importu a exportu",
+      "boclsid": "BNUKHIGYP4L4FEEREENCOHQ4MW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/iestates"
+    },
+    {
+      "name": "ieunits",
+      "description": "merné jednotky",
+      "boclsid": "BEHEW1IVBMYOTCNG0RE5XFWWRK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/ieunits"
+    },
+    {
+      "name": "import",
+      "description": "importní manažéri",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/import"
+    },
+    {
+      "name": "incometypes",
+      "description": "typ príjmu",
+      "boclsid": "02VVSAICKNDL3ACT03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/incometypes"
+    },
+    {
+      "name": "incomingsubstitutions",
+      "description": "zámena príjem",
+      "boclsid": "JFQYSEOTKPC4RAMLQVLUK5NV34",
+      "ref": "http://localhost:80/demo/api-docs/openapi/incomingsubstitutions"
+    },
+    {
+      "name": "incomingtransfers",
+      "description": "prevodka príjem",
+      "boclsid": "1D0I5SAOS3DL3ACU03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/incomingtransfers"
+    },
+    {
+      "name": "incomingtransformations",
+      "description": "premena príjem",
+      "boclsid": "5OSFHRXOFONO3F0BUIV5ZBJD0S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/incomingtransformations"
+    },
+    {
+      "name": "inputpanellayouts",
+      "description": "variantné formuláre - variant",
+      "boclsid": "IQINA1RIHY0OFH51SRAOME5VLG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/inputpanellayouts"
+    },
+    {
+      "name": "installsets",
+      "description": "inštalačná sada",
+      "boclsid": "W4HBPDUHWDY4RDRSIHBWXD1F2S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/installsets"
+    },
+    {
+      "name": "insurancecompanies",
+      "description": "zdravotná poisťovňa",
+      "boclsid": "4BN354URZJE13EYM00KEZYD5AW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/insurancecompanies"
+    },
+    {
+      "name": "intangibleassettypes",
+      "description": "typ rovnomerného odpisovania",
+      "boclsid": "CYM4NVO0KF5OV15QJ4DKYYLHY0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/intangibleassettypes"
+    },
+    {
+      "name": "internaldocuments",
+      "description": "interný doklad",
+      "boclsid": "KEXFTIIK4ZD13ACL03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/internaldocuments"
+    },
+    {
+      "name": "intrastatcommodities",
+      "description": "kombinovaná nomenklatúra",
+      "boclsid": "0DD0C5LW4R54N4LUDW2VJG33P4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/intrastatcommodities"
+    },
+    {
+      "name": "intrastatdeliveryterms",
+      "description": "dodacie podmienky",
+      "boclsid": "FXGW3241WWNOT3WUGVM1FZKGMG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/intrastatdeliveryterms"
+    },
+    {
+      "name": "intrastatexchangerates",
+      "description": "kurzový lístok intrastat",
+      "boclsid": "201MMXDUCKY4H02YMS22CBGPWC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/intrastatexchangerates"
+    },
+    {
+      "name": "intrastatextratypes",
+      "description": "zvláštny pohyb",
+      "boclsid": "31P0CHL53LM4VCRYY3A0N2F10K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/intrastatextratypes"
+    },
+    {
+      "name": "intrastatinputstatistics",
+      "description": "definícia štatistickej hodnoty na vstupe",
+      "boclsid": "LRO1DASUHHF4NGVMHW5NEGI10O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/intrastatinputstatistics"
+    },
+    {
+      "name": "intrastatoutputstatistics",
+      "description": "definícia štatistickej hodnoty na výstupe",
+      "boclsid": "DAGL2UYA51BOXGILIULPRVC40K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/intrastatoutputstatistics"
+    },
+    {
+      "name": "intrastatregions",
+      "description": "kraj",
+      "boclsid": "OISEBIIXHOG4P5HVENWQOZT5BW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/intrastatregions"
+    },
+    {
+      "name": "intrastatreports",
+      "description": "podanie intrastat",
+      "boclsid": "YIEPQZWZJYX4FDHVAHCMCNFA2G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/intrastatreports"
+    },
+    {
+      "name": "intrastattransactiontypes",
+      "description": "povaha transakcie",
+      "boclsid": "SEKTV325L3D41AYRXB1DRDDQSC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/intrastattransactiontypes"
+    },
+    {
+      "name": "intrastattransportationtypes",
+      "description": "druh dopravy intrastat",
+      "boclsid": "0IF4AZ1LYGJOJDJD5MMXIIS0JK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/intrastattransportationtypes"
+    },
+    {
+      "name": "inventoryoverplus",
+      "description": "inventárny prebytok (zostatok)",
+      "boclsid": "2D0I5SAOS3DL3ACU03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/inventoryoverplus"
+    },
+    {
+      "name": "inventoryshortfalls",
+      "description": "inventárne manko",
+      "boclsid": "2T0I5SAOS3DL3ACU03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/inventoryshortfalls"
+    },
+    {
+      "name": "invoicingclosing",
+      "description": "uzávierka fakturácie",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/invoicingclosing"
+    },
+    {
+      "name": "iot",
+      "description": "iot",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/iot"
+    },
+    {
+      "name": "iotdata",
+      "description": "dáta iot",
+      "boclsid": "SLMOWS2CG2Y41434QE52D3PW3K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/iotdata"
+    },
+    {
+      "name": "iotdataassignmentrules",
+      "description": "pravidlá priradenia dát iot k objektom",
+      "boclsid": "WPSJIHZFWZFOH5RIFM4T12HJ0S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/iotdataassignmentrules"
+    },
+    {
+      "name": "iotsensors",
+      "description": "senzor iot",
+      "boclsid": "YUXV2POCSBJO3BU5SW5ITQK0A4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/iotsensors"
+    },
+    {
+      "name": "issuedcreditnotes",
+      "description": "dobropis faktúry vydanej",
+      "boclsid": "W402MSU3BBDL3ACR03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedcreditnotes"
+    },
+    {
+      "name": "issueddemands",
+      "description": "dopyt vydaný",
+      "boclsid": "1FVATXUXI45O10T04MOFRYM0CS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issueddemands"
+    },
+    {
+      "name": "issueddepositinvoices",
+      "description": "zálohový list vydaný",
+      "boclsid": "WEN033MLM3DL35J301C0CX3F40",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issueddepositinvoices"
+    },
+    {
+      "name": "issuedinvoicerows",
+      "description": "pohyby na faktúrach vydaných",
+      "boclsid": "OBBDOKTWEFD13ACM03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedinvoicerows"
+    },
+    {
+      "name": "issuedinvoices",
+      "description": "faktúra vydaná",
+      "boclsid": "O3BDOKTWEFD13ACM03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedinvoices"
+    },
+    {
+      "name": "issuedofferfailurereasons",
+      "description": "dôvod neúspechu ponuky",
+      "boclsid": "ENADIDXGPNG455B5NIEXVOCBCW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedofferfailurereasons"
+    },
+    {
+      "name": "issuedofferrows",
+      "description": "pohyby na ponukách vydaných",
+      "boclsid": "QUKRMP2B4GN41IJGBQOQGY1GEC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedofferrows"
+    },
+    {
+      "name": "issuedoffers",
+      "description": "ponuka vydaná",
+      "boclsid": "LN2RG42OWZVODHSAIXNA5PY1PS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedoffers"
+    },
+    {
+      "name": "issuedofferstates",
+      "description": "stav ponuky",
+      "boclsid": "4IJEFUSI2FK4FASUBCMCZUDEZW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedofferstates"
+    },
+    {
+      "name": "issuedoffertypes",
+      "description": "typ ponuky",
+      "boclsid": "CDF1OBXVC5J4FD34054MYXAEUO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedoffertypes"
+    },
+    {
+      "name": "issuedorderrows",
+      "description": "pohyby na objednávkach vydaných",
+      "boclsid": "CHMK5QAWZZDL342X01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedorderrows"
+    },
+    {
+      "name": "issuedorders",
+      "description": "objednávka vydaná",
+      "boclsid": "CDMK5QAWZZDL342X01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/issuedorders"
+    },
+    {
+      "name": "jobclassificationiscos",
+      "description": "klasifikácia zamestnaní isco",
+      "boclsid": "LT3EFJCBXXM43EEZZI00NX4VPW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/jobclassificationiscos"
+    },
+    {
+      "name": "jobclassifications",
+      "description": "klasifikácia zamestnaní",
+      "boclsid": "LJATP2JOI5HOF3QBN4PM50COUS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/jobclassifications"
+    },
+    {
+      "name": "jobgroups",
+      "description": "skupiny prác",
+      "boclsid": "M3ZTQWN4RAFODGQSPVTJ14AD04",
+      "ref": "http://localhost:80/demo/api-docs/openapi/jobgroups"
+    },
+    {
+      "name": "jobpositions",
+      "description": "postavenie v zamestnaní",
+      "boclsid": "VGV3LLON0DU435JYHAAY1XVO3O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/jobpositions"
+    },
+    {
+      "name": "jwatokensettings",
+      "description": "nastavenie jwt",
+      "boclsid": "4S3DYJUWMRPO1JY20DGQVMLI5C",
+      "ref": "http://localhost:80/demo/api-docs/openapi/jwatokensettings"
+    },
+    {
+      "name": "keyvalues",
+      "description": "Úložisko kľúč/hodnota",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/keyvalues"
+    },
+    {
+      "name": "languages",
+      "description": "jazyk",
+      "boclsid": "OWU5Y4D1KSD41E5ZULNEIPTALG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/languages"
+    },
+    {
+      "name": "languagetranslationdefs",
+      "description": "definícia prekladu",
+      "boclsid": "TT4PKEYMWV4OH1GFXNNF4DLXYW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/languagetranslationdefs"
+    },
+    {
+      "name": "loanpaymentreminders",
+      "description": "upomienka splátky",
+      "boclsid": "OEZXQIVUIJJOX5B0QR13VZ2CU0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/loanpaymentreminders"
+    },
+    {
+      "name": "loanschedules",
+      "description": "splátkový kalendár",
+      "boclsid": "3HVWO2CNQKUOJDNWUMPHLASX3S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/loanschedules"
+    },
+    {
+      "name": "locations",
+      "description": "skladové miesto",
+      "boclsid": "WVGCVNSC5ZDL3CL100C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/locations"
+    },
+    {
+      "name": "logstoreaddresscodedefs",
+      "description": "definícia adries skladových pozícií",
+      "boclsid": "CRYNTECL2UCOVDLY3BSBCULIGW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/logstoreaddresscodedefs"
+    },
+    {
+      "name": "logstoredocumentrows",
+      "description": "pohyby polohovacích dokladov",
+      "boclsid": "2PNJ1C4NAN0O35ZVLH3QJLHMMG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/logstoredocumentrows"
+    },
+    {
+      "name": "logstoregateways",
+      "description": "nasklad. a vysklad. miesto",
+      "boclsid": "5ARC31CSJPGO3DJOCYABA5YLVC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/logstoregateways"
+    },
+    {
+      "name": "logstoreinputs",
+      "description": "naskladnenie do pozícií",
+      "boclsid": "AAGUVTRZU4EOT0AOVQMU2DY300",
+      "ref": "http://localhost:80/demo/api-docs/openapi/logstoreinputs"
+    },
+    {
+      "name": "logstoreoutputs",
+      "description": "vyskladnenie z pozícií",
+      "boclsid": "LNQ1VOVM1TE4XJDLGNXAK0I1FS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/logstoreoutputs"
+    },
+    {
+      "name": "logstorepositions",
+      "description": "skladová pozícia",
+      "boclsid": "4K24RM04IWWO5253XT3URBAUZS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/logstorepositions"
+    },
+    {
+      "name": "logstorepreferences",
+      "description": "preferencie skladových pozícií",
+      "boclsid": "MFWKG1TPJE14J1Q3SY43HLH2UC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/logstorepreferences"
+    },
+    {
+      "name": "logstoretransfers",
+      "description": "presun medzi pozíciami",
+      "boclsid": "IFQWSXYA5XBOH3ZUHIYD4C4WY0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/logstoretransfers"
+    },
+    {
+      "name": "maininvprotocols",
+      "description": "hlavný inventárny protokol",
+      "boclsid": "KGKSPD2IGUXOV3V2JN0IILOSRG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/maininvprotocols"
+    },
+    {
+      "name": "maintenance",
+      "description": "Údržba",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/maintenance"
+    },
+    {
+      "name": "materialdistributions",
+      "description": "výdaj materiálu do výroby",
+      "boclsid": "2MV0SHPYLFJOL3D4WN02HCPX5S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/materialdistributions"
+    },
+    {
+      "name": "mlbdistances",
+      "description": "vzdialenosti",
+      "boclsid": "V1XYU404ATNOJAP3QJ4C3RHGR0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/mlbdistances"
+    },
+    {
+      "name": "mlbexpenses",
+      "description": "výdaje vozidla",
+      "boclsid": "MKFX11DOF0R41B3R03CWWUVBEC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/mlbexpenses"
+    },
+    {
+      "name": "mlbjourneys",
+      "description": "jazda",
+      "boclsid": "VYFN3URYQAWON0DRKKWF4014EK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/mlbjourneys"
+    },
+    {
+      "name": "mlbmaplinkdefinitions",
+      "description": "definícia zobrazenie máp",
+      "boclsid": "GJKNVYVKIL14H2PCOOJYR5CRIO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/mlbmaplinkdefinitions"
+    },
+    {
+      "name": "mlbparameters",
+      "description": "parameter knihy jázd",
+      "boclsid": "NEYLSCKLANCO155YQLDXBDS3I0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/mlbparameters"
+    },
+    {
+      "name": "mlbplaces",
+      "description": "miesta",
+      "boclsid": "TSJFIFXESRUOT1PIGEI1H3M2F0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/mlbplaces"
+    },
+    {
+      "name": "mlbpurposes",
+      "description": "Účel jazdy",
+      "boclsid": "LI4R41XMF54OVI3E4JBONWZ3I4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/mlbpurposes"
+    },
+    {
+      "name": "mlbroutes",
+      "description": "vzor jazdy",
+      "boclsid": "ZWYZSVLQ5RG4T1HQVAN5NASAU4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/mlbroutes"
+    },
+    {
+      "name": "monitoring",
+      "description": "monitoring",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/monitoring"
+    },
+    {
+      "name": "monthfirminformations",
+      "description": "mesačné údaje firmy",
+      "boclsid": "WUFEXZDCWMMOB14HGPMXX2ZI2O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/monthfirminformations"
+    },
+    {
+      "name": "monthwrelationinformations",
+      "description": "mesačné údaje pracovného pomeru",
+      "boclsid": "VJ1DJ2KXJ1FOF1BNB2SKK50KF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/monthwrelationinformations"
+    },
+    {
+      "name": "msgssent",
+      "description": "správa",
+      "boclsid": "33XZARXR1BM4L55MOX54NTRBWG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/msgssent"
+    },
+    {
+      "name": "municipalities",
+      "description": "obec podľa zÚj",
+      "boclsid": "KMDZMOAMUWPOPIQMAGENN0UUAC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/municipalities"
+    },
+    {
+      "name": "naces",
+      "description": "nace kód",
+      "boclsid": "GEPU3UY3U2POB4VWN4FIPOAQEG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/naces"
+    },
+    {
+      "name": "nominalledgers",
+      "description": "hlavná kniha",
+      "boclsid": "4LT1FT4K4GZ41DGSIPWMVTQLYK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/nominalledgers"
+    },
+    {
+      "name": "notrealizedexchangedifferences",
+      "description": "nerealizovaný kurzový rozdiel",
+      "boclsid": "JSH5ISOJMXEO3HOK4TMGEDPAAO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/notrealizedexchangedifferences"
+    },
+    {
+      "name": "ordersgenerations",
+      "description": "požiadaviek na objednávku vydanú",
+      "boclsid": "SM1XUDRS2BE1342X01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/ordersgenerations"
+    },
+    {
+      "name": "otherexpenses",
+      "description": "ostatný výdaj",
+      "boclsid": "1DHHWWVMXVD13ACQ03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/otherexpenses"
+    },
+    {
+      "name": "otherincomes",
+      "description": "ostatný príjem",
+      "boclsid": "0LHHWWVMXVD13ACQ03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/otherincomes"
+    },
+    {
+      "name": "outgoingsubstitutions",
+      "description": "zámena výdaj",
+      "boclsid": "E32A1GVWPYY4BJZFV5NFSRAODW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/outgoingsubstitutions"
+    },
+    {
+      "name": "outgoingtransfers",
+      "description": "prevodka výdaj",
+      "boclsid": "0P0I5SAOS3DL3ACU03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/outgoingtransfers"
+    },
+    {
+      "name": "outgoingtransformations",
+      "description": "premena výdaj",
+      "boclsid": "P3TSZXYDJB44Z3350NYZWO102K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/outgoingtransformations"
+    },
+    {
+      "name": "ownershipforms",
+      "description": "forma vlastníctva podľa ispv",
+      "boclsid": "QN5DMY4KAGX410VMY0GRQE1C5O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/ownershipforms"
+    },
+    {
+      "name": "ownershiptypes",
+      "description": "typ vlastníctva",
+      "boclsid": "OTGECTJO5US4PBK2DJ0COMFHMW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/ownershiptypes"
+    },
+    {
+      "name": "partialinvprotocols",
+      "description": "Čiastkový inventárny protokol",
+      "boclsid": "U0D05ZPUL3IOVHE2PRXQGEOVG4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/partialinvprotocols"
+    },
+    {
+      "name": "paymentorderrequests",
+      "description": "Žiadosť o platobný príkaz",
+      "boclsid": "KH3SX0HB4NDL3BLX00C5OG4NF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/paymentorderrequests"
+    },
+    {
+      "name": "paymentorders",
+      "description": "platobný príkaz",
+      "boclsid": "K53SX0HB4NDL3BLX00C5OG4NF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/paymentorders"
+    },
+    {
+      "name": "paymentreminders",
+      "description": "upomienka",
+      "boclsid": "4FPFONEOIIK4BIRPR1LX4IGKZC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/paymentreminders"
+    },
+    {
+      "name": "paymenttypes",
+      "description": "spôsob úhrady",
+      "boclsid": "535FINKNYNDL3C5P00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/paymenttypes"
+    },
+    {
+      "name": "payreminderenforcestates",
+      "description": "stav vymáhania pohľadávky",
+      "boclsid": "PN2AKDHW13G4B0CGXZK5APKRVO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/payreminderenforcestates"
+    },
+    {
+      "name": "payreminderpars",
+      "description": "parametre automatických upomienok",
+      "boclsid": "PHFQGIB0NWQOHIAHA3HBLOEJA4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/payreminderpars"
+    },
+    {
+      "name": "pdmclosings",
+      "description": "uzávierka pošty",
+      "boclsid": "43CW0W1DJ404JF3XJSEL1RKUJK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pdmclosings"
+    },
+    {
+      "name": "pdmissuedcontenttypes",
+      "description": "typy obsahov odoslanej pošty",
+      "boclsid": "MTOSCETT4IC45JVA0Z02W1BUSW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pdmissuedcontenttypes"
+    },
+    {
+      "name": "pdmissueddocs",
+      "description": "odoslaná pošta",
+      "boclsid": "EFMK3ZXZQGE4B1SSCYEBDGMCCK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pdmissueddocs"
+    },
+    {
+      "name": "pdmpostproviders",
+      "description": "poskytovateľ poštových služieb.",
+      "boclsid": "Z5QZE3BVXOTOD4S3YFWJ2M2I3K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pdmpostproviders"
+    },
+    {
+      "name": "pdmpricelists",
+      "description": "cenník pošty",
+      "boclsid": "NRG5YK1ZTKR4FJ4TMPTEPD50AG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pdmpricelists"
+    },
+    {
+      "name": "pdmreceivedcontenttypes",
+      "description": "typy obsahov prijatej pošty",
+      "boclsid": "B45HZUAAJU4ONCLY0CU3V1UMC4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pdmreceivedcontenttypes"
+    },
+    {
+      "name": "pdmreceiveddocs",
+      "description": "prijatá pošta",
+      "boclsid": "UZVZZEWNADW4BHRYYH5UL1SJMS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pdmreceiveddocs"
+    },
+    {
+      "name": "pdmreceivedstatetypes",
+      "description": "stav prijatej pošty",
+      "boclsid": "A3VKA2UX5NFOVGQ3DYGXB2BCVO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pdmreceivedstatetypes"
+    },
+    {
+      "name": "pdmservicetypes",
+      "description": "služba pošty",
+      "boclsid": "0TFSS52PVCMOF31C0Y4CAXDIRO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pdmservicetypes"
+    },
+    {
+      "name": "pdmusers",
+      "description": "používateľ modulu evidencie pošty.",
+      "boclsid": "V4OZZQ4YZHX4J5V1C4TMFJR1Z4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pdmusers"
+    },
+    {
+      "name": "penaltyinvoices",
+      "description": "sankčná faktúra",
+      "boclsid": "QE52A32YJN2OH31VHW4T2GO5TS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/penaltyinvoices"
+    },
+    {
+      "name": "penaltyrates",
+      "description": "sadzba úroku z omeškania",
+      "boclsid": "BSJSIM5EDGHONCEZI3L343PRYO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/penaltyrates"
+    },
+    {
+      "name": "pensionadministrators",
+      "description": "dôchodková správcovská spoločnosť",
+      "boclsid": "1H0N4OZHULWOHECAQT32KXRN2S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pensionadministrators"
+    },
+    {
+      "name": "periods",
+      "description": "obdobie",
+      "boclsid": "CAQPAYUOXVCL3ACL03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/periods"
+    },
+    {
+      "name": "personinsolvencyrecords",
+      "description": "záznam o insolvencii osoby",
+      "boclsid": "DRS5CH3ZEP3O50O0OEODRVHK2W",
+      "ref": "http://localhost:80/demo/api-docs/openapi/personinsolvencyrecords"
+    },
+    {
+      "name": "persons",
+      "description": "osoba",
+      "boclsid": "WEC02QYERNCL35CH000ILPWJF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/persons"
+    },
+    {
+      "name": "pickinglists",
+      "description": "vyskladňovací list",
+      "boclsid": "35BXTYZWTLTO3HOYVNCSVFTPM4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pickinglists"
+    },
+    {
+      "name": "pictures",
+      "description": "dáta obrázku",
+      "boclsid": "S1AUUMOM3REL3C5V00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pictures"
+    },
+    {
+      "name": "plmaggregateworktickets",
+      "description": "súhrnný pracovný lístok",
+      "boclsid": "H0NLJLKS5SMOVIMJFM5FVSKNPS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmaggregateworktickets"
+    },
+    {
+      "name": "plmbalanceinprocessproduces",
+      "description": "vyrovnanie nedokončenej výroby",
+      "boclsid": "BJPYQBANGYCOBAZL20Q40EWIBS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmbalanceinprocessproduces"
+    },
+    {
+      "name": "plmcooperations",
+      "description": "kooperácia",
+      "boclsid": "ZNJNWH3UCWTOPHPQZM2UZTEOG4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmcooperations"
+    },
+    {
+      "name": "plmexceptionworkplaces",
+      "description": "výnimka pracoviska",
+      "boclsid": "ZOROB0ECH1C4P33LGYE3K25N4C",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmexceptionworkplaces"
+    },
+    {
+      "name": "plmfaulttypes",
+      "description": "chyba",
+      "boclsid": "QAQY0HIEY54OR4QULSLA05VDQK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmfaulttypes"
+    },
+    {
+      "name": "plmfinancialstateofproductions",
+      "description": "plmfinancialstateofproduction",
+      "boclsid": "BXAMSHVCP0S4B4APYRB4N4FVOS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmfinancialstateofproductions"
+    },
+    {
+      "name": "plmfinishedproducts",
+      "description": "dokončený výrobok",
+      "boclsid": "VXZNUMLJMCTOPC12DQELHBUYFO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmfinishedproducts"
+    },
+    {
+      "name": "plmgenesis",
+      "description": "rodný list",
+      "boclsid": "UR3L1WH2EJZ4BA3UKUBZJI0IBS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmgenesis"
+    },
+    {
+      "name": "plmjoborders",
+      "description": "výrobný príkaz",
+      "boclsid": "HTI3OTLGNRPO32EEISEPC0XZ0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmjoborders"
+    },
+    {
+      "name": "plmjobordersnotices",
+      "description": "poznámka k výrobnému príkazu",
+      "boclsid": "TS4EQ43XOCT4NHX5EAXXFHVTMO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmjobordersnotices"
+    },
+    {
+      "name": "plmjoinputitems",
+      "description": "vp - kusovník",
+      "boclsid": "URVJ2ULRJ4B43EK1QLU3A2OXR0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmjoinputitems"
+    },
+    {
+      "name": "plmjosetparsqueues",
+      "description": "parametre radu výrobných príkazov",
+      "boclsid": "ZBNXQPJWDFFOB4C3WNIJXNLVNK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmjosetparsqueues"
+    },
+    {
+      "name": "plmmachines",
+      "description": "plmmachine",
+      "boclsid": "XHEO4QSZPVXOJBRVPMOL4FGLWG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmmachines"
+    },
+    {
+      "name": "plmmachinetypes",
+      "description": "plmmachinetype",
+      "boclsid": "M5KL21YG0HV4VGG0Y325K5AROO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmmachinetypes"
+    },
+    {
+      "name": "plmoperations",
+      "description": "pracovný lístok",
+      "boclsid": "XTVGL0IK2F14PDPCEHMYNWX4T4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmoperations"
+    },
+    {
+      "name": "plmphases",
+      "description": "etapa",
+      "boclsid": "CWZXHJPRJFDOFBQI04IH1H4TZK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmphases"
+    },
+    {
+      "name": "plmpictures",
+      "description": "obrázok technologických postupov",
+      "boclsid": "KCBDEFEPAYUOZ3D0GK3URSGKIO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmpictures"
+    },
+    {
+      "name": "plmpiecelists",
+      "description": "kusovník",
+      "boclsid": "031N4GRZ4OT4TC5LYFK2WV1IFS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmpiecelists"
+    },
+    {
+      "name": "plmpqparams",
+      "description": "parametre radu požiadaviek na výrobu",
+      "boclsid": "BCQ0VT53OKY450HYXL00OHKT1G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmpqparams"
+    },
+    {
+      "name": "plmproducerequests",
+      "description": "požiadaviek na výrobu",
+      "boclsid": "IVJSI1K34CJORFG1QBJOMTSVAG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmproducerequests"
+    },
+    {
+      "name": "plmproduceservices",
+      "description": "neshodná výroba",
+      "boclsid": "HASWMZ31NCK4H0Q4CQOYG0BV5K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmproduceservices"
+    },
+    {
+      "name": "plmproductphases",
+      "description": "fáza dokončenia výrobku",
+      "boclsid": "YJYWBSREYW54FEKCEEDQVCEQB0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmproductphases"
+    },
+    {
+      "name": "plmroutines",
+      "description": "technologický postup",
+      "boclsid": "RW2YIIHUHP3OZCQ5RQR5SJQWI4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmroutines"
+    },
+    {
+      "name": "plmroutinetypes",
+      "description": "typ technologického postupu.",
+      "boclsid": "35QVJCYE0E2OTGCPG4WKQQNDTW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmroutinetypes"
+    },
+    {
+      "name": "plmsalaryclasses",
+      "description": "tarifná trieda",
+      "boclsid": "FW1OLEWGUU443ICX0SUSZKK32S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmsalaryclasses"
+    },
+    {
+      "name": "plmtariffs",
+      "description": "režijná sadzba",
+      "boclsid": "1BFJFZDST2Y4HGQYX3UOPAEL5K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmtariffs"
+    },
+    {
+      "name": "plmterminalpaneldefinitions",
+      "description": "plmterminalpaneldefinition",
+      "boclsid": "4WAVNH4LHP2O31Z33MK0DIHVTS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmterminalpaneldefinitions"
+    },
+    {
+      "name": "plmterminalprofiles",
+      "description": "profil plm terminálu",
+      "boclsid": "HBV1RI2JTY0ODDWLMB5XBVVRLS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmterminalprofiles"
+    },
+    {
+      "name": "plmtransfers",
+      "description": "prenos pracovných lístkov do miezd.",
+      "boclsid": "E1QFCC3OS4E4D0IKCY5IFZ2OPC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmtransfers"
+    },
+    {
+      "name": "plmworkers",
+      "description": "pracovník",
+      "boclsid": "53FKKCM5GGGOZ3TF2DJ3E40GSK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmworkers"
+    },
+    {
+      "name": "plmworkplaces",
+      "description": "pracovisko a stroj",
+      "boclsid": "5XGE0QFOGIWOB5ANMTYRIVKJ0O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmworkplaces"
+    },
+    {
+      "name": "plmworkscheduleitems",
+      "description": "dielenský úkon",
+      "boclsid": "MJXXIRESMQ04NBM2FHVR13EJ3G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/plmworkscheduleitems"
+    },
+    {
+      "name": "pmstates",
+      "description": "procesný stav",
+      "boclsid": "15ZXNPOHLIH4TG30HXYJX0CL3W",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pmstates"
+    },
+    {
+      "name": "pmstatestransitions",
+      "description": "prechod medzi procesnými stavmi",
+      "boclsid": "KI5MEUWXQKK43GBWIPMFXGJQM0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pmstatestransitions"
+    },
+    {
+      "name": "poscashpaids",
+      "description": "výdaj z pokladničného miesta",
+      "boclsid": "P0HCR5VVMXF4TF1DCGTG0QEPOK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/poscashpaids"
+    },
+    {
+      "name": "poscashreceiveds",
+      "description": "vklad do pokladničného miesta",
+      "boclsid": "P12PMGS0A3EOFHZGRNZMNP30HK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/poscashreceiveds"
+    },
+    {
+      "name": "posdiscounts",
+      "description": "zľava pre pokladničný predaj",
+      "boclsid": "3ZXSRN2EOWZOF4ARIICWYG2CCK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posdiscounts"
+    },
+    {
+      "name": "posdocumentrows",
+      "description": "pohyby účteniek",
+      "boclsid": "GED500MLAJEL3JY400C5PPZRN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posdocumentrows"
+    },
+    {
+      "name": "posdocuments",
+      "description": "Účtenka",
+      "boclsid": "G2D500MLAJEL3JY400C5PPZRN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posdocuments"
+    },
+    {
+      "name": "posinternaleans",
+      "description": "Špeciálny ean",
+      "boclsid": "PECLUUNCM3T4JDGD04DKAMFY4C",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posinternaleans"
+    },
+    {
+      "name": "posmirrordefinitions",
+      "description": "definícia zrkadla",
+      "boclsid": "E44HWZECLD0OX2YBHZXARFQ5MC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posmirrordefinitions"
+    },
+    {
+      "name": "posmirrors",
+      "description": "zrkadlo",
+      "boclsid": "BF311NALZYWOD2M0WE2D1BDN50",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posmirrors"
+    },
+    {
+      "name": "posreceipts",
+      "description": "tržba",
+      "boclsid": "00MEV5HL5BEL3JY400C5PPZRN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posreceipts"
+    },
+    {
+      "name": "possellingstandsmaps",
+      "description": "mapa predajných miest",
+      "boclsid": "BBH4OK0KIXA4HJBSD4VJX2G41S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/possellingstandsmaps"
+    },
+    {
+      "name": "posshifts",
+      "description": "smena",
+      "boclsid": "EFIAYR5CJY2O1FBRZRNRFSBQO0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posshifts"
+    },
+    {
+      "name": "posshops",
+      "description": "nastavenie prevádzky",
+      "boclsid": "IA1FJIDJU2L4X1POMMT4N5M30K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posshops"
+    },
+    {
+      "name": "posstations",
+      "description": "pokladňa pokladničného predaja",
+      "boclsid": "40SZSH0SANEL3JY400C5PPZRN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posstations"
+    },
+    {
+      "name": "possummareddocuments",
+      "description": "súhrnný pokladničný doklad",
+      "boclsid": "012F3WQVEREL3JY400C5PPZRN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/possummareddocuments"
+    },
+    {
+      "name": "postoffices",
+      "description": "pošta",
+      "boclsid": "ZD3JEESMGOJOFGIH5RDMMHSN3C",
+      "ref": "http://localhost:80/demo/api-docs/openapi/postoffices"
+    },
+    {
+      "name": "posusers",
+      "description": "obsluhujúci",
+      "boclsid": "W3YQ0EKOTRD4XA1S01442DSEYS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posusers"
+    },
+    {
+      "name": "posvatindexes",
+      "description": "pokladničné dph index",
+      "boclsid": "NXGLPC1EEOGOZCDFITUON2PQGC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/posvatindexes"
+    },
+    {
+      "name": "prflogs",
+      "description": "log prf",
+      "boclsid": "JZ1ZP22A0ZK430HAFWLAERKTM0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/prflogs"
+    },
+    {
+      "name": "pricedefinitions",
+      "description": "definícia ceny",
+      "boclsid": "C0IWHWQUBBDL3CL100C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pricedefinitions"
+    },
+    {
+      "name": "pricelists",
+      "description": "cenník",
+      "boclsid": "G5YLVQXQ3FE13DQC01C0CX3F40",
+      "ref": "http://localhost:80/demo/api-docs/openapi/pricelists"
+    },
+    {
+      "name": "productreceptions",
+      "description": "príjem hotových výrobkov",
+      "boclsid": "C3DLAMUSDJNOLDWCDBSBM2GAI0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/productreceptions"
+    },
+    {
+      "name": "qrexpr",
+      "description": "qr funkcia",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/qrexpr"
+    },
+    {
+      "name": "quantitydiscounts",
+      "description": "kusová zľava",
+      "boclsid": "GX410BIPBBDL3CL100C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/quantitydiscounts"
+    },
+    {
+      "name": "query",
+      "description": "dopyt na bo",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/query"
+    },
+    {
+      "name": "receiptcards",
+      "description": "príjemka",
+      "boclsid": "E03ZNUMDTCC4PDAUIEY1MBTJC0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/receiptcards"
+    },
+    {
+      "name": "receivedcreditnotes",
+      "description": "dobropis faktúry prijatej",
+      "boclsid": "WED420SMBBDL3A2D01C0CSUFSG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/receivedcreditnotes"
+    },
+    {
+      "name": "receiveddepositinvoices",
+      "description": "zálohový list prijatý",
+      "boclsid": "5424DE5KKZDL35J301C0CX3F40",
+      "ref": "http://localhost:80/demo/api-docs/openapi/receiveddepositinvoices"
+    },
+    {
+      "name": "receivedinvoices",
+      "description": "faktúra prijatá",
+      "boclsid": "42HE04FZGJD13ACM03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/receivedinvoices"
+    },
+    {
+      "name": "receivedorderrows",
+      "description": "pohyby na objednávkach prijatých",
+      "boclsid": "05CPMINJW3DL342X01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/receivedorderrows"
+    },
+    {
+      "name": "receivedorders",
+      "description": "objednávka prijatá",
+      "boclsid": "01CPMINJW3DL342X01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/receivedorders"
+    },
+    {
+      "name": "refundedbillsofdelivery",
+      "description": "vratka dodacích listov",
+      "boclsid": "1T0I5SAOS3DL3ACU03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/refundedbillsofdelivery"
+    },
+    {
+      "name": "refundedcashpaids",
+      "description": "vrátenie pokladničného výdaja",
+      "boclsid": "0GQIJFGOFNDL3ILA00C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/refundedcashpaids"
+    },
+    {
+      "name": "refundedcashreceiveds",
+      "description": "vrátenie pokladničného príjmu",
+      "boclsid": "WW02MSU3BBDL3ACR03KIU0CLP4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/refundedcashreceiveds"
+    },
+    {
+      "name": "refundedmaterialdistributions",
+      "description": "vrátenie materiálu z výroby",
+      "boclsid": "P1BFFDCSUG04JG5LVBL11MPBPS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/refundedmaterialdistributions"
+    },
+    {
+      "name": "refundedreceiptcards",
+      "description": "vratka príjemiek",
+      "boclsid": "3OKSI2XXYK2OB2JRPZ3U4UXTGK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/refundedreceiptcards"
+    },
+    {
+      "name": "regionallabouroffices",
+      "description": "regionallabouroffice",
+      "boclsid": "GVL1TLS2QYU4TEW1P3YEMYU4QC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/regionallabouroffices"
+    },
+    {
+      "name": "relations",
+      "description": "väzba medzi dokladmi",
+      "boclsid": "01ZXNDSYDVD135SA02K2CQM5AW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/relations"
+    },
+    {
+      "name": "repeatedbankpayments",
+      "description": "opakovaná platba",
+      "boclsid": "G1FRMRJCC3DL3CL100C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/repeatedbankpayments"
+    },
+    {
+      "name": "reports",
+      "description": "definícia reportu",
+      "boclsid": "HEJPJYLV1LA4NJLIYAVG0B10LO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/reports"
+    },
+    {
+      "name": "reservations",
+      "description": "pohyby rezervácií",
+      "boclsid": "K2M34TV4RNDL342W01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/reservations"
+    },
+    {
+      "name": "restrictiondefinitions",
+      "description": "definícia obmedzenia",
+      "boclsid": "VXR1WBJASVSOD2GPWGJE5P1RCS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/restrictiondefinitions"
+    },
+    {
+      "name": "retfundsavingcompanies",
+      "description": "správca doplnkového dôchodkového sporenia",
+      "boclsid": "Z31KHMQYF4LOD51WGUHIX0VULK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/retfundsavingcompanies"
+    },
+    {
+      "name": "retirementreportcodedetails",
+      "description": "bližšie určenie pracovnoprávneho vzťahu",
+      "boclsid": "EUKJE4IEWX3OVCFL5HSP4VQWIW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/retirementreportcodedetails"
+    },
+    {
+      "name": "retirementreportcodes",
+      "description": "kód pp pre sociálnu poisťovňu",
+      "boclsid": "AXY01QBDRDI4V3NEXJXCA1FCWS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/retirementreportcodes"
+    },
+    {
+      "name": "reversechargedeclarations",
+      "description": "doklad reverse charge",
+      "boclsid": "XCBZKJFXQOR4B41FSW0E3SIGNO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/reversechargedeclarations"
+    },
+    {
+      "name": "roleapplayouts",
+      "description": "abra apps screens",
+      "boclsid": "1RW2OJOAIOROZJWZBSPYD4SMIK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/roleapplayouts"
+    },
+    {
+      "name": "roleapps",
+      "description": "abra apps",
+      "boclsid": "ZDKPMMJD1SS4PI2AVNNMV1EXJO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/roleapps"
+    },
+    {
+      "name": "rootcontroller",
+      "description": "získa zoznam všetkých api kontrolerov",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/rootcontroller"
+    },
+    {
+      "name": "scmcolumnsdefinitions",
+      "description": "definícia stĺpcov bilancie",
+      "boclsid": "3AKOJO5WAVNOLAGLIBNPK3OG4K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/scmcolumnsdefinitions"
+    },
+    {
+      "name": "scmdatasources",
+      "description": "dátový zdroj",
+      "boclsid": "DZBGT5DN1SN4V3D0SOWBXONBMK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/scmdatasources"
+    },
+    {
+      "name": "scmdatasourcesets",
+      "description": "sada dátových zdrojov",
+      "boclsid": "T0J1QZUMUCSOPADBDLX45XXNAS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/scmdatasourcesets"
+    },
+    {
+      "name": "scmprovidefunctions",
+      "description": "funkcia zaistenia zdrojov",
+      "boclsid": "MRCZZG1CS544NG3GS1DOFWPGEC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/scmprovidefunctions"
+    },
+    {
+      "name": "scmproviderulesets",
+      "description": "pravidlo pre zabezpečenie zdrojov",
+      "boclsid": "TE1ZGACU453OLFAE32HB2RP2PC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/scmproviderulesets"
+    },
+    {
+      "name": "scmsettings",
+      "description": "nastavenie scm",
+      "boclsid": "N53DXMVUSZZ451LR1L12IICKAS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/scmsettings"
+    },
+    {
+      "name": "scontopatterns",
+      "description": "vzor skonta",
+      "boclsid": "PU1Z4MFCHPVO5A0MVYLBVXRG4G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/scontopatterns"
+    },
+    {
+      "name": "scontotypes",
+      "description": "typ skonta",
+      "boclsid": "IHCEXUDSJMA4TDG2TRXP5Z4EAK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/scontotypes"
+    },
+    {
+      "name": "script",
+      "description": "script",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/script"
+    },
+    {
+      "name": "scriptpackages",
+      "description": "balíček skriptov",
+      "boclsid": "0NK2M5KDFVK4XJW1TBDMUCHKRG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/scriptpackages"
+    },
+    {
+      "name": "securestore",
+      "description": "bezpečné úložisko",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/securestore"
+    },
+    {
+      "name": "securitygroups",
+      "description": "skupina rolí",
+      "boclsid": "2EAHIVDVAVE13C5S00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/securitygroups"
+    },
+    {
+      "name": "securitypointreadrights",
+      "description": "sprístupnenie položiek pre api",
+      "boclsid": "FNKAPNF1KTZO53V4PJRTBOX4CC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/securitypointreadrights"
+    },
+    {
+      "name": "securityroles",
+      "description": "rola",
+      "boclsid": "QRDGQ1DV2CU4D3TOUMORZ0LWIW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/securityroles"
+    },
+    {
+      "name": "securityusers",
+      "description": "používateľ",
+      "boclsid": "22AHIVDVAVE13C5S00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/securityusers"
+    },
+    {
+      "name": "serverstate",
+      "description": "dopyt na serverstate",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/serverstate"
+    },
+    {
+      "name": "serviceassemblyforms",
+      "description": "montážny list",
+      "boclsid": "I3CRLLN3XYVO30ZDQ2WB4CRZW0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/serviceassemblyforms"
+    },
+    {
+      "name": "servicedefects",
+      "description": "servisný chyba",
+      "boclsid": "ICCXDIBSOG24P035ZTCVVQ5XZK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/servicedefects"
+    },
+    {
+      "name": "servicedobjects",
+      "description": "servisovaný predmet",
+      "boclsid": "OWHN2TMXL2COJJ3LKNBV4OVSTC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/servicedobjects"
+    },
+    {
+      "name": "servicedobjecttypes",
+      "description": "model servisovaného predmetu",
+      "boclsid": "0V2WGE4TCA5OTCLTRY4MKZOZA4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/servicedobjecttypes"
+    },
+    {
+      "name": "servicedocstates",
+      "description": "stav servisného listu",
+      "boclsid": "2GNOVUSQ0GHOJJHX2DS3YQISQ4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/servicedocstates"
+    },
+    {
+      "name": "servicedocuments",
+      "description": "servisný list",
+      "boclsid": "BCHF52UGXCO4H5MIAQVY5P3ZOC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/servicedocuments"
+    },
+    {
+      "name": "servicenotificationtexts",
+      "description": "text notifikácie stavu serv.listu",
+      "boclsid": "ILN1C52QX2W4B0KWAWLUWK1YFK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/servicenotificationtexts"
+    },
+    {
+      "name": "serviceoperations",
+      "description": "servisný operácie",
+      "boclsid": "KT2VYJLN4J4OLG1CMIEZACQRVC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/serviceoperations"
+    },
+    {
+      "name": "servicesolutionkinds",
+      "description": "spôsob vybavenia servisu",
+      "boclsid": "ZXGUXTAOSY1OB05BGXJ4BVCYQS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/servicesolutionkinds"
+    },
+    {
+      "name": "servicetypes",
+      "description": "typ servisného prípadu",
+      "boclsid": "Y1IRGP2ZVK143AX5IPUJMXPGX0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/servicetypes"
+    },
+    {
+      "name": "serviceworkcategories",
+      "description": "servisný odbornosť",
+      "boclsid": "OJQ5SXN23YPOX2PYAK41SFBIVO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/serviceworkcategories"
+    },
+    {
+      "name": "serviceworkspaces",
+      "description": "servisná dielňa/pracovisko",
+      "boclsid": "S0MSV3WXRC24PFNR3SF20HZ5VC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/serviceworkspaces"
+    },
+    {
+      "name": "sessions",
+      "description": "dopyt na sessions",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/sessions"
+    },
+    {
+      "name": "shiftcalendars",
+      "description": "pracovný kalendár",
+      "boclsid": "4415LD3MAFF13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/shiftcalendars"
+    },
+    {
+      "name": "shifttypes",
+      "description": "druh pracovnej smeny",
+      "boclsid": "IUJRYG0W2QO4P4EVGKFTY3RUOO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/shifttypes"
+    },
+    {
+      "name": "shippinglists",
+      "description": "expedičný list",
+      "boclsid": "B4A5SMB4DM5OFB5I2U0VMCIJO0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/shippinglists"
+    },
+    {
+      "name": "sickbenefits",
+      "description": "nemocenská dávka",
+      "boclsid": "WGY0I0KF1NEL3JB401C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/sickbenefits"
+    },
+    {
+      "name": "sickbenefittypes",
+      "description": "druh nemocenskej dávky",
+      "boclsid": "OBF2YY1J4RF13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/sickbenefittypes"
+    },
+    {
+      "name": "smallassetcards",
+      "description": "karta drobného majetku",
+      "boclsid": "4E4R1JFNBREL31ME00C5PPBIWO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/smallassetcards"
+    },
+    {
+      "name": "specificlegalevents",
+      "description": "Špecifické právne skutočnosti",
+      "boclsid": "U0AZS2JAGOBOZAVRLJWUYTKYVO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/specificlegalevents"
+    },
+    {
+      "name": "spmassemblylists",
+      "description": "kompletizačný list",
+      "boclsid": "SYBADG2LWAV4N3RFIXDFA12UF0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/spmassemblylists"
+    },
+    {
+      "name": "spmnorms",
+      "description": "norma kompletizácie",
+      "boclsid": "MMGX3NQ3TOROBBE2Z5RWMYAAOG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/spmnorms"
+    },
+    {
+      "name": "spmparameters",
+      "description": "nastavenie kompletizácie",
+      "boclsid": "RU3OXKZ5H4SOND5URZZZMOXQYS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/spmparameters"
+    },
+    {
+      "name": "storeassortmentgroups",
+      "description": "sortimentná skupina",
+      "boclsid": "CXFX42FXFE0O34X2JAWIGX4CN4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storeassortmentgroups"
+    },
+    {
+      "name": "storebatches",
+      "description": "webapi -pohyby šarží/sériových čísel",
+      "boclsid": "C32QXZWCTVDL342W01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storebatches"
+    },
+    {
+      "name": "storecardcategories",
+      "description": "typ skladovej karty",
+      "boclsid": "K00Q4IS15VDL342P01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storecardcategories"
+    },
+    {
+      "name": "storecards",
+      "description": "skladová karta",
+      "boclsid": "C3V5QDVZ5BDL342M01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storecards"
+    },
+    {
+      "name": "storeclosings",
+      "description": "skladová uzávierka",
+      "boclsid": "H02HW1LGO2H4LJOKKT4VALAGKO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storeclosings"
+    },
+    {
+      "name": "storedocumentrows",
+      "description": "skladové pohyby",
+      "boclsid": "0ITGDE00UJDL3HBT00C5OG4NF4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storedocumentrows"
+    },
+    {
+      "name": "storemenuitems",
+      "description": "skladové menu",
+      "boclsid": "42P1E2VUANDL342Q01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storemenuitems"
+    },
+    {
+      "name": "storepricesrequests",
+      "description": "požiadaviek na zmenu ceny",
+      "boclsid": "L5E3QBG444JOTHRZYCA0JRSHA4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storepricesrequests"
+    },
+    {
+      "name": "stores",
+      "description": "sklad",
+      "boclsid": "SFMSB5W15BDL3CL100C4RHECN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/stores"
+    },
+    {
+      "name": "storesubbatches",
+      "description": "Čiastkové šarže/sériové číslo",
+      "boclsid": "42QPPHD3TZDL342W01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storesubbatches"
+    },
+    {
+      "name": "storesubcards",
+      "description": "Čiastkové skladová karta",
+      "boclsid": "GAWVAN4GFNDL342T01C0CX3FCC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/storesubcards"
+    },
+    {
+      "name": "structuresvarsymsettings",
+      "description": "nastavenie štruktúry variabilného symbolu",
+      "boclsid": "FCPX0ODX4XD4P51E14DONUKHX4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/structuresvarsymsettings"
+    },
+    {
+      "name": "sumstores",
+      "description": "sumačný sklad",
+      "boclsid": "ZGGSRDOVI4B4D0BVFFR2EG1K0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/sumstores"
+    },
+    {
+      "name": "supplierpricelists",
+      "description": "dodávateľský cenník",
+      "boclsid": "SW4KAGZK2GG4FAOSLCUHASNQL4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/supplierpricelists"
+    },
+    {
+      "name": "systemsupportentries",
+      "description": "záznam servisnej knižky",
+      "boclsid": "05AXCRARHBEL3C5V00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/systemsupportentries"
+    },
+    {
+      "name": "tags",
+      "description": "tag",
+      "boclsid": "P5BIROTH4PZOP25EKGMDNM2LVS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/tags"
+    },
+    {
+      "name": "taskattachmentdata",
+      "description": "taskattachmentdata",
+      "boclsid": "JOZ2AUPNYH04PAKWH4PJ3NJNR0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taskattachmentdata"
+    },
+    {
+      "name": "taskattachments",
+      "description": "taskattachment",
+      "boclsid": "RZDGG0FTKJ3O5IUTAXATSFKW3K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taskattachments"
+    },
+    {
+      "name": "taskchanges",
+      "description": "zmena úlohy",
+      "boclsid": "FFAJDK0B3X1O3HRY3DDJSLVUI4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taskchanges"
+    },
+    {
+      "name": "taskcomments",
+      "description": "komentáre k úlohám",
+      "boclsid": "3ANM11UGRKC4FGBJXHY3DKB5FC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taskcomments"
+    },
+    {
+      "name": "tasklists",
+      "description": "tasklist",
+      "boclsid": "VTCAVPMYSA4450ZG4XVEUA2JQ0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/tasklists"
+    },
+    {
+      "name": "tasknotifications",
+      "description": "tasknotification",
+      "boclsid": "RHG4ZU14QOC43CY5B1NMRO5SWS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/tasknotifications"
+    },
+    {
+      "name": "taskrelations",
+      "description": "väzby úloh na business objekty",
+      "boclsid": "0JWD5HQPL1IONCKMDVR3A4OZ2W",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taskrelations"
+    },
+    {
+      "name": "tasks",
+      "description": "Úlohy",
+      "boclsid": "Q1ZMZREFXWC45CR2NGZYW3R5OO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/tasks"
+    },
+    {
+      "name": "tasktags",
+      "description": "tasktag",
+      "boclsid": "WZ5X20KB5FD4R1XR3CE23CAJTC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/tasktags"
+    },
+    {
+      "name": "taxdepreciationgroups",
+      "description": "daňová odpisová skupina",
+      "boclsid": "O4LMSVMRZJE1314Z00C5PPZRR4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taxdepreciationgroups"
+    },
+    {
+      "name": "taxoffices",
+      "description": "pracovisko gfr",
+      "boclsid": "YBQQB152HNC41EYXELXADU3ZRG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/taxoffices"
+    },
+    {
+      "name": "transportationtypes",
+      "description": "spôsob dopravy",
+      "boclsid": "5B5FINKNYNDL3C5P00CA141B44",
+      "ref": "http://localhost:80/demo/api-docs/openapi/transportationtypes"
+    },
+    {
+      "name": "trmcars",
+      "description": "vozidlo",
+      "boclsid": "A0K4JBLYQ5GONHAZFMQBAQ2NMW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/trmcars"
+    },
+    {
+      "name": "trmcartypes",
+      "description": "typ vozidla",
+      "boclsid": "YWXOKAPJHWF431J5S5WHKKVNPK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/trmcartypes"
+    },
+    {
+      "name": "trmdrivercategories",
+      "description": "kategórie vodiča",
+      "boclsid": "PE2WQV2LTPVOZEZBITHENQVGCG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/trmdrivercategories"
+    },
+    {
+      "name": "trmdriverclasses",
+      "description": "trieda vodiča",
+      "boclsid": "U4TPHY3BPF2OXEPFB4U51Q2K1W",
+      "ref": "http://localhost:80/demo/api-docs/openapi/trmdriverclasses"
+    },
+    {
+      "name": "trmdrivers",
+      "description": "vodič",
+      "boclsid": "YLDB3SQX4MH4LI1HVEBIX0CVGW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/trmdrivers"
+    },
+    {
+      "name": "trmfueltypes",
+      "description": "druh phm",
+      "boclsid": "ZS0YYHT0P234FDARLB02ORE01O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/trmfueltypes"
+    },
+    {
+      "name": "trmpublictranstariffs",
+      "description": "tarifa od",
+      "boclsid": "MV02IX0ZZHE4FERHJZHQYTGZ4W",
+      "ref": "http://localhost:80/demo/api-docs/openapi/trmpublictranstariffs"
+    },
+    {
+      "name": "typesofbegin",
+      "description": "spôsob začiatku pracovného pomeru",
+      "boclsid": "WMKRJBDZYHN4BGOLZF3GKRSX5W",
+      "ref": "http://localhost:80/demo/api-docs/openapi/typesofbegin"
+    },
+    {
+      "name": "typesofend",
+      "description": "spôsob ukončenia pracovného pomeru",
+      "boclsid": "SJKAY2TLQSQOTE3CXHY3RCGVRO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/typesofend"
+    },
+    {
+      "name": "units",
+      "description": "jednotka",
+      "boclsid": "1XY42PUACPROX4BN1K4LTRGMC4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/units"
+    },
+    {
+      "name": "unreliablefirmlogfirms",
+      "description": "kontrola nespoľahlivosti platiteľa dph - firma",
+      "boclsid": "HTPSZVHNHAN4H1IPJIASZYFDBG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/unreliablefirmlogfirms"
+    },
+    {
+      "name": "unreliablefirmlogs",
+      "description": "kontrola nespoľahlivosti platiteľov dph - protokol",
+      "boclsid": "ABLLBFOSG5V4XFJKNRJDRMFBSO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/unreliablefirmlogs"
+    },
+    {
+      "name": "userdefinedforms",
+      "description": "definovateľný formulár",
+      "boclsid": "G1P50I05CJF13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/userdefinedforms"
+    },
+    {
+      "name": "userfielddefs",
+      "description": "sada definovateľných položiek",
+      "boclsid": "W1MZBIJR3VF13JXR00KEZYD5AW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/userfielddefs"
+    },
+    {
+      "name": "userparamdefs",
+      "description": "definícia parametrov",
+      "boclsid": "SQR02QDLZJCOBD3LOHY4Q1MVNC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/userparamdefs"
+    },
+    {
+      "name": "userparamgroups",
+      "description": "skupina parametrov",
+      "boclsid": "WTJMZ44QWR1O5BLP24W4ZKMNPW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/userparamgroups"
+    },
+    {
+      "name": "utils",
+      "description": "zdroje pre funkcie v ms exceli",
+      "boclsid": "00000000000000000000000000",
+      "ref": "http://localhost:80/demo/api-docs/openapi/utils"
+    },
+    {
+      "name": "vatclosings",
+      "description": "uzávierka dph",
+      "boclsid": "EPXJ3GDLIOZ41FPIS3POB3NUCS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/vatclosings"
+    },
+    {
+      "name": "vatindexes",
+      "description": "dph index",
+      "boclsid": "04OGVINDGZD13FY1010DELDFKK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/vatindexes"
+    },
+    {
+      "name": "vatissueddepositcreditnotes",
+      "description": "dobropis daň.zál.listu vydaného",
+      "boclsid": "5QPO4RN24LKOF24T0TBXRQZ5UO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/vatissueddepositcreditnotes"
+    },
+    {
+      "name": "vatissueddepositinvoices",
+      "description": "daňový zálohový list vydaný",
+      "boclsid": "S3YFE5QQNYQORJXLJWXDL3QV0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/vatissueddepositinvoices"
+    },
+    {
+      "name": "vatrates",
+      "description": "dph sadzba",
+      "boclsid": "ZSHD5MXH4Z24J0H2Y2R2VUZPEG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/vatrates"
+    },
+    {
+      "name": "vatreceiveddepositcreditnotes",
+      "description": "dobropis daň.zál.listu prijatého",
+      "boclsid": "SSAYCIGEIXZ4V3BDAESTJQ4ZR4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/vatreceiveddepositcreditnotes"
+    },
+    {
+      "name": "vatreceiveddepositinvoices",
+      "description": "daňový zálohový list prijatý",
+      "boclsid": "ZJYWUH5I34J4VAAIHOB0ZA1FIO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/vatreceiveddepositinvoices"
+    },
+    {
+      "name": "vatregistrations",
+      "description": "dph registrácia v inej krajine",
+      "boclsid": "FUO2QHI1WRV4ZAHYK532BTYPH4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/vatregistrations"
+    },
+    {
+      "name": "vatsummarydefinitions",
+      "description": "definícia pre dph priznanie",
+      "boclsid": "KWM3VUOVEBF4HF0RPMRTW51JUK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/vatsummarydefinitions"
+    },
+    {
+      "name": "viescheckvatresponses",
+      "description": "overenie iČ dph v systéme vies",
+      "boclsid": "T42T40PTDFN4RE1M331BQDRSXS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/viescheckvatresponses"
+    },
+    {
+      "name": "virtualpos",
+      "description": "pokladničné miesto",
+      "boclsid": "43QOWY2O53EL3JY400C5PPZRN0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/virtualpos"
+    },
+    {
+      "name": "wageclosingbooks",
+      "description": "uzávierka miezd",
+      "boclsid": "SVHSKSQSIBP4NJ5HDTKSV0RMO0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wageclosingbooks"
+    },
+    {
+      "name": "wageclosingdefs",
+      "description": "definícia výpočtu uzávierky",
+      "boclsid": "IZEOB0N0IQ4OPGQLFZ0TQAR4GC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wageclosingdefs"
+    },
+    {
+      "name": "wageconstants",
+      "description": "globálna premenná",
+      "boclsid": "0RTFXRQHFNIO3BBR02APINRKPS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wageconstants"
+    },
+    {
+      "name": "wagelistpartials",
+      "description": "mzdový list čiastkový",
+      "boclsid": "W1ZICXOZCBF13JXS00KEZYD5AW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wagelistpartials"
+    },
+    {
+      "name": "wagenotices",
+      "description": "Úloha",
+      "boclsid": "HHJUG2WPFSA4RF0V1N2BYIHYCK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wagenotices"
+    },
+    {
+      "name": "wagenoticetypes",
+      "description": "typ úlohy",
+      "boclsid": "EL5RS0DREGAOVBMJKIY1UZDBJC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wagenoticetypes"
+    },
+    {
+      "name": "wageoperationtypes",
+      "description": "druhy výkonov",
+      "boclsid": "5CDJJUZCD3TO1DWAOHINSMP2MW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wageoperationtypes"
+    },
+    {
+      "name": "wagepaymentorderssources",
+      "description": "podklad pre žiadosť o platobný príkaz z miezd",
+      "boclsid": "RXYXLHQNTDEORECW0SOCWCGMB0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wagepaymentorderssources"
+    },
+    {
+      "name": "wageperiods",
+      "description": "mzdové obdobie",
+      "boclsid": "QUCSC0QN3JF13FG501C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wageperiods"
+    },
+    {
+      "name": "wageregistrationeventtypes",
+      "description": "typy akcií registrácie zamestnanca",
+      "boclsid": "YAWP42RIHR34PI22M130S25GBO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wageregistrationeventtypes"
+    },
+    {
+      "name": "wageregistrationsectors",
+      "description": "sektory registrácie zamestnanca (eessi)",
+      "boclsid": "PUZSLZHDUUD4VINNAQSWRQ5ET4",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wageregistrationsectors"
+    },
+    {
+      "name": "wagesubmissionrejectreasons",
+      "description": "dôvod odmietnutia podania jmhz",
+      "boclsid": "PEIXHOPOEKCOX3SX4XVU0ZZ1WO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wagesubmissionrejectreasons"
+    },
+    {
+      "name": "wagesummaries",
+      "description": "jednotné mesačné hlásenie zamestnávateľov",
+      "boclsid": "G4S1AWG0E2445HHIAIOM4R2ZRK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wagesummaries"
+    },
+    {
+      "name": "wagesummaryregistrations",
+      "description": "registrácia zamestnanca",
+      "boclsid": "DP0PYFRS44HORJPAEN30UIRE3S",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wagesummaryregistrations"
+    },
+    {
+      "name": "wagetaxtables",
+      "description": "daňová tabuľka",
+      "boclsid": "S4AICWMZZJE13JB301C0C2VN0K",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wagetaxtables"
+    },
+    {
+      "name": "wastecategories",
+      "description": "kategória odpadu",
+      "boclsid": "25BTEHFNNK045GBFW0SXE4O0ZO",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wastecategories"
+    },
+    {
+      "name": "watchdogpoints",
+      "description": "kontrolný bod",
+      "boclsid": "TM5TEPG1HSGORFQPKWMJPNNBMC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/watchdogpoints"
+    },
+    {
+      "name": "watchdogrequests",
+      "description": "definícia automatickej správy",
+      "boclsid": "UNSBCKHK4ZEOT1JXNB5YZG22US",
+      "ref": "http://localhost:80/demo/api-docs/openapi/watchdogrequests"
+    },
+    {
+      "name": "whispererdefinitions",
+      "description": "definícia našepkávača",
+      "boclsid": "NWOO0NN1RGQOP1R21F1I41OMDS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/whispererdefinitions"
+    },
+    {
+      "name": "wikifiles",
+      "description": "wiki súbor",
+      "boclsid": "QTSS4GIAALROTB3RMPM1LUJBJ0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wikifiles"
+    },
+    {
+      "name": "wikipages",
+      "description": "wiki stránka",
+      "boclsid": "B3L5NQWN1YS4PAJOVKYTQGMZ0O",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wikipages"
+    },
+    {
+      "name": "wikipagestyles",
+      "description": "systémový súbor štýlov",
+      "boclsid": "P1W4H5AP1WNOFFMWFLJFLSJMWG",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wikipagestyles"
+    },
+    {
+      "name": "wikispaces",
+      "description": "wiki priestor",
+      "boclsid": "5JCLAOBVJZLO3AKMFCAO5P3WOW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wikispaces"
+    },
+    {
+      "name": "wikiuserstyles",
+      "description": "wiki používateľský štýl",
+      "boclsid": "LN4QDBCKLRW4535H2C5ICK1HP0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wikiuserstyles"
+    },
+    {
+      "name": "wlclosings",
+      "description": "dochádzka - uzávierka",
+      "boclsid": "UII0UEPYXZ54TGFPO3OKSEHTSK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wlclosings"
+    },
+    {
+      "name": "wlentrytypes",
+      "description": "dochádzka - druh činnosti",
+      "boclsid": "3PWDNB2QORKOLCLAJQAHZQIALC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wlentrytypes"
+    },
+    {
+      "name": "wlwagetransferdefs",
+      "description": "dochádzka - definícia prenosu do miezd",
+      "boclsid": "CQCEUJNGDM44P550OFNNBEI4LS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wlwagetransferdefs"
+    },
+    {
+      "name": "wlworkers",
+      "description": "dochádzka - pracovníci",
+      "boclsid": "GE1X23OEECUOF32YRZ11U0EN2G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wlworkers"
+    },
+    {
+      "name": "wlworklogs",
+      "description": "dochádzka - prehľad dochádzky",
+      "boclsid": "WHSKSXIKZ3XOVDKLMNKHPBKCSK",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wlworklogs"
+    },
+    {
+      "name": "workingfunds",
+      "description": "fondy pracovnej doby pre týždenný úväzok",
+      "boclsid": "VUTPFUKUARU4DDRYPYMXON5DES",
+      "ref": "http://localhost:80/demo/api-docs/openapi/workingfunds"
+    },
+    {
+      "name": "workinginjuries",
+      "description": "pracovný úraz",
+      "boclsid": "RHRCNCIYCNDOJ3P50XSTMDMOFS",
+      "ref": "http://localhost:80/demo/api-docs/openapi/workinginjuries"
+    },
+    {
+      "name": "workingrelations",
+      "description": "pracovný pomer",
+      "boclsid": "RFW3EQ50IEVOF2F5F33OWL1GXC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/workingrelations"
+    },
+    {
+      "name": "worklocationtypes",
+      "description": "typy miest priebehu práce",
+      "boclsid": "GHS1144NR0T4FHUJ1KLVNNUJGC",
+      "ref": "http://localhost:80/demo/api-docs/openapi/worklocationtypes"
+    },
+    {
+      "name": "workpositions",
+      "description": "pracovné zaradenie",
+      "boclsid": "M0WG20LFN534R35EMBKAPD4JRW",
+      "ref": "http://localhost:80/demo/api-docs/openapi/workpositions"
+    },
+    {
+      "name": "workscheduletypes",
+      "description": "pracovné režimy",
+      "boclsid": "UHITZREMH40OV0WBAXWXSRRYI0",
+      "ref": "http://localhost:80/demo/api-docs/openapi/workscheduletypes"
+    },
+    {
+      "name": "wsoperations",
+      "description": "operácia pre webovú službu",
+      "boclsid": "YDIHWNIPQY44V2SRH45QHHUS3G",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wsoperations"
+    },
+    {
+      "name": "wsservices",
+      "description": "webová služba",
+      "boclsid": "2N2XVAYGEJ341JNPEWT5QLNM00",
+      "ref": "http://localhost:80/demo/api-docs/openapi/wsservices"
+    }
+  ]
+}

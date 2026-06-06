@@ -1,0 +1,80 @@
+# Dependencies & build
+bin/
+obj/
+node_modules/
+dist/
+build/
+.next/
+.expo/
+*.tsbuildinfo
+
+# Python (if used for scripts/BFF)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets/
+
+# IDE & OS
+.idea/
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
+*.swp
+*~
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs & local runtime
+logs/
+*.log
+*.log.*
+
+# Mobile / native tooling
+*.jks
+*.keystore
+*.mobileprovision
+*.ipa
+*.apk
+*.aab
+android/.gradle/
+android/app/build/
+ios/Pods/
+ios/build/
+DerivedData/
+
+# OpenAPI / audit artifacts (regenerate locally)
+architecture/reference/openapi/*.json
+!architecture/reference/openapi/.gitkeep
+architecture/reference/spike/openapi/*.json
+
+# Local overrides (never commit tenant-specific URLs)
+config/local.yaml
+config/local.json
+config/config.yaml
+analysis/spikes/crmactivities-lifecycle-results.json
+analysis/spikes/contact-model-results.json
+analysis/spikes/sales-representative-results.json
+
+# Cursor (optional local overrides; keep rules in repo)
+.cursor/*.local

@@ -1,0 +1,12 @@
+---
+description: Rules for future application source under src/
+globs: src/**/*
+alwaysApply: false
+---
+
+# Source code rules (when implemented)
+
+- Organise by journey and `integration/` Gen client — not by duplicate entity DB.
+- Map Gen DTOs in `integration/`; UI labels in `mobile/` only.
+- Read `architecture/mvp/solution-overview.md` before new modules.
+- Tests in `tests/integration/` for OpenAPI contracts; avoid mock-only truth for Gen behaviour.

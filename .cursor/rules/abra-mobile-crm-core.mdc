@@ -1,0 +1,28 @@
+---
+description: Core project constraints for ABRA Mobile CRM
+alwaysApply: true
+---
+
+# ABRA Mobile CRM — core rules
+
+## Source of truth
+
+- **ABRA Gen** is the only authoritative store for firms, contacts, activities, and sales documents.
+- Do not introduce SQLite/local DB replicas of Gen business entities.
+- Use exact Gen OpenAPI JSON property names in the integration layer.
+
+## Architecture
+
+- **MVP scope** is defined in `analysis/requirements/mvp-scope.md` — do not expand without updating that file.
+- **Online-only** for MVP: block writes when offline; no sync queue (ADR 0002).
+- Prefer Gen 26+ patterns: `GET` + `select`/`expand`, header `POST`/`PUT` with `validation=true`; avoid collection sub-paths that return 404.
+
+## Process
+
+- **Documentation first**: update analysis/architecture/docs before or with code changes.
+- Significant choices → new ADR in `docs/decisions/`.
+- No application code in doc-only tasks unless explicitly requested.
+
+## References
+
+- `AGENTS.md`, `architecture/abra-gen-integration.md`, `docs/decisions/`

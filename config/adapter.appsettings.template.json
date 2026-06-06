@@ -1,0 +1,7 @@
+{
+  "Gen": {
+    "BaseUrl": "http://localhost/demo",
+    "TimeoutSeconds": 60,
+    "TimeZoneId": "Europe/Bratislava"
+  }
+}

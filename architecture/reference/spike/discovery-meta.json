@@ -1,0 +1,7 @@
+{
+  "discovered_at": "2026-06-04T14:16:51.206107+00:00",
+  "base_url": "http://localhost/demo",
+  "index_url": "http://localhost/demo/api-docs/openapis",
+  "total_controllers": 521,
+  "crm_controller_count": 88
+}

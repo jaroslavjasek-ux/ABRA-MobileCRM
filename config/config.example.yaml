@@ -1,0 +1,46 @@
+# Copy to config.yaml and adjust. Do not commit secrets.
+
+app:
+  name: ABRA Mobile CRM
+
+abra:
+  base_url: "http://localhost/demo"
+  timeout_sec: 60
+  verify_ssl: true
+  auth:
+    type: basic
+    username: api
+    password: "CHANGE_ME"
+    bearer_token: ""
+    api_key: ""
+    api_key_header: X-Api-Key
+
+discovery:
+  output_dir: architecture/reference/spike
+  crm_keywords:
+    - firm
+    - contact
+    - person
+    - crm
+    - activity
+    - opportunity
+    - calendar
+    - appointment
+    - task
+    - receivedorder
+    - issuedorder
+    - order
+    - offer
+    - quote
+    - receivable
+    - invoice
+    - businesspartner
+    - address
+    - storecard
+    - employee
+    - user
+    - worker
+    - meeting
+    - visit
+    - pipeline
+    - deal
