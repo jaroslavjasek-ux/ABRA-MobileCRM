@@ -10,18 +10,65 @@ namespace MobileCrm.Adapter.Controllers;
 [Route("api/v1/activities")]
 public sealed class ActivitiesController : ControllerBase
 {
+    private const string FollowUpCreateFailedCode = "FOLLOW_UP_CREATE_FAILED";
+
     private readonly IActivityService _activities;
+    private readonly IActivityCreateService _activityCreate;
     private readonly IRepresentativeService _representatives;
+    private readonly IUserLookupService _users;
     private readonly ILogger<ActivitiesController> _logger;
 
     public ActivitiesController(
         IActivityService activities,
+        IActivityCreateService activityCreate,
         IRepresentativeService representatives,
+        IUserLookupService users,
         ILogger<ActivitiesController> logger)
     {
         _activities = activities;
+        _activityCreate = activityCreate;
         _representatives = representatives;
+        _users = users;
         _logger = logger;
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<ActivityDetailResponseDto>> Create(
+        [FromBody] CreateActivityRequestDto request,
+        CancellationToken ct = default)
+    {
+        _logger.LogInformation(
+            "POST /api/v1/activities sourceActivityId={SourceActivityId} traceId={TraceId}",
+            request.SourceActivityId,
+            HttpContext.TraceIdentifier);
+
+        var validationError = ValidateCreateRequest(request);
+        if (validationError is not null)
+        {
+            return validationError;
+        }
+
+        var session = GetSession();
+        var assignedUserError = await ValidateAssignedUserAsync(session, request.AssignedUserId, "assignedUserId", ct);
+        if (assignedUserError is not null)
+        {
+            return assignedUserError;
+        }
+
+        var resolvedAssignedUserId = ResolveAssignedUserId(request.AssignedUserId, session.RepUserId);
+
+        var result = await _activityCreate.CreateAsync(
+            session.Credentials,
+            session.RepUserId,
+            new CreateActivityCommand(
+                request.SourceActivityId.Trim(),
+                request.Subject.Trim(),
+                DateTimeOffset.Parse(request.ScheduledStart),
+                string.IsNullOrWhiteSpace(request.Description) ? null : request.Description.Trim(),
+                resolvedAssignedUserId),
+            ct);
+
+        return MapOperationResult(result);
     }
 
     [HttpGet("{activityId}")]
@@ -97,7 +144,26 @@ public sealed class ActivitiesController : ControllerBase
             });
         }
 
+        var followUpValidation = ValidateFollowUpRequest(request.FollowUp);
+        if (followUpValidation is not null)
+        {
+            return followUpValidation;
+        }
+
         var session = GetSession();
+        if (request.FollowUp?.Enabled == true)
+        {
+            var assignedUserError = await ValidateAssignedUserAsync(
+                session,
+                request.FollowUp.AssignedUserId,
+                "followUp.assignedUserId",
+                ct);
+            if (assignedUserError is not null)
+            {
+                return assignedUserError;
+            }
+        }
+
         var authorDisplayName = await ResolveAuthorDisplayNameAsync(session, ct);
         var result = await _activities.CompleteAsync(
             session.Credentials,
@@ -108,7 +174,70 @@ public sealed class ActivitiesController : ControllerBase
             authorDisplayName,
             ct);
 
-        return MapOperationResult(result);
+        if (result.Value is null)
+        {
+            return MapOperationResult(result);
+        }
+
+        GenActivityDetail completedDetail = result.Value;
+        GenActivityDetail? followUpDetail = null;
+        List<ApiWarningDto>? warnings = null;
+
+        if (request.FollowUp?.Enabled == true)
+        {
+            var resolvedAssignedUserId = ResolveAssignedUserId(request.FollowUp.AssignedUserId, session.RepUserId);
+
+            var followUpResult = await _activityCreate.CreateAsync(
+                session.Credentials,
+                session.RepUserId,
+                new CreateActivityCommand(
+                    activityId,
+                    request.FollowUp.Subject!.Trim(),
+                    DateTimeOffset.Parse(request.FollowUp.ScheduledStart!),
+                    string.IsNullOrWhiteSpace(request.FollowUp.Description)
+                        ? null
+                        : request.FollowUp.Description.Trim(),
+                    resolvedAssignedUserId,
+                    string.IsNullOrWhiteSpace(completedDetail.Description)
+                        ? null
+                        : completedDetail.Description.Trim(),
+                    string.IsNullOrWhiteSpace(completedDetail.Answer)
+                        ? null
+                        : completedDetail.Answer.Trim()),
+                ct);
+
+            if (followUpResult.Value is not null)
+            {
+                followUpDetail = followUpResult.Value;
+                var refetched = await _activities.GetDetailAsync(
+                    session.Credentials,
+                    activityId,
+                    session.RepUserId,
+                    ct);
+                if (refetched is not null)
+                {
+                    completedDetail = refetched;
+                }
+            }
+            else
+            {
+                _logger.LogWarning(
+                    "Follow-up create failed after complete activityId={ActivityId} error={Error} message={Message}",
+                    activityId,
+                    followUpResult.Error,
+                    followUpResult.Message);
+                warnings =
+                [
+                    new ApiWarningDto
+                    {
+                        Code = FollowUpCreateFailedCode,
+                        Message = followUpResult.Message ?? "Follow-up activity could not be created.",
+                    },
+                ];
+            }
+        }
+
+        return Ok(ApiMapping.ToDto(completedDetail, followUpDetail, warnings));
     }
 
     [HttpPut("{activityId}/note")]
@@ -181,6 +310,15 @@ public sealed class ActivitiesController : ControllerBase
                     TraceId = HttpContext.TraceIdentifier,
                 },
             }),
+            ActivityOperationErrorCode.MissingReferenceFields => UnprocessableEntity(new ApiErrorDto
+            {
+                Error = new ApiErrorBodyDto
+                {
+                    Code = "VALIDATION_FAILED",
+                    Message = result.Message ?? "Source activity is missing required reference fields.",
+                    TraceId = HttpContext.TraceIdentifier,
+                },
+            }),
             ActivityOperationErrorCode.GenValidationFailed => UnprocessableEntity(new ApiErrorDto
             {
                 Error = new ApiErrorBodyDto
@@ -204,6 +342,123 @@ public sealed class ActivitiesController : ControllerBase
         };
     }
 
+    private UnprocessableEntityObjectResult? ValidateFollowUpRequest(ScheduleFollowUpRequestDto? followUp)
+    {
+        if (followUp is null || !followUp.Enabled)
+        {
+            return null;
+        }
+
+        var details = new List<ApiErrorDetailDto>();
+
+        if (string.IsNullOrWhiteSpace(followUp.Subject))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "followUp.subject",
+                Message = "Follow-up subject is required.",
+            });
+        }
+
+        if (string.IsNullOrWhiteSpace(followUp.ScheduledStart))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "followUp.scheduledStart",
+                Message = "Follow-up scheduled start is required.",
+            });
+        }
+        else if (!DateTimeOffset.TryParse(followUp.ScheduledStart, out _))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "followUp.scheduledStart",
+                Message = "Follow-up scheduled start must be a valid ISO-8601 date/time.",
+            });
+        }
+
+        if (string.IsNullOrWhiteSpace(followUp.AssignedUserId))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "followUp.assignedUserId",
+                Message = "Follow-up assigned user is required.",
+            });
+        }
+
+        if (details.Count == 0)
+        {
+            return null;
+        }
+
+        return UnprocessableEntity(new ApiErrorDto
+        {
+            Error = new ApiErrorBodyDto
+            {
+                Code = "VALIDATION_FAILED",
+                Message = "Follow-up validation failed.",
+                Details = details,
+                TraceId = HttpContext.TraceIdentifier,
+            },
+        });
+    }
+
+    private UnprocessableEntityObjectResult? ValidateCreateRequest(CreateActivityRequestDto request)
+    {
+        var details = new List<ApiErrorDetailDto>();
+
+        if (string.IsNullOrWhiteSpace(request.SourceActivityId))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "sourceActivityId",
+                Message = "Source activity ID is required.",
+            });
+        }
+
+        if (string.IsNullOrWhiteSpace(request.Subject))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "subject",
+                Message = "Subject is required.",
+            });
+        }
+
+        if (string.IsNullOrWhiteSpace(request.ScheduledStart))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "scheduledStart",
+                Message = "Scheduled start is required.",
+            });
+        }
+        else if (!DateTimeOffset.TryParse(request.ScheduledStart, out _))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "scheduledStart",
+                Message = "Scheduled start must be a valid ISO-8601 date/time.",
+            });
+        }
+
+        if (details.Count == 0)
+        {
+            return null;
+        }
+
+        return UnprocessableEntity(new ApiErrorDto
+        {
+            Error = new ApiErrorBodyDto
+            {
+                Code = "VALIDATION_FAILED",
+                Message = "Request validation failed.",
+                Details = details,
+                TraceId = HttpContext.TraceIdentifier,
+            },
+        });
+    }
+
     private NotFoundObjectResult ActivityNotFound() =>
         NotFound(new ApiErrorDto
         {
@@ -214,6 +469,45 @@ public sealed class ActivitiesController : ControllerBase
                 TraceId = HttpContext.TraceIdentifier,
             },
         });
+
+    private static string ResolveAssignedUserId(string? assignedUserId, string sessionRepUserId) =>
+        string.IsNullOrWhiteSpace(assignedUserId) ? sessionRepUserId : assignedUserId.Trim();
+
+    private async Task<UnprocessableEntityObjectResult?> ValidateAssignedUserAsync(
+        UserSession session,
+        string? assignedUserId,
+        string fieldName,
+        CancellationToken ct)
+    {
+        if (string.IsNullOrWhiteSpace(assignedUserId))
+        {
+            return null;
+        }
+
+        var user = await _users.GetByIdAsync(session.Credentials, assignedUserId.Trim(), ct);
+        if (user is null || !user.IsActive)
+        {
+            return UnprocessableEntity(new ApiErrorDto
+            {
+                Error = new ApiErrorBodyDto
+                {
+                    Code = "VALIDATION_FAILED",
+                    Message = "Assigned user is not valid.",
+                    Details =
+                    [
+                        new ApiErrorDetailDto
+                        {
+                            Field = fieldName,
+                            Message = "Assigned user was not found or is inactive.",
+                        },
+                    ],
+                    TraceId = HttpContext.TraceIdentifier,
+                },
+            });
+        }
+
+        return null;
+    }
 
     private UserSession GetSession() =>
         HttpContext.Items[SessionConstants.HttpContextItemKey] as UserSession
@@ -230,7 +524,7 @@ public sealed class ActivitiesController : ControllerBase
         {
             _logger.LogWarning(
                 ex,
-                "Could not resolve display name for rep {RepUserId}; appending answer without author",
+                "Could not resolve display name for rep {RepUserId}; prepending answer without author",
                 session.RepUserId);
             return null;
         }

@@ -5,6 +5,7 @@ public enum ActivityOperationErrorCode
     NotFound,
     NotEditable,
     MissingFirm,
+    MissingReferenceFields,
     GenValidationFailed,
 }
 

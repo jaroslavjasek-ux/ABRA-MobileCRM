@@ -1,0 +1,24 @@
+Keďže sa ti to už stalo viackrát, odporúčam pripraviť si dva .cmd súbory.
+
+start-backend.cmd
+cd /d D:\ABRA\ABRA-MobileCRM\src\MobileCrm.Adapter
+dotnet run
+pause
+start-frontend.cmd
+cd /d D:\ABRA\ABRA-MobileCRM\src\MobileCrm.Web
+npm run dev
+pause
+
+Potom po reštarte len dvojklik:
+
+start-backend.cmd
+start-frontend.cmd
+===
+Skript na spustenie oboch :
+start cmd /k "cd /d D:\ABRA\ABRA-MobileCRM\src\MobileCrm.Adapter && dotnet run"
+start cmd /k "cd /d D:\ABRA\ABRA-MobileCRM\src\MobileCrm.Web && npm run dev"
+===
+Máme užívateľov :
+JANO / 123
+DARA / 123
+MANE / 123

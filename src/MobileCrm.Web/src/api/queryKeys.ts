@@ -6,4 +6,5 @@ export const queryKeys = {
   contactDetail: (id: string, firmId?: string) =>
     ["contacts", "detail", id, firmId ?? ""] as const,
   activityDetail: (id: string) => ["activities", "detail", id] as const,
+  users: (q?: string) => ["users", q ?? ""] as const,
 };

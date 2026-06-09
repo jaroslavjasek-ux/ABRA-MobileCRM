@@ -1,0 +1,417 @@
+{
+  "base_url": "http://localhost/demo",
+  "ids": {
+    "JANO": "1200000101",
+    "API": "2610000101",
+    "MANE": "1300000101",
+    "DARA": "4300000101",
+    "Obchodnik": "6000000101",
+    "Technik": "1500000101",
+    "Predajca": "1000000101"
+  },
+  "scenarios": [
+    {
+      "label": "A-Obchodnik-JANO",
+      "validate_status": 200,
+      "validate_errors": {
+        "count": 0,
+        "values": []
+      },
+      "commit_status": 201,
+      "activity_id": "J200000101",
+      "persisted": {
+        "ID": "J200000101",
+        "DisplayName": "PrHo-18/2006",
+        "ResponsibleUser_ID": null,
+        "SolverUser_ID": "1200000101",
+        "SolverRole_ID": "6000000101",
+        "ResponsibleRole_ID": null,
+        "CreatedBy_ID": "2610000101",
+        "Status": 0
+      },
+      "mobile_myday_ownership_filter": {
+        "JANO": true,
+        "MANE": false,
+        "DARA": false,
+        "API": true
+      },
+      "solver_role_membership": {
+        "JANO": false,
+        "MANE": true,
+        "DARA": false,
+        "API": false
+      }
+    },
+    {
+      "label": "B-Technik-NULL",
+      "validate_status": 200,
+      "validate_errors": {
+        "count": 0,
+        "values": []
+      },
+      "commit_status": 201,
+      "activity_id": "L200000101",
+      "persisted": {
+        "ID": "L200000101",
+        "DisplayName": "PrHo-19/2006",
+        "ResponsibleUser_ID": null,
+        "SolverUser_ID": null,
+        "SolverRole_ID": "1500000101",
+        "ResponsibleRole_ID": null,
+        "CreatedBy_ID": "2610000101",
+        "Status": 0
+      },
+      "mobile_myday_ownership_filter": {
+        "JANO": false,
+        "MANE": false,
+        "DARA": false,
+        "API": true
+      },
+      "solver_role_membership": {
+        "JANO": false,
+        "MANE": false,
+        "DARA": true,
+        "API": false
+      }
+    },
+    {
+      "label": "C-Technik-DARA",
+      "validate_status": 200,
+      "validate_errors": {
+        "count": 0,
+        "values": []
+      },
+      "commit_status": 201,
+      "activity_id": "N200000101",
+      "persisted": {
+        "ID": "N200000101",
+        "DisplayName": "PrHo-20/2006",
+        "ResponsibleUser_ID": null,
+        "SolverUser_ID": "4300000101",
+        "SolverRole_ID": "1500000101",
+        "ResponsibleRole_ID": null,
+        "CreatedBy_ID": "2610000101",
+        "Status": 0
+      },
+      "mobile_myday_ownership_filter": {
+        "JANO": false,
+        "MANE": false,
+        "DARA": true,
+        "API": true
+      },
+      "solver_role_membership": {
+        "JANO": false,
+        "MANE": false,
+        "DARA": true,
+        "API": false
+      }
+    },
+    {
+      "label": "D-SolverUser-only-JANO",
+      "validate_status": 200,
+      "validate_errors": {
+        "count": 0,
+        "values": []
+      },
+      "commit_status": 201,
+      "activity_id": "P200000101",
+      "persisted": {
+        "ID": "P200000101",
+        "DisplayName": "PrHo-21/2006",
+        "ResponsibleUser_ID": null,
+        "SolverUser_ID": "1200000101",
+        "SolverRole_ID": "1000000101",
+        "ResponsibleRole_ID": null,
+        "CreatedBy_ID": "2610000101",
+        "Status": 0
+      },
+      "mobile_myday_ownership_filter": {
+        "JANO": true,
+        "MANE": false,
+        "DARA": false,
+        "API": true
+      },
+      "solver_role_membership": {
+        "JANO": false,
+        "MANE": false,
+        "DARA": false,
+        "API": false
+      }
+    },
+    {
+      "label": "E-ResponsibleUser-only-JANO",
+      "validate_status": 200,
+      "validate_errors": {
+        "count": 0,
+        "values": []
+      },
+      "commit_status": 201,
+      "activity_id": "R200000101",
+      "persisted": {
+        "ID": "R200000101",
+        "DisplayName": "PrHo-22/2006",
+        "ResponsibleUser_ID": "1200000101",
+        "SolverUser_ID": null,
+        "SolverRole_ID": "1000000101",
+        "ResponsibleRole_ID": null,
+        "CreatedBy_ID": "2610000101",
+        "Status": 0
+      },
+      "mobile_myday_ownership_filter": {
+        "JANO": true,
+        "MANE": false,
+        "DARA": false,
+        "API": true
+      },
+      "solver_role_membership": {
+        "JANO": false,
+        "MANE": false,
+        "DARA": false,
+        "API": false
+      }
+    }
+  ],
+  "api_probes": {
+    "securityroles?take=5&select=ID,Name,ShortName": {
+      "status": 200,
+      "response": [
+        {
+          "ID": "SUPER00000",
+          "Name": "rola Supervisor",
+          "ShortName": "Supervisor"
+        },
+        {
+          "ID": "1000000101",
+          "Name": "rola Predajca",
+          "ShortName": "Predajca"
+        },
+        {
+          "ID": "2000000101",
+          "Name": "rola Skladník",
+          "ShortName": "Skladník"
+        },
+        {
+          "ID": "3000000101",
+          "Name": "rola Účtovník",
+          "ShortName": "Účtov."
+        },
+        {
+          "ID": "4000000101",
+          "Name": "rola Riaditeľ",
+          "ShortName": "Ředitel"
+        }
+      ]
+    },
+    "securityusers?take=5&select=ID,Name,LoginName": {
+      "status": 200,
+      "response": [
+        {
+          "ID": "SUPER00000",
+          "Name": "Supervisor",
+          "LoginName": "Supervisor"
+        },
+        {
+          "ID": "AUTO000000",
+          "Name": "Automat",
+          "LoginName": "Automat"
+        },
+        {
+          "ID": "1600000101",
+          "Name": "Eva Kusá",
+          "LoginName": "Predavač - Eva Kusá"
+        },
+        {
+          "ID": "1200000101",
+          "Name": "Jaroslav Novák",
+          "LoginName": "JANO"
+        },
+        {
+          "ID": "1300000101",
+          "Name": "Martin Nejedlý",
+          "LoginName": "Obchodník - Martin Nejedlý"
+        }
+      ]
+    },
+    "securityroles/6000000101/securityusers?take=10": {
+      "status": 200,
+      "response": [
+        {
+          "address_id": "1500000101",
+          "asktonps": true,
+          "bi_gid": "A4ZDEV1LFVP13EZL01C5HIS00C",
+          "biaccess": false,
+          "dpbypass": false,
+          "id": "1300000101",
+          "ignorecloseonidle": false,
+          "jwtlogin": false,
+          "jwtrefreshvalidfrom": null,
+          "locked": false,
+          "loginname": "Obchodník - Martin Nejedlý",
+          "name": "Martin Nejedlý",
+          "note": "",
+          "objversion": 22,
+          "offertologin": true,
+          "person_id": null,
+          "portalloginname": "",
+          "portalsecpassword": null,
+          "portalsecpassword@masked": true,
+          "requestpasswordchange": false,
+          "secpassword": null,
+          "secpassword@masked": true,
+          "sectoken": null,
+          "sectoken@masked": true,
+          "sectokenfastlogin": false,
+          "shortname": "MANE",
+          "webapiaccess": false
+        }
+      ]
+    },
+    "securityroles/1500000101/securityusers?take=10": {
+      "status": 200,
+      "response": [
+        {
+          "address_id": "4500000101",
+          "asktonps": true,
+          "bi_gid": "03KEEV1LFVP13EZL01C5HIS00C",
+          "biaccess": false,
+          "dpbypass": false,
+          "id": "4300000101",
+          "ignorecloseonidle": false,
+          "jwtlogin": false,
+          "jwtrefreshvalidfrom": null,
+          "locked": false,
+          "loginname": "Technik - Daniel Rasák",
+          "name": "Daniel Rasák",
+          "note": "",
+          "objversion": 20,
+          "offertologin": true,
+          "person_id": null,
+          "portalloginname": "",
+          "portalsecpassword": null,
+          "portalsecpassword@masked": true,
+          "requestpasswordchange": false,
+          "secpassword": null,
+          "secpassword@masked": true,
+          "sectoken": null,
+          "sectoken@masked": true,
+          "sectokenfastlogin": false,
+          "shortname": "DARA",
+          "webapiaccess": false
+        },
+        {
+          "address_id": "W6M0000101",
+          "asktonps": true,
+          "bi_gid": "00000000000000000000000000",
+          "biaccess": false,
+          "dpbypass": false,
+          "id": "2600000101",
+          "ignorecloseonidle": false,
+          "jwtlogin": false,
+          "jwtrefreshvalidfrom": "2023-12-08T14:15:27.592Z",
+          "locked": true,
+          "loginname": "Technolog - Jan Novák",
+          "name": "Jan Novák",
+          "note": "",
+          "objversion": 10,
+          "offertologin": true,
+          "person_id": null,
+          "portalloginname": "",
+          "portalsecpassword": null,
+          "portalsecpassword@masked": true,
+          "requestpasswordchange": false,
+          "secpassword": null,
+          "secpassword@masked": true,
+          "sectoken": null,
+          "sectoken@masked": true,
+          "sectokenfastlogin": false,
+          "shortname": "JANO",
+          "webapiaccess": false
+        }
+      ]
+    },
+    "securityusers/1200000101/securityroles?take=10": {
+      "status": 200,
+      "response": [
+        {
+          "hidden": false,
+          "id": "SUPER00000",
+          "isimpersonal": false,
+          "name": "rola Supervisor",
+          "note": "",
+          "objversion": 1,
+          "parent_id": null,
+          "shiftcalendar_id": null,
+          "shortname": "Supervisor"
+        },
+        {
+          "hidden": false,
+          "id": "4000000101",
+          "isimpersonal": false,
+          "name": "rola Riaditeľ",
+          "note": "",
+          "objversion": 6,
+          "parent_id": null,
+          "shiftcalendar_id": null,
+          "shortname": "Ředitel"
+        },
+        {
+          "hidden": false,
+          "id": "2500000101",
+          "isimpersonal": false,
+          "name": "spätná kompatibilita 1",
+          "note": "Automaticky pridaná rola kvôli spätnej kompatibilite s nastavenými právami k agendám, ku ktorým bol doteraz neobmedzený prístup. Je určená na dočasné použitie pre súčasných užívateľov, ako sa pre tieto agendy práva správne nakonfigurujú.",
+          "objversion": 1,
+          "parent_id": null,
+          "shiftcalendar_id": null,
+          "shortname": "UP_COMP_01"
+        }
+      ]
+    },
+    "currentuser": {
+      "status": 200,
+      "response": {
+        "id": "2610000101",
+        "name": "API",
+        "email": "",
+        "loginname": "API"
+      }
+    }
+  },
+  "open_activity_samples": [
+    {
+      "field": "SolverUser_ID",
+      "user": "1200000101",
+      "status": 400,
+      "sample": []
+    },
+    {
+      "field": "ResponsibleUser_ID",
+      "user": "1200000101",
+      "status": 400,
+      "sample": []
+    },
+    {
+      "field": "CreatedBy_ID",
+      "user": "1200000101",
+      "status": 200,
+      "sample": [
+        {
+          "ID": "8200000101",
+          "Subject": "odovzdané kontrole kvality -  6.6.2026 10:18",
+          "CreatedBy_ID": "1200000101",
+          "SolverRole_ID": "4000000101",
+          "ResponsibleUser_ID": "1200000101",
+          "SolverUser_ID": "2610000101"
+        },
+        {
+          "ID": "B200000101",
+          "Subject": "odovzdané kontrole kvality",
+          "CreatedBy_ID": "1200000101",
+          "SolverRole_ID": "6000000101",
+          "ResponsibleUser_ID": null,
+          "SolverUser_ID": null
+        }
+      ]
+    }
+  ]
+}

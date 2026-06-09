@@ -39,12 +39,18 @@ public interface IActivityService
 public sealed class ActivityService : IActivityService
 {
     private readonly IGenApiClient _gen;
+    private readonly IUserLookupService _users;
     private readonly GenOptions _options;
     private readonly ILogger<ActivityService> _logger;
 
-    public ActivityService(IGenApiClient gen, IOptions<GenOptions> options, ILogger<ActivityService> logger)
+    public ActivityService(
+        IGenApiClient gen,
+        IUserLookupService users,
+        IOptions<GenOptions> options,
+        ILogger<ActivityService> logger)
     {
         _gen = gen;
+        _users = users;
         _options = options.Value;
         _logger = logger;
     }
@@ -435,6 +441,10 @@ public sealed class ActivityService : IActivityService
         }
 
         var typeName = await ResolveActivityTypeNameAsync(credentials, row.ActivityTypeId, ct);
+        var ownerDisplayName = await ResolveOwnerDisplayNameAsync(
+            credentials,
+            ActivityMapper.GetOwnerId(root) ?? ActivityMapper.GetSolverUserId(root),
+            ct);
 
         return new GenActivityDetail(
             row.Id,
@@ -450,9 +460,32 @@ public sealed class ActivityService : IActivityService
             firm,
             contact,
             ActivityMapper.GetOwnerId(root),
+            ownerDisplayName,
             canStart,
             canComplete,
             canAddNote);
+    }
+
+    private async Task<string?> ResolveOwnerDisplayNameAsync(
+        GenCredentials credentials,
+        string? userId,
+        CancellationToken ct)
+    {
+        if (string.IsNullOrWhiteSpace(userId))
+        {
+            return null;
+        }
+
+        try
+        {
+            var user = await _users.GetByIdAsync(credentials, userId, ct);
+            return string.IsNullOrWhiteSpace(user?.DisplayName) ? null : user.DisplayName.Trim();
+        }
+        catch (GenApiException ex)
+        {
+            _logger.LogDebug(ex, "Could not resolve display name for user {UserId}", userId);
+            return null;
+        }
     }
 
     private static ActivityOperationResult<GenActivityDetail>? EvaluateNoteAllowed(

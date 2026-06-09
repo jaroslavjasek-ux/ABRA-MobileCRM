@@ -26,6 +26,7 @@ public sealed record GenActivityDetail(
     GenFirmSummary Firm,
     GenContactSummary? Contact,
     string? OwnerId,
+    string? OwnerDisplayName,
     bool CanEdit,
     bool CanComplete,
     bool CanAddNote);
@@ -92,9 +93,24 @@ public static class ActivityMapper
         var subject = GenJsonHelper.GetString(el, "Subject", "subject") ?? "";
         var statusCode = GenJsonHelper.GetInt(el, "Status", "status");
         var firmId = GenJsonHelper.GetString(el, "Firm_ID", "firm_ID", "firm_id", "firmId");
-        var typeId = GenJsonHelper.GetString(el, "ActivityType_ID", "activityType_ID", "activityTypeId");
-        var start = GenJsonHelper.GetDateTime(el, "SheduledStart$DATE", "sheduledStart$DATE", "scheduledStart");
-        var end = GenJsonHelper.GetDateTime(el, "SheduledEnd$DATE", "sheduledEnd$DATE", "scheduledEnd");
+        var typeId = GenJsonHelper.GetString(
+            el,
+            "ActivityType_ID",
+            "activityType_ID",
+            "activitytype_id",
+            "activityTypeId");
+        var start = GenJsonHelper.GetDateTime(
+            el,
+            "SheduledStart$DATE",
+            "sheduledStart$DATE",
+            "sheduledstart$date",
+            "scheduledStart");
+        var end = GenJsonHelper.GetDateTime(
+            el,
+            "SheduledEnd$DATE",
+            "sheduledEnd$DATE",
+            "sheduledend$date",
+            "scheduledEnd");
 
         return new GenActivityRow(
             id,
@@ -197,7 +213,27 @@ public static class ActivityMapper
         GenJsonHelper.GetString(el, "Answer", "answer");
 
     /// <summary>
-    /// Appends a new completion note to existing ABRA Answer without overwriting prior content.
+    /// Resolves Description and Answer for a follow-up activity created from a source row.
+    /// Gen does not copy text fields when <c>Source_ID</c> is set — adapter must send them explicitly.
+    /// </summary>
+    public static (string? Description, string? Answer) ResolveFollowUpTextFields(
+        string? sourceDescription,
+        string? sourceAnswer,
+        string? userDescription)
+    {
+        var description = !string.IsNullOrWhiteSpace(userDescription)
+            ? userDescription.Trim()
+            : string.IsNullOrWhiteSpace(sourceDescription)
+                ? null
+                : sourceDescription.Trim();
+
+        var answer = string.IsNullOrWhiteSpace(sourceAnswer) ? null : sourceAnswer.Trim();
+
+        return (description, answer);
+    }
+
+    /// <summary>
+    /// Prepends a new note to existing ABRA Answer (newest first) without overwriting prior content.
     /// </summary>
     public static string AppendAnswer(
         string? existingAnswer,
@@ -206,12 +242,15 @@ public static class ActivityMapper
         string? author = null)
     {
         var trimmedNew = newEntry.Trim();
+        var header = FormatAnswerHeader(timestamp, author);
+        var formattedEntry = $"{header}\n{trimmedNew}";
+
         if (string.IsNullOrWhiteSpace(existingAnswer))
         {
-            return trimmedNew;
+            return formattedEntry;
         }
 
-        return $"{existingAnswer.TrimEnd()}\n\n---\n\n{FormatAnswerHeader(timestamp, author)}\n{trimmedNew}";
+        return $"{formattedEntry}\n\n---\n\n{existingAnswer.Trim()}";
     }
 
     private static string FormatAnswerHeader(DateTimeOffset timestamp, string? author)
@@ -229,8 +268,62 @@ public static class ActivityMapper
     }
 
     public static string? GetPersonId(JsonElement el) =>
-        GenJsonHelper.GetString(el, "Person_ID", "person_ID", "personId");
+        GenJsonHelper.GetString(el, "Person_ID", "person_ID", "person_id", "personId");
 
     public static string? GetOwnerId(JsonElement el) =>
+        GetResponsibleUserId(el);
+
+    public static string? GetResponsibleUserId(JsonElement el) =>
         GenJsonHelper.GetString(el, "ResponsibleUser_ID", "responsibleuser_id", "responsibleUserId");
+
+    public static string? GetSolverUserId(JsonElement el) =>
+        GenJsonHelper.GetString(el, "SolverUser_ID", "solveruser_id", "solverUserId");
+
+    public static string? GetBusOrderId(JsonElement el) =>
+        GenJsonHelper.GetString(el, "BusOrder_ID", "busorder_id");
+
+    public static string? GetBusProjectId(JsonElement el) =>
+        GenJsonHelper.GetString(el, "BusProject_ID", "busproject_id");
+
+    public static string? GetBusTransactionId(JsonElement el) =>
+        GenJsonHelper.GetString(el, "BusTransaction_ID", "bustransaction_id");
+
+    public sealed record GenActivityReferenceFields(
+        string ActQueueId,
+        string PeriodId,
+        string DivisionId,
+        string SolverRoleId,
+        string ActivityAreaId);
+
+    public static bool TryGetReferenceFields(JsonElement el, out GenActivityReferenceFields fields)
+    {
+        var actQueue = GenJsonHelper.GetString(el, "ActQueue_ID", "actqueue_id");
+        var period = GenJsonHelper.GetString(el, "Period_ID", "period_id");
+        var division = GenJsonHelper.GetString(el, "Division_ID", "division_id");
+        var solverRole = GenJsonHelper.GetString(el, "SolverRole_ID", "solverrole_id");
+        var activityArea = GenJsonHelper.GetString(el, "ActivityArea_ID", "activityarea_id");
+
+        if (string.IsNullOrWhiteSpace(actQueue)
+            || string.IsNullOrWhiteSpace(period)
+            || string.IsNullOrWhiteSpace(division)
+            || string.IsNullOrWhiteSpace(solverRole)
+            || string.IsNullOrWhiteSpace(activityArea))
+        {
+            fields = default!;
+            return false;
+        }
+
+        fields = new GenActivityReferenceFields(
+            actQueue,
+            period,
+            division,
+            solverRole,
+            activityArea);
+        return true;
+    }
+
+    public static bool IsValidPersonId(string? personId) =>
+        !string.IsNullOrWhiteSpace(personId)
+        && personId is not "0000000000"
+        && personId is not "__________";
 }

@@ -771,6 +771,62 @@ body {
   margin-top: 0.75rem;
 }
 
+.field--checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.field--checkbox input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+}
+
+.activity-follow-up-fields {
+  margin-top: 0.75rem;
+  padding-left: 0.25rem;
+  border-left: 3px solid var(--color-border, #e2e8f0);
+}
+
+.follow-up-schedule {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.follow-up-schedule-date,
+.follow-up-schedule-time {
+  flex: 1 1 auto;
+  min-width: 8rem;
+}
+
+.follow-up-schedule-preview {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted, #64748b);
+}
+
+.activity-complete-success {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+}
+
+.activity-complete-success-line {
+  margin: 0.25rem 0;
+  font-weight: 500;
+  color: #065f46;
+}
+
+.activity-complete-success-warning {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
 .activity-action-error {
   margin-top: 0.75rem;
 }

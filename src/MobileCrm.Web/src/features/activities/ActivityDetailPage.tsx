@@ -1,8 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { addActivityNote, completeActivity, getActivity, startActivity } from "@/api/activities";
 import { queryKeys } from "@/api/queryKeys";
+import { searchUsers } from "@/api/users";
+import { useAuth } from "@/auth/AuthContext";
 import {
   activityDetailPath,
   contactDetailPath,
@@ -11,6 +13,11 @@ import {
 import { isUnauthorized, isServiceUnavailable, ApiError } from "@/lib/errors";
 import { useI18n } from "@/i18n";
 import { ActivityDocumentNumber } from "@/features/activities/ActivityDocumentNumber";
+import {
+  defaultFollowUpSchedule,
+  followUpScheduleToIso,
+  isFollowUpScheduleComplete,
+} from "@/features/activities/followUpDefaults";
 
 type LocationState = { from?: string };
 
@@ -28,14 +35,27 @@ export function ActivityDetailPage() {
   const location = useLocation();
   const queryClient = useQueryClient();
   const backTo = (location.state as LocationState | null)?.from ?? "/app/my-day";
-  const { t, formatScheduleRange, formatActivityStatus } = useI18n();
+  const { t, formatScheduleRange, formatActivityStatus, formatDateTimeFull } = useI18n();
+  const { representative } = useAuth();
 
   const [outcome, setOutcome] = useState("");
+  const [scheduleFollowUp, setScheduleFollowUp] = useState(true);
+  const [followUpSubject, setFollowUpSubject] = useState("");
+  const [followUpDate, setFollowUpDate] = useState(() => defaultFollowUpSchedule().date);
+  const [followUpTime, setFollowUpTime] = useState(() => defaultFollowUpSchedule().time);
+  const [followUpAssignedUserId, setFollowUpAssignedUserId] = useState("");
   const [noteText, setNoteText] = useState("");
   const [showNoteForm, setShowNoteForm] = useState(false);
   const [actionError, setActionError] = useState<string | null>(null);
   const [outcomeError, setOutcomeError] = useState<string | null>(null);
+  const [followUpSubjectError, setFollowUpSubjectError] = useState<string | null>(null);
+  const [followUpStartError, setFollowUpStartError] = useState<string | null>(null);
+  const [followUpAssignedUserError, setFollowUpAssignedUserError] = useState<string | null>(null);
   const [noteError, setNoteError] = useState<string | null>(null);
+  const [completeSuccess, setCompleteSuccess] = useState<{
+    followUpScheduled: boolean;
+    followUpWarning: string | null;
+  } | null>(null);
 
   const detailQuery = useQuery({
     queryKey: queryKeys.activityDetail(activityId ?? ""),
@@ -43,6 +63,12 @@ export function ActivityDetailPage() {
     enabled: Boolean(activityId),
     staleTime: 0,
     refetchOnMount: "always",
+  });
+
+  const usersQuery = useQuery({
+    queryKey: queryKeys.users(),
+    queryFn: () => searchUsers(undefined, 50),
+    staleTime: 60_000,
   });
 
   const invalidateRelated = (firmId?: string) => {
@@ -66,14 +92,23 @@ export function ActivityDetailPage() {
   });
 
   const completeMutation = useMutation({
-    mutationFn: () =>
-      completeActivity(activityId!, {
-        answer: outcome.trim(),
-      }),
+    mutationFn: (payload: Parameters<typeof completeActivity>[1]) =>
+      completeActivity(activityId!, payload),
     onSuccess: (updated) => {
       setActionError(null);
       setOutcomeError(null);
+      setFollowUpSubjectError(null);
+      setFollowUpStartError(null);
       setOutcome("");
+      setScheduleFollowUp(true);
+      const followUpFailed = updated.warnings?.some((w) => w.code === "FOLLOW_UP_CREATE_FAILED");
+      setCompleteSuccess({
+        followUpScheduled: Boolean(updated.followUpActivity) && !followUpFailed,
+        followUpWarning: followUpFailed
+          ? (updated.warnings?.find((w) => w.code === "FOLLOW_UP_CREATE_FAILED")?.message ??
+            t("activity.followUpCreateFailed"))
+          : null,
+      });
       queryClient.setQueryData(queryKeys.activityDetail(activityId!), updated);
       invalidateRelated(updated.firm?.id);
     },
@@ -128,15 +163,64 @@ export function ActivityDetailPage() {
     noteMutation.mutate();
   };
 
+  useEffect(() => {
+    if (data?.subject) {
+      setFollowUpSubject((prev) => prev || data.subject);
+    }
+  }, [data?.subject]);
+
+  useEffect(() => {
+    if (representative?.id) {
+      setFollowUpAssignedUserId((current) => current || representative.id);
+    }
+  }, [representative?.id]);
+
   const handleComplete = (e: FormEvent) => {
     e.preventDefault();
     setActionError(null);
+    setCompleteSuccess(null);
     if (!outcome.trim()) {
       setOutcomeError(t("activity.outcomeRequired"));
       return;
     }
     setOutcomeError(null);
-    completeMutation.mutate();
+
+    if (scheduleFollowUp) {
+      let followUpValid = true;
+      if (!followUpSubject.trim()) {
+        setFollowUpSubjectError(t("activity.followUpSubjectRequired"));
+        followUpValid = false;
+      } else {
+        setFollowUpSubjectError(null);
+      }
+      if (!isFollowUpScheduleComplete(followUpDate, followUpTime)) {
+        setFollowUpStartError(t("activity.followUpStartRequired"));
+        followUpValid = false;
+      } else {
+        setFollowUpStartError(null);
+      }
+      if (!followUpAssignedUserId.trim()) {
+        setFollowUpAssignedUserError(t("activity.followUpAssignedUserRequired"));
+        followUpValid = false;
+      } else {
+        setFollowUpAssignedUserError(null);
+      }
+      if (!followUpValid) {
+        return;
+      }
+    }
+
+    completeMutation.mutate({
+      answer: outcome.trim(),
+      followUp: scheduleFollowUp
+        ? {
+            enabled: true,
+            subject: followUpSubject.trim(),
+            scheduledStart: followUpScheduleToIso(followUpDate, followUpTime),
+            assignedUserId: followUpAssignedUserId.trim(),
+          }
+        : { enabled: false },
+    });
   };
 
   return (
@@ -180,6 +264,13 @@ export function ActivityDetailPage() {
               {formatScheduleRange(data.scheduledStart, data.scheduledEnd)}
             </p>
           </section>
+
+          {data.ownerDisplayName && (
+            <section className="detail-section detail-section--compact">
+              <h2>{t("activity.assignedUser")}</h2>
+              <p>{data.ownerDisplayName}</p>
+            </section>
+          )}
 
           {data.firm?.id && (
             <section className="detail-section detail-section--compact">
@@ -336,6 +427,22 @@ export function ActivityDetailPage() {
             </section>
           )}
 
+          {completeSuccess && terminal && (
+            <section className="activity-complete-success" role="status">
+              <p className="activity-complete-success-line">✓ {t("activity.completeSuccess")}</p>
+              {completeSuccess.followUpScheduled && (
+                <p className="activity-complete-success-line">
+                  ✓ {t("activity.followUpScheduledSuccess")}
+                </p>
+              )}
+              {completeSuccess.followUpWarning && (
+                <p className="error activity-complete-success-warning" role="alert">
+                  {completeSuccess.followUpWarning}
+                </p>
+              )}
+            </section>
+          )}
+
           {isActionableStatus(data.status) && data.canComplete && (
             <section className="activity-actions">
               <form className="activity-complete-form" onSubmit={handleComplete}>
@@ -360,6 +467,127 @@ export function ActivityDetailPage() {
                     {outcomeError}
                   </p>
                 )}
+
+                <label className="field field--checkbox">
+                  <input
+                    type="checkbox"
+                    checked={scheduleFollowUp}
+                    disabled={busy}
+                    onChange={(e) => {
+                      setScheduleFollowUp(e.target.checked);
+                      setFollowUpSubjectError(null);
+                      setFollowUpStartError(null);
+                      setFollowUpAssignedUserError(null);
+                    }}
+                  />
+                  <span>{t("activity.scheduleNextStep")}</span>
+                </label>
+
+                {scheduleFollowUp && (
+                  <div className="activity-follow-up-fields">
+                    <label className="field">
+                      <span>{t("activity.followUpSubject")}</span>
+                      <input
+                        type="text"
+                        value={followUpSubject}
+                        onChange={(e) => {
+                          setFollowUpSubject(e.target.value);
+                          if (followUpSubjectError) {
+                            setFollowUpSubjectError(null);
+                          }
+                        }}
+                        placeholder={t("activity.followUpSubjectPlaceholder")}
+                        disabled={busy}
+                        required
+                      />
+                    </label>
+                    {followUpSubjectError && (
+                      <p className="error" role="alert">
+                        {followUpSubjectError}
+                      </p>
+                    )}
+                    <div className="field">
+                      <span>{t("activity.followUpScheduledStart")}</span>
+                      <div className="follow-up-schedule">
+                        <input
+                          type="date"
+                          className="follow-up-schedule-date"
+                          value={followUpDate}
+                          onChange={(e) => {
+                            setFollowUpDate(e.target.value);
+                            if (followUpStartError) {
+                              setFollowUpStartError(null);
+                            }
+                          }}
+                          disabled={busy}
+                          required
+                        />
+                        <input
+                          type="time"
+                          className="follow-up-schedule-time"
+                          value={followUpTime}
+                          step={60}
+                          onChange={(e) => {
+                            setFollowUpTime(e.target.value);
+                            if (followUpStartError) {
+                              setFollowUpStartError(null);
+                            }
+                          }}
+                          disabled={busy}
+                          required
+                        />
+                      </div>
+                      {isFollowUpScheduleComplete(followUpDate, followUpTime) && (
+                        <p className="follow-up-schedule-preview">
+                          {formatDateTimeFull(followUpScheduleToIso(followUpDate, followUpTime))}
+                        </p>
+                      )}
+                    </div>
+                    {followUpStartError && (
+                      <p className="error" role="alert">
+                        {followUpStartError}
+                      </p>
+                    )}
+                    <label className="field">
+                      <span>{t("activity.followUpAssignedUser")}</span>
+                      <select
+                        value={followUpAssignedUserId}
+                        onChange={(e) => {
+                          setFollowUpAssignedUserId(e.target.value);
+                          if (followUpAssignedUserError) {
+                            setFollowUpAssignedUserError(null);
+                          }
+                        }}
+                        disabled={busy || usersQuery.isLoading}
+                        required
+                      >
+                        {!followUpAssignedUserId && (
+                          <option value="">{t("loading.connecting")}</option>
+                        )}
+                        {(usersQuery.data?.items ?? []).map((user) => (
+                          <option key={user.id} value={user.id}>
+                            {user.displayName} ({user.loginName})
+                          </option>
+                        ))}
+                        {followUpAssignedUserId &&
+                          !(usersQuery.data?.items ?? []).some(
+                            (user) => user.id === followUpAssignedUserId,
+                          ) &&
+                          representative && (
+                            <option value={representative.id}>
+                              {representative.displayName}
+                            </option>
+                          )}
+                      </select>
+                    </label>
+                    {followUpAssignedUserError && (
+                      <p className="error" role="alert">
+                        {followUpAssignedUserError}
+                      </p>
+                    )}
+                  </div>
+                )}
+
                 <button type="submit" className="btn-primary" disabled={busy}>
                   {completeMutation.isPending ? t("activity.completing") : t("activity.complete")}
                 </button>
@@ -389,6 +617,15 @@ function resolveActionError(
       const fieldNote = err.body?.details?.find((d) => d.field === "note");
       if (fieldNote || field === "note") {
         return t("activity.noteRequired");
+      }
+      if (err.body?.details?.some((d) => d.field === "followUp.subject")) {
+        return t("activity.followUpSubjectRequired");
+      }
+      if (err.body?.details?.some((d) => d.field === "followUp.scheduledStart")) {
+        return t("activity.followUpStartRequired");
+      }
+      if (err.body?.details?.some((d) => d.field === "followUp.assignedUserId")) {
+        return t("activity.followUpAssignedUserRequired");
       }
     }
     return err.message || t("activity.actionFailed");

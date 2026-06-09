@@ -26,6 +26,11 @@ public interface IGenApiClient
         GenCredentials credentials,
         object body,
         CancellationToken ct = default);
+    Task<JsonElement> PostAsync(
+        string pathAndQuery,
+        GenCredentials credentials,
+        object body,
+        CancellationToken ct = default);
     Task<bool> PingAsync(GenCredentials credentials, CancellationToken ct = default);
 }
 
@@ -91,6 +96,41 @@ public sealed class GenApiClient : IGenApiClient
         var url = $"{baseUrl}/{path}";
 
         using var request = new HttpRequestMessage(HttpMethod.Put, url);
+        request.Headers.Authorization = CreateBasicAuth(credentials);
+        request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        request.Content = new StringContent(
+            JsonSerializer.Serialize(body, GenJsonHelper.Options),
+            Encoding.UTF8,
+            "application/json");
+
+        using var response = await _http.SendAsync(request, ct);
+        var text = await response.Content.ReadAsStringAsync(ct);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new GenApiException((int)response.StatusCode, text);
+        }
+
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return default;
+        }
+
+        using var doc = JsonDocument.Parse(text);
+        return doc.RootElement.Clone();
+    }
+
+    public async Task<JsonElement> PostAsync(
+        string pathAndQuery,
+        GenCredentials credentials,
+        object body,
+        CancellationToken ct = default)
+    {
+        var baseUrl = _options.BaseUrl.TrimEnd('/');
+        var path = pathAndQuery.TrimStart('/');
+        var url = $"{baseUrl}/{path}";
+
+        using var request = new HttpRequestMessage(HttpMethod.Post, url);
         request.Headers.Authorization = CreateBasicAuth(credentials);
         request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         request.Content = new StringContent(

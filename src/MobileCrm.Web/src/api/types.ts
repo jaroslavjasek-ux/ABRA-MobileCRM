@@ -120,9 +120,30 @@ export type FirmDetailResponse = {
   };
 };
 
+export type ScheduleFollowUpRequest = {
+  enabled: boolean;
+  subject?: string;
+  scheduledStart?: string;
+  description?: string;
+  assignedUserId?: string;
+};
+
 export type CompleteActivityRequest = {
   answer: string;
   description?: string;
+  followUp?: ScheduleFollowUpRequest;
+};
+
+export type FollowUpActivitySummary = {
+  id: string;
+  documentNumber?: string;
+  subject: string;
+  scheduledStart: string;
+};
+
+export type ApiWarning = {
+  code: string;
+  message: string;
 };
 
 export type AddActivityNoteRequest = {
@@ -148,6 +169,8 @@ export type ActivityDetailResponse = {
   canComplete: boolean;
   canAddNote: boolean;
   lastModifiedAt?: string;
+  followUpActivity?: FollowUpActivitySummary;
+  warnings?: ApiWarning[];
   meta?: { schemaVersion?: string };
 };
 

@@ -148,15 +148,70 @@ public sealed class FirmDetailResponseDto
     public object? Meta { get; init; }
 }
 
+public sealed class ScheduleFollowUpRequestDto
+{
+    public bool Enabled { get; init; } = true;
+
+    public string? Subject { get; init; }
+
+    /// <summary>ISO-8601 instant for the follow-up activity.</summary>
+    public string? ScheduledStart { get; init; }
+
+    public string? Description { get; init; }
+
+    /// <summary>Gen securityuser id for SolverUser_ID and ResponsibleUser_ID. Defaults to session rep.</summary>
+    public string? AssignedUserId { get; init; }
+}
+
 public sealed class CompleteActivityRequestDto
 {
     public required string Answer { get; init; }
+
     public string? Description { get; init; }
+
+    public ScheduleFollowUpRequestDto? FollowUp { get; init; }
+}
+
+public sealed class FollowUpActivitySummaryDto
+{
+    public required string Id { get; init; }
+
+    public string? DocumentNumber { get; init; }
+
+    public required string Subject { get; init; }
+
+    public required string ScheduledStart { get; init; }
+}
+
+public sealed class ApiWarningDto
+{
+    public required string Code { get; init; }
+
+    public required string Message { get; init; }
 }
 
 public sealed class AddActivityNoteRequestDto
 {
     public required string Note { get; init; }
+}
+
+/// <summary>
+/// Create a new CRM activity inheriting context from an existing source activity (Sprint 3A Scenario C).
+/// </summary>
+public sealed class CreateActivityRequestDto
+{
+    /// <summary>Activity to inherit firm, type, contact, and Gen reference fields from.</summary>
+    public required string SourceActivityId { get; init; }
+
+    public required string Subject { get; init; }
+
+    /// <summary>ISO-8601 instant (maps to Gen SheduledStart$DATE).</summary>
+    public required string ScheduledStart { get; init; }
+
+    public string? Description { get; init; }
+
+    /// <summary>Gen securityuser id for SolverUser_ID and ResponsibleUser_ID. Defaults to session rep.</summary>
+    public string? AssignedUserId { get; init; }
 }
 
 public sealed class ActivityDetailResponseDto
@@ -179,6 +234,8 @@ public sealed class ActivityDetailResponseDto
     public bool CanComplete { get; init; }
     public bool CanAddNote { get; init; }
     public string? LastModifiedAt { get; init; }
+    public FollowUpActivitySummaryDto? FollowUpActivity { get; init; }
+    public IReadOnlyList<ApiWarningDto>? Warnings { get; init; }
     public object? Meta { get; init; }
 }
 

@@ -103,7 +103,10 @@ public static class ApiMapping
         };
     }
 
-    public static ActivityDetailResponseDto ToDto(Gen.GenActivityDetail detail) => new()
+    public static ActivityDetailResponseDto ToDto(
+        Gen.GenActivityDetail detail,
+        Gen.GenActivityDetail? followUp = null,
+        IReadOnlyList<ApiWarningDto>? warnings = null) => new()
     {
         Id = detail.Id,
         DocumentNumber = detail.DocumentNumber,
@@ -118,11 +121,21 @@ public static class ApiMapping
         Firm = ToDto(detail.Firm),
         Contact = detail.Contact is null ? null : ToDto(detail.Contact),
         OwnerId = detail.OwnerId,
-        OwnerDisplayName = null,
+        OwnerDisplayName = detail.OwnerDisplayName,
         CanEdit = detail.CanEdit,
         CanComplete = detail.CanComplete,
         CanAddNote = detail.CanAddNote,
+        FollowUpActivity = followUp is null ? null : ToFollowUpSummary(followUp),
+        Warnings = warnings,
         Meta = new { schemaVersion = "1.0" },
+    };
+
+    public static FollowUpActivitySummaryDto ToFollowUpSummary(Gen.GenActivityDetail followUp) => new()
+    {
+        Id = followUp.Id,
+        DocumentNumber = followUp.DocumentNumber,
+        Subject = followUp.Subject,
+        ScheduledStart = (followUp.ScheduledStart ?? DateTimeOffset.UtcNow).ToString("o"),
     };
 
     public static ContactDetailResponseDto ToDto(Gen.GenContactDetail contact) => new()
