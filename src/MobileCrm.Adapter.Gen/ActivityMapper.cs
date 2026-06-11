@@ -44,8 +44,12 @@ public static class ActivityMapper
 
     public static string ActivitySelectList => ActivitySelect;
 
+    /// <summary>
+    /// My Day ownership: activities the rep is expected to work on (solver or responsible).
+    /// Does not include <c>CreatedBy_ID</c> — see Sprint 4.1.1.
+    /// </summary>
     public static string BuildOwnershipWhere(string repUserId) =>
-        $"(ResponsibleUser_ID eq '{repUserId}' or SolverUser_ID eq '{repUserId}' or CreatedBy_ID eq '{repUserId}')";
+        $"(ResponsibleUser_ID eq '{repUserId}' or SolverUser_ID eq '{repUserId}')";
 
     public static string BuildActivitiesQuery(string repUserId, int take) =>
         $"crmactivities?select={Uri.EscapeDataString(ActivitySelect)}&where={Uri.EscapeDataString(BuildOwnershipWhere(repUserId))}&take={take}";

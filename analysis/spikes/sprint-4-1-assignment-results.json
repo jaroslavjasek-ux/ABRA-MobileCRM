@@ -1,0 +1,32 @@
+{
+  "adapter": "http://localhost:5082/api/v1",
+  "scenarios": [
+    {
+      "name": "A_JANO_creates_for_JANO",
+      "ok": true,
+      "activityId": "O110000101",
+      "solverUserId": "1200000101",
+      "responsibleUserId": "1200000101",
+      "createdById": "1200000101",
+      "inJanoMyDay": true
+    },
+    {
+      "name": "B_JANO_creates_for_JAROJ_assignee_my_day",
+      "ok": true,
+      "activityId": "Q110000101",
+      "solverUserId": "2620000101",
+      "inJaroMyDay": true,
+      "inJanoMyDay": true,
+      "createdById": "1200000101",
+      "note": "JANO may still see via CreatedBy_ID (Gen platform rule)"
+    },
+    {
+      "name": "C_JANO_creates_for_API",
+      "ok": true,
+      "activityId": "S110000101",
+      "solverUserId": "2610000101",
+      "inApiMyDay": true
+    }
+  ],
+  "passed": true
+}

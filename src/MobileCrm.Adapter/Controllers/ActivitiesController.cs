@@ -14,6 +14,7 @@ public sealed class ActivitiesController : ControllerBase
 
     private readonly IActivityService _activities;
     private readonly IActivityCreateService _activityCreate;
+    private readonly IFirmService _firms;
     private readonly IRepresentativeService _representatives;
     private readonly IUserLookupService _users;
     private readonly ILogger<ActivitiesController> _logger;
@@ -21,12 +22,14 @@ public sealed class ActivitiesController : ControllerBase
     public ActivitiesController(
         IActivityService activities,
         IActivityCreateService activityCreate,
+        IFirmService firms,
         IRepresentativeService representatives,
         IUserLookupService users,
         ILogger<ActivitiesController> logger)
     {
         _activities = activities;
         _activityCreate = activityCreate;
+        _firms = firms;
         _representatives = representatives;
         _users = users;
         _logger = logger;
@@ -64,6 +67,99 @@ public sealed class ActivitiesController : ControllerBase
                 request.SourceActivityId.Trim(),
                 request.Subject.Trim(),
                 DateTimeOffset.Parse(request.ScheduledStart),
+                string.IsNullOrWhiteSpace(request.Description) ? null : request.Description.Trim(),
+                resolvedAssignedUserId),
+            ct);
+
+        return MapOperationResult(result);
+    }
+
+    [HttpPost("create")]
+    public async Task<ActionResult<ActivityDetailResponseDto>> CreateStandalone(
+        [FromBody] StandaloneCreateActivityRequestDto request,
+        CancellationToken ct = default)
+    {
+        _logger.LogInformation(
+            "POST /api/v1/activities/create firmId={FirmId} traceId={TraceId}",
+            request.FirmId,
+            HttpContext.TraceIdentifier);
+
+        var validationError = ValidateStandaloneCreateRequest(request);
+        if (validationError is not null)
+        {
+            return validationError;
+        }
+
+        var session = GetSession();
+        var assignedUserError = await ValidateAssignedUserAsync(
+            session,
+            request.AssignedUserId,
+            "assignedUserId",
+            ct);
+        if (assignedUserError is not null)
+        {
+            return assignedUserError;
+        }
+
+        var resolvedAssignedUserId = ResolveAssignedUserId(request.AssignedUserId, session.RepUserId);
+
+        var firm = await _firms.GetDetailAsync(session.Credentials, request.FirmId.Trim(), 0, ct);
+        if (firm is null)
+        {
+            return UnprocessableEntity(new ApiErrorDto
+            {
+                Error = new ApiErrorBodyDto
+                {
+                    Code = "VALIDATION_FAILED",
+                    Message = "Request validation failed.",
+                    Details =
+                    [
+                        new ApiErrorDetailDto
+                        {
+                            Field = "firmId",
+                            Message = "Firm was not found.",
+                        },
+                    ],
+                    TraceId = HttpContext.TraceIdentifier,
+                },
+            });
+        }
+
+        if (!string.IsNullOrWhiteSpace(request.ContactPersonId))
+        {
+            var contactId = request.ContactPersonId.Trim();
+            var contactFound = firm.Contacts.Any(c =>
+                string.Equals(c.Id, contactId, StringComparison.Ordinal));
+            if (!contactFound)
+            {
+                return UnprocessableEntity(new ApiErrorDto
+                {
+                    Error = new ApiErrorBodyDto
+                    {
+                        Code = "VALIDATION_FAILED",
+                        Message = "Request validation failed.",
+                        Details =
+                        [
+                            new ApiErrorDetailDto
+                            {
+                                Field = "contactPersonId",
+                                Message = "Contact person does not belong to the selected firm.",
+                            },
+                        ],
+                        TraceId = HttpContext.TraceIdentifier,
+                    },
+                });
+            }
+        }
+
+        var result = await _activityCreate.CreateStandaloneAsync(
+            session.Credentials,
+            session.RepUserId,
+            new StandaloneCreateActivityCommand(
+                request.Subject.Trim(),
+                DateTimeOffset.Parse(request.ScheduledStart),
+                request.FirmId.Trim(),
+                string.IsNullOrWhiteSpace(request.ContactPersonId) ? null : request.ContactPersonId.Trim(),
                 string.IsNullOrWhiteSpace(request.Description) ? null : request.Description.Trim(),
                 resolvedAssignedUserId),
             ct);
@@ -397,6 +493,63 @@ public sealed class ActivitiesController : ControllerBase
             {
                 Code = "VALIDATION_FAILED",
                 Message = "Follow-up validation failed.",
+                Details = details,
+                TraceId = HttpContext.TraceIdentifier,
+            },
+        });
+    }
+
+    private UnprocessableEntityObjectResult? ValidateStandaloneCreateRequest(
+        StandaloneCreateActivityRequestDto request)
+    {
+        var details = new List<ApiErrorDetailDto>();
+
+        if (string.IsNullOrWhiteSpace(request.Subject))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "subject",
+                Message = "Subject is required.",
+            });
+        }
+
+        if (string.IsNullOrWhiteSpace(request.FirmId))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "firmId",
+                Message = "Firm is required.",
+            });
+        }
+
+        if (string.IsNullOrWhiteSpace(request.ScheduledStart))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "scheduledStart",
+                Message = "Scheduled start is required.",
+            });
+        }
+        else if (!DateTimeOffset.TryParse(request.ScheduledStart, out _))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "scheduledStart",
+                Message = "Scheduled start must be a valid ISO-8601 date/time.",
+            });
+        }
+
+        if (details.Count == 0)
+        {
+            return null;
+        }
+
+        return UnprocessableEntity(new ApiErrorDto
+        {
+            Error = new ApiErrorBodyDto
+            {
+                Code = "VALIDATION_FAILED",
+                Message = "Request validation failed.",
                 Details = details,
                 TraceId = HttpContext.TraceIdentifier,
             },

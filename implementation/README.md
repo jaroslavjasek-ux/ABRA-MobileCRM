@@ -1,6 +1,13 @@
 # Implementation — ABRA Mobile CRM
 
-Delivery plans and sprint backlogs. **No application source** in this folder until implementation starts under `src/` per [Development Architecture v1](../architecture/development-architecture-v1.md).
+Delivery plans and sprint backlogs.
+
+## Roadmap
+
+| Document | Description |
+|----------|-------------|
+| [**roadmap.md**](roadmap.md) | **Product roadmap** — completed releases (v0.3.0), Sprint 4 plan, Mobile Projects future |
+| [sprint-4-0a-activity-creation-analysis.md](sprint-4-0a-activity-creation-analysis.md) | **Sprint 4.0A** — Gen create analysis & 4.0B design (no code) |
 
 ## Plans
 

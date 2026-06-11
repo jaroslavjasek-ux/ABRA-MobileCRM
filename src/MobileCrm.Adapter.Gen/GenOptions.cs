@@ -21,6 +21,19 @@ public sealed class GenOptions
 
     public string PersonContactSelect { get; set; } =
         "ID,FirstName,LastName,FullName,DisplayName,Grade,Address_ID,Hidden,IsEmployee";
+
+    /// <summary>Tenant defaults for standalone activity create (ActQueue, Period, Division, …).</summary>
+    public ActivityReferenceDefaultsOptions ReferenceDefaults { get; set; } = new();
+}
+
+public sealed class ActivityReferenceDefaultsOptions
+{
+    public string? ActQueueId { get; set; }
+    public string? PeriodId { get; set; }
+    public string? DivisionId { get; set; }
+    public string? SolverRoleId { get; set; }
+    public string? ActivityAreaId { get; set; }
+    public string? ActivityTypeId { get; set; }
 }
 
 public sealed class GenCredentials

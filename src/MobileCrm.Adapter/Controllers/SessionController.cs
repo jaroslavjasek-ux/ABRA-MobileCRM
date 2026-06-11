@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using MobileCrm.Adapter.Auth;
 using MobileCrm.Adapter.Gen;
 using MobileCrm.Adapter.Models;
@@ -13,15 +14,18 @@ public sealed class SessionController : ControllerBase
     private readonly ISessionStore _sessions;
     private readonly IRepresentativeService _representatives;
     private readonly IGenApiClient _gen;
+    private readonly ActivityFeatureOptions _activityFeatures;
 
     public SessionController(
         ISessionStore sessions,
         IRepresentativeService representatives,
-        IGenApiClient gen)
+        IGenApiClient gen,
+        IOptions<ActivityFeatureOptions> activityFeatures)
     {
         _sessions = sessions;
         _representatives = representatives;
         _gen = gen;
+        _activityFeatures = activityFeatures.Value;
     }
 
     [HttpPost]
@@ -78,12 +82,16 @@ public sealed class SessionController : ControllerBase
         HttpContext.Items[SessionConstants.HttpContextItemKey] as UserSession
         ?? throw new InvalidOperationException("Session missing");
 
-    private static SessionResponseDto BuildResponse(RepresentativeProfile profile, string token) => new()
+    private SessionResponseDto BuildResponse(RepresentativeProfile profile, string token) => new()
     {
         Representative = ApiMapping.ToDto(profile),
         SessionToken = token,
         ExpiresAt = null,
         Capabilities = new[] { "activities.read", "activities.write", "firms.read" },
+        ActivityFeatures = new ActivityFeaturesDto
+        {
+            CreateActivity = _activityFeatures.CreateActivity,
+        },
         Provider = new BackendProviderDto { Name = "abra-gen", Version = "demo" },
     };
 

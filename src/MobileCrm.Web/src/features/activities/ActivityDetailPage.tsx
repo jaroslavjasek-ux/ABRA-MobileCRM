@@ -19,7 +19,7 @@ import {
   isFollowUpScheduleComplete,
 } from "@/features/activities/followUpDefaults";
 
-type LocationState = { from?: string };
+type LocationState = { from?: string; activityCreated?: boolean };
 
 function isTerminalStatus(status: string): boolean {
   return status === "completed" || status === "handedOver" || status === "unknown";
@@ -34,7 +34,9 @@ export function ActivityDetailPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const queryClient = useQueryClient();
-  const backTo = (location.state as LocationState | null)?.from ?? "/app/my-day";
+  const locationState = location.state as LocationState | null;
+  const backTo = locationState?.from ?? "/app/my-day";
+  const [showCreatedSuccess] = useState(() => Boolean(locationState?.activityCreated));
   const { t, formatScheduleRange, formatActivityStatus, formatDateTimeFull } = useI18n();
   const { representative } = useAuth();
 
@@ -56,6 +58,15 @@ export function ActivityDetailPage() {
     followUpScheduled: boolean;
     followUpWarning: string | null;
   } | null>(null);
+
+  useEffect(() => {
+    if (locationState?.activityCreated) {
+      navigate(location.pathname, {
+        replace: true,
+        state: { from: locationState.from },
+      });
+    }
+  }, [location.pathname, locationState, navigate]);
 
   const detailQuery = useQuery({
     queryKey: queryKeys.activityDetail(activityId ?? ""),
@@ -258,6 +269,12 @@ export function ActivityDetailPage() {
             </span>
           </div>
 
+          {showCreatedSuccess && (
+            <section className="activity-complete-success" role="status">
+              <p className="activity-complete-success-line">✓ {t("activity.createdSuccess")}</p>
+            </section>
+          )}
+
           <section className="detail-section detail-section--compact">
             <h2>{t("activity.schedule")}</h2>
             <p className="schedule-line">
@@ -447,7 +464,11 @@ export function ActivityDetailPage() {
             <section className="activity-actions">
               <form className="activity-complete-form" onSubmit={handleComplete}>
                 <label className="field">
-                  <span>{t("activity.newOutcomeLabel")}</span>
+                  <span>
+                    {scheduleFollowUp
+                      ? t("activity.newOutcomeLabelHandover")
+                      : t("activity.newOutcomeLabel")}
+                  </span>
                   <textarea
                     rows={4}
                     value={outcome}
@@ -457,11 +478,20 @@ export function ActivityDetailPage() {
                         setOutcomeError(null);
                       }
                     }}
-                    placeholder={t("activity.newOutcomePlaceholder")}
+                    placeholder={
+                      scheduleFollowUp
+                        ? t("activity.newOutcomePlaceholderHandover")
+                        : t("activity.newOutcomePlaceholder")
+                    }
                     disabled={busy}
                     required
                   />
                 </label>
+                {scheduleFollowUp && (
+                  <p className="hint activity-outcome-handover-hint">
+                    {t("activity.outcomeHandoverHint")}
+                  </p>
+                )}
                 {outcomeError && (
                   <p className="error" role="alert">
                     {outcomeError}

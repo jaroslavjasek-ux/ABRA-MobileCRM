@@ -12,6 +12,14 @@ public sealed record CreateActivityCommand(
     string? SourceDescription = null,
     string? SourceAnswer = null);
 
+public sealed record StandaloneCreateActivityCommand(
+    string Subject,
+    DateTimeOffset ScheduledStart,
+    string FirmId,
+    string? ContactPersonId,
+    string? Description,
+    string AssignedUserId);
+
 public interface IActivityCreateService
 {
     Task<ActivityOperationResult<GenActivityDetail>> CreateAsync(
@@ -19,21 +27,32 @@ public interface IActivityCreateService
         string repUserId,
         CreateActivityCommand command,
         CancellationToken ct = default);
+
+    Task<ActivityOperationResult<GenActivityDetail>> CreateStandaloneAsync(
+        GenCredentials credentials,
+        string repUserId,
+        StandaloneCreateActivityCommand command,
+        CancellationToken ct = default);
 }
 
 public sealed class ActivityCreateService : IActivityCreateService
 {
+    private const int MaxValidateRounds = 3;
+
     private readonly IGenApiClient _gen;
     private readonly IActivityService _activities;
+    private readonly IReferenceDefaultsService _referenceDefaults;
     private readonly ILogger<ActivityCreateService> _logger;
 
     public ActivityCreateService(
         IGenApiClient gen,
         IActivityService activities,
+        IReferenceDefaultsService referenceDefaults,
         ILogger<ActivityCreateService> logger)
     {
         _gen = gen;
         _activities = activities;
+        _referenceDefaults = referenceDefaults;
         _logger = logger;
     }
 
@@ -93,10 +112,48 @@ public sealed class ActivityCreateService : IActivityCreateService
                 "Source activity is missing required Gen reference fields (ActQueue, Period, Division, SolverRole, or ActivityArea).");
         }
 
-        var body = BuildGenPayload(command, sourceRoot, sourceRow, refs, repUserId);
+        var body = BuildFollowUpGenPayload(command, sourceRoot, sourceRow, refs, repUserId);
         LogFollowUpContext(command, sourceRoot, body);
 
-        var (createError, createdId) = await PostCreateAsync(credentials, body, ct);
+        var result = await CommitAndLoadDetailAsync(credentials, repUserId, body, mergeFromValidate: false, ct);
+        if (result.Value is not null)
+        {
+            await LogChildContextAfterCreateAsync(credentials, result.Value.Id, ct);
+        }
+
+        return result;
+    }
+
+    public async Task<ActivityOperationResult<GenActivityDetail>> CreateStandaloneAsync(
+        GenCredentials credentials,
+        string repUserId,
+        StandaloneCreateActivityCommand command,
+        CancellationToken ct = default)
+    {
+        _logger.LogInformation(
+            "CreateStandaloneAsync firmId={FirmId} repUserId={RepUserId}",
+            command.FirmId,
+            repUserId);
+
+        if (!_referenceDefaults.TryGetConfiguredDefaults(out var defaults))
+        {
+            return ActivityOperationResult<GenActivityDetail>.Fail(
+                ActivityOperationErrorCode.MissingReferenceFields,
+                "Activity reference defaults are not configured for this tenant.");
+        }
+
+        var body = BuildStandaloneGenPayload(command, defaults);
+        return await CommitAndLoadDetailAsync(credentials, repUserId, body, mergeFromValidate: true, ct);
+    }
+
+    private async Task<ActivityOperationResult<GenActivityDetail>> CommitAndLoadDetailAsync(
+        GenCredentials credentials,
+        string repUserId,
+        Dictionary<string, object?> body,
+        bool mergeFromValidate,
+        CancellationToken ct)
+    {
+        var (createError, createdId) = await PostCreateAsync(credentials, body, mergeFromValidate, ct);
         if (createError is not null)
         {
             return MapPostError(createError.Value);
@@ -104,15 +161,13 @@ public sealed class ActivityCreateService : IActivityCreateService
 
         if (string.IsNullOrEmpty(createdId))
         {
-            _logger.LogError("CreateAsync commit succeeded but no activity ID was returned from Gen");
+            _logger.LogError("Create commit succeeded but no activity ID was returned from Gen");
             return ActivityOperationResult<GenActivityDetail>.Fail(
                 ActivityOperationErrorCode.GenValidationFailed,
                 "Gen did not return a created activity ID.");
         }
 
-        _logger.LogInformation("CreateAsync committed id={CreatedId}", createdId);
-
-        await LogChildContextAfterCreateAsync(credentials, createdId, ct);
+        _logger.LogInformation("Create committed id={CreatedId}", createdId);
 
         var detail = await _activities.GetDetailAsync(credentials, createdId, repUserId, ct);
         if (detail is null)
@@ -125,7 +180,42 @@ public sealed class ActivityCreateService : IActivityCreateService
         return ActivityOperationResult<GenActivityDetail>.Ok(detail);
     }
 
-    private static Dictionary<string, object?> BuildGenPayload(
+    private static Dictionary<string, object?> BuildStandaloneGenPayload(
+        StandaloneCreateActivityCommand command,
+        ActivityReferenceDefaults defaults)
+    {
+        // AssignedUserId is pre-resolved in ActivitiesController (explicit pick or session rep).
+        var assigneeId = command.AssignedUserId.Trim();
+
+        var body = new Dictionary<string, object?>
+        {
+            ["Subject"] = command.Subject.Trim(),
+            ["Firm_ID"] = command.FirmId.Trim(),
+            ["SheduledStart$DATE"] = command.ScheduledStart.ToString("o"),
+            ["ResponsibleUser_ID"] = assigneeId,
+            ["SolverUser_ID"] = assigneeId,
+            ["ActQueue_ID"] = defaults.ActQueueId,
+            ["Period_ID"] = defaults.PeriodId,
+            ["Division_ID"] = defaults.DivisionId,
+            ["SolverRole_ID"] = defaults.SolverRoleId,
+            ["ActivityArea_ID"] = defaults.ActivityAreaId,
+            ["ActivityType_ID"] = defaults.ActivityTypeId,
+        };
+
+        if (!string.IsNullOrWhiteSpace(command.Description))
+        {
+            body["Description"] = command.Description.Trim();
+        }
+
+        if (ActivityMapper.IsValidPersonId(command.ContactPersonId))
+        {
+            body["Person_ID"] = command.ContactPersonId!.Trim();
+        }
+
+        return body;
+    }
+
+    private static Dictionary<string, object?> BuildFollowUpGenPayload(
         CreateActivityCommand command,
         JsonElement sourceRoot,
         GenActivityRow sourceRow,
@@ -264,30 +354,49 @@ public sealed class ActivityCreateService : IActivityCreateService
     private async Task<(ActivityOperationErrorCode? Error, string? CreatedId)> PostCreateAsync(
         GenCredentials credentials,
         Dictionary<string, object?> body,
+        bool mergeFromValidate,
         CancellationToken ct)
     {
-        JsonElement validateResponse;
-        try
-        {
-            validateResponse = await _gen.PostAsync(
-                "crmactivities?validation=true",
-                credentials,
-                body,
-                ct);
-        }
-        catch (GenApiException ex)
-        {
-            _logger.LogWarning(
-                ex,
-                "PostCreateAsync Gen validate HTTP {Status}",
-                ex.StatusCode);
-            return (ActivityOperationErrorCode.GenValidationFailed, null);
-        }
+        JsonElement validateResponse = default;
+        var validateErrorCount = 0;
 
-        var validateErrorCount = GenValidation.GetErrorCount(validateResponse);
-        _logger.LogInformation(
-            "PostCreateAsync validate errorCount={ErrorCount}",
-            validateErrorCount);
+        for (var round = 0; round < MaxValidateRounds; round++)
+        {
+            try
+            {
+                validateResponse = await _gen.PostAsync(
+                    "crmactivities?validation=true",
+                    credentials,
+                    body,
+                    ct);
+            }
+            catch (GenApiException ex)
+            {
+                _logger.LogWarning(
+                    ex,
+                    "PostCreateAsync Gen validate HTTP {Status}",
+                    ex.StatusCode);
+                return (ActivityOperationErrorCode.GenValidationFailed, null);
+            }
+
+            validateErrorCount = GenValidation.GetErrorCount(validateResponse);
+            _logger.LogInformation(
+                "PostCreateAsync validate round={Round} errorCount={ErrorCount}",
+                round + 1,
+                validateErrorCount);
+
+            if (validateErrorCount == 0)
+            {
+                break;
+            }
+
+            if (!mergeFromValidate || round >= MaxValidateRounds - 1)
+            {
+                return (ActivityOperationErrorCode.GenValidationFailed, null);
+            }
+
+            _referenceDefaults.MergeFromValidateResponse(body, validateResponse);
+        }
 
         if (validateErrorCount > 0)
         {
@@ -326,6 +435,8 @@ public sealed class ActivityCreateService : IActivityCreateService
             code switch
             {
                 ActivityOperationErrorCode.GenValidationFailed => "Gen rejected the activity create.",
+                ActivityOperationErrorCode.MissingReferenceFields =>
+                    "Activity reference defaults are not configured for this tenant.",
                 _ => "Activity create failed.",
             });
 }

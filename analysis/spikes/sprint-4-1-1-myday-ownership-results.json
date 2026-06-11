@@ -1,0 +1,35 @@
+{
+  "scenarios": [
+    {
+      "name": "A_JANO_to_JANO",
+      "ok": true,
+      "activityId": "3120000101",
+      "inJanoMyDay": true
+    },
+    {
+      "name": "B_JANO_to_JAROJ",
+      "ok": true,
+      "activityId": "5120000101",
+      "inJaroMyDay": true,
+      "inJanoMyDay": false
+    },
+    {
+      "name": "C_JANO_handover_JAROJ",
+      "ok": true,
+      "sourceId": "3120000101",
+      "childId": "7120000101",
+      "inJaroMyDay": true,
+      "inJanoMyDay": false
+    },
+    {
+      "name": "D_handover_child_assigned_JANO",
+      "ok": true,
+      "sourceId": "9120000101",
+      "childId": "B120000101",
+      "inJanoMyDay": true,
+      "inJaroMyDay": false,
+      "note": "JAROJ follow-up create returns Gen 401 on DEMO — proxy: JANO completes JAROJ activity with follow-up to JANO"
+    }
+  ],
+  "passed": true
+}

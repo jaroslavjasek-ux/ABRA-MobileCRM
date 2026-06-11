@@ -14,3 +14,7 @@ export function contactDetailPath(contactId: string, firmId?: string): string {
 export function activityDetailPath(activityId: string): string {
   return `/app/activities/${activityId}`;
 }
+
+export function createActivityPath(): string {
+  return "/app/activities/new";
+}

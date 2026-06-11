@@ -21,7 +21,13 @@ public sealed class SessionResponseDto
     public string? ExpiresAt { get; init; }
     public string? SessionToken { get; init; }
     public IReadOnlyList<string>? Capabilities { get; init; }
+    public ActivityFeaturesDto? ActivityFeatures { get; init; }
     public BackendProviderDto? Provider { get; init; }
+}
+
+public sealed class ActivityFeaturesDto
+{
+    public bool CreateActivity { get; init; }
 }
 
 public sealed class LoginRequestDto
@@ -207,6 +213,23 @@ public sealed class CreateActivityRequestDto
 
     /// <summary>ISO-8601 instant (maps to Gen SheduledStart$DATE).</summary>
     public required string ScheduledStart { get; init; }
+
+    public string? Description { get; init; }
+
+    /// <summary>Gen securityuser id for SolverUser_ID and ResponsibleUser_ID. Defaults to session rep.</summary>
+    public string? AssignedUserId { get; init; }
+}
+
+public sealed class StandaloneCreateActivityRequestDto
+{
+    public required string Subject { get; init; }
+
+    /// <summary>ISO-8601 instant (maps to Gen SheduledStart$DATE).</summary>
+    public required string ScheduledStart { get; init; }
+
+    public required string FirmId { get; init; }
+
+    public string? ContactPersonId { get; init; }
 
     public string? Description { get; init; }
 

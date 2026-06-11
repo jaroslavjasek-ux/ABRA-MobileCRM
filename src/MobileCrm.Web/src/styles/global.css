@@ -808,6 +808,44 @@ body {
   color: var(--color-text-muted, #64748b);
 }
 
+.create-activity-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.create-activity-clear-firm {
+  margin-top: 0.35rem;
+}
+
+.create-activity-firm-results {
+  margin-top: -0.25rem;
+}
+
+.create-activity-firm-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.create-activity-firm-option {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.create-activity-submit {
+  margin-top: 0.5rem;
+}
+
+.activity-outcome-handover-hint {
+  margin: -0.35rem 0 0.25rem;
+}
+
 .activity-complete-success {
   margin: 1rem 0;
   padding: 0.75rem 1rem;

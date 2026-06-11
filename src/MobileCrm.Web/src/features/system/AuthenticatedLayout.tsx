@@ -1,14 +1,23 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { ConnectivityBanner } from "@/features/system/ConnectivityBanner";
 import { useAuth } from "@/auth/AuthContext";
-import { deleteSession } from "@/api/session";
+import { deleteSession, getSession } from "@/api/session";
+import { queryKeys } from "@/api/queryKeys";
 import { useNavigate } from "react-router-dom";
 import { useI18n } from "@/i18n";
+import { createActivityPath } from "@/lib/navigation";
 
 export function AuthenticatedLayout() {
   const { clearSession } = useAuth();
   const navigate = useNavigate();
   const { t } = useI18n();
+
+  const sessionQuery = useQuery({
+    queryKey: queryKeys.session,
+    queryFn: getSession,
+  });
+  const showCreateActivity = sessionQuery.data?.activityFeatures?.createActivity ?? false;
 
   const handleLogout = async () => {
     try {
@@ -39,6 +48,11 @@ export function AuthenticatedLayout() {
         <NavLink to="/app/firms" className={({ isActive }) => (isActive ? "active" : "")}>
           {t("nav.customers")}
         </NavLink>
+        {showCreateActivity && (
+          <NavLink to={createActivityPath()} className={({ isActive }) => (isActive ? "active" : "")}>
+            {t("nav.newActivity")}
+          </NavLink>
+        )}
       </nav>
     </div>
   );

@@ -6,11 +6,16 @@ export type SalesRepresentative = {
   employeeNumber?: string;
 };
 
+export type ActivityFeatures = {
+  createActivity: boolean;
+};
+
 export type SessionResponse = {
   representative: SalesRepresentative;
   expiresAt?: string | null;
   sessionToken?: string;
   capabilities?: string[];
+  activityFeatures?: ActivityFeatures;
   provider?: { name: string; version?: string };
 };
 
@@ -148,6 +153,15 @@ export type ApiWarning = {
 
 export type AddActivityNoteRequest = {
   note: string;
+};
+
+export type CreateStandaloneActivityRequest = {
+  subject: string;
+  scheduledStart: string;
+  firmId: string;
+  contactPersonId?: string;
+  description?: string;
+  assignedUserId?: string;
 };
 
 export type ActivityDetailResponse = {

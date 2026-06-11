@@ -5,6 +5,8 @@ using MobileCrm.Adapter.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<GenOptions>(builder.Configuration.GetSection(GenOptions.SectionName));
+builder.Services.Configure<ActivityFeatureOptions>(
+    builder.Configuration.GetSection(ActivityFeatureOptions.SectionName));
 builder.Services.AddSingleton<ISessionStore, InMemorySessionStore>();
 builder.Services.AddHttpClient<IGenApiClient, GenApiClient>((sp, client) =>
 {

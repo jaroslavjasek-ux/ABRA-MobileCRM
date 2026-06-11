@@ -10,6 +10,7 @@ import { FirmSearchPage } from "@/features/firms/FirmSearchPage";
 import { FirmDetailPage } from "@/features/firms/FirmDetailPage";
 import { ContactDetailPage } from "@/features/contacts/ContactDetailPage";
 import { ActivityDetailPage } from "@/features/activities/ActivityDetailPage";
+import { CreateActivityPage } from "@/features/activities/CreateActivityPage";
 
 export function AppRoutes() {
   return (
@@ -33,6 +34,7 @@ export function AppRoutes() {
         <Route path="firms" element={<FirmSearchPage />} />
         <Route path="firms/:firmId" element={<FirmDetailPage />} />
         <Route path="contacts/:contactId" element={<ContactDetailPage />} />
+        <Route path="activities/new" element={<CreateActivityPage />} />
         <Route path="activities/:activityId" element={<ActivityDetailPage />} />
       </Route>
 

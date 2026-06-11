@@ -1,0 +1,46 @@
+{
+  "steps": [
+    {
+      "name": "login",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "session.activityFeatures.createActivity",
+      "ok": true,
+      "status": 200,
+      "activityFeatures": {
+        "createActivity": true
+      }
+    },
+    {
+      "name": "firm_search",
+      "ok": true,
+      "status": 200,
+      "firmId": "3300000101"
+    },
+    {
+      "name": "create_standalone",
+      "ok": true,
+      "status": 200,
+      "activityId": "6110000101",
+      "documentNumber": "PrHo-23/2006",
+      "error": null
+    },
+    {
+      "name": "created_detail",
+      "ok": true,
+      "status": 200,
+      "activityStatus": "open",
+      "documentNumber": "PrHo-23/2006",
+      "ownerId": "2610000101"
+    },
+    {
+      "name": "my_day_visibility",
+      "ok": true,
+      "status": 200,
+      "inToday": true
+    }
+  ],
+  "passed": true
+}

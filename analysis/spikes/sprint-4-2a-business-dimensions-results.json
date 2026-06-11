@@ -1,0 +1,393 @@
+{
+  "at": "2026-06-09T18:37:52.870383+00:00",
+  "spike": "sprint-4-2a-business-dimensions",
+  "dimensionApis": [
+    {
+      "bo": "bustransactions",
+      "tests": [
+        {
+          "test": "list_take_5",
+          "path": "bustransactions?select=...&take=5",
+          "ok": true,
+          "status": 200,
+          "count": 2,
+          "elapsedMs": 418,
+          "sample": [
+            {
+              "ID": "3000000101",
+              "DisplayName": "Zľavy Zľavové akcie",
+              "Code": "Zľavy",
+              "Name": "Zľavové akcie",
+              "Firm_ID": null
+            },
+            {
+              "ID": "5000000101",
+              "DisplayName": "Výstavy Výstavy",
+              "Code": "Výstavy",
+              "Name": "Výstavy",
+              "Firm_ID": null
+            }
+          ]
+        },
+        {
+          "test": "list_skip",
+          "path": "bustransactions?take=3&skip=3",
+          "ok": true,
+          "status": 200,
+          "count": 0,
+          "elapsedMs": 15
+        },
+        {
+          "test": "filter_firm",
+          "path": "bustransactions?where=Firm_ID eq '3000000101'",
+          "ok": true,
+          "status": 200,
+          "count": 0,
+          "elapsedMs": 16,
+          "sample": []
+        },
+        {
+          "test": "search_displayname",
+          "path": "bustransactions?where=DisplayName like '*…*'",
+          "ok": false,
+          "status": 400,
+          "count": 0,
+          "elapsedMs": 23,
+          "sample": []
+        },
+        {
+          "test": "detail_by_id",
+          "path": "bustransactions/3000000101",
+          "ok": true,
+          "status": 200,
+          "fields": {
+            "ID": "3000000101",
+            "DisplayName": "Zľavy Zľavové akcie",
+            "Code": "Zľavy",
+            "Name": "Zľavové akcie",
+            "Firm_ID": null
+          }
+        }
+      ]
+    },
+    {
+      "bo": "busorders",
+      "tests": [
+        {
+          "test": "list_take_5",
+          "path": "busorders?select=...&take=5",
+          "ok": true,
+          "status": 200,
+          "count": 3,
+          "elapsedMs": 46,
+          "sample": [
+            {
+              "ID": "A000000101",
+              "DisplayName": "S Služby",
+              "Code": "S",
+              "Name": "Služby",
+              "Firm_ID": null
+            },
+            {
+              "ID": "B000000101",
+              "DisplayName": "SH Hot-line",
+              "Code": "SH",
+              "Name": "Hot-line",
+              "Firm_ID": null
+            }
+          ]
+        },
+        {
+          "test": "list_skip",
+          "path": "busorders?take=3&skip=3",
+          "ok": true,
+          "status": 200,
+          "count": 0,
+          "elapsedMs": 14
+        },
+        {
+          "test": "filter_firm",
+          "path": "busorders?where=Firm_ID eq '3000000101'",
+          "ok": true,
+          "status": 200,
+          "count": 0,
+          "elapsedMs": 15,
+          "sample": []
+        },
+        {
+          "test": "search_displayname",
+          "path": "busorders?where=DisplayName like '*…*'",
+          "ok": false,
+          "status": 400,
+          "count": 0,
+          "elapsedMs": 14,
+          "sample": []
+        },
+        {
+          "test": "detail_by_id",
+          "path": "busorders/A000000101",
+          "ok": true,
+          "status": 200,
+          "fields": {
+            "ID": "A000000101",
+            "DisplayName": "S Služby",
+            "Code": "S",
+            "Name": "Služby",
+            "Firm_ID": null
+          }
+        }
+      ]
+    },
+    {
+      "bo": "busprojects",
+      "tests": [
+        {
+          "test": "list_take_5",
+          "path": "busprojects?select=...&take=5",
+          "ok": true,
+          "status": 200,
+          "count": 4,
+          "elapsedMs": 80,
+          "sample": [
+            {
+              "ID": "2000000101",
+              "DisplayName": "Dealer Sprostredkovanie predaja",
+              "Code": "Dealer",
+              "Name": "Sprostredkovanie predaja",
+              "Firm_ID": null
+            },
+            {
+              "ID": "3000000101",
+              "DisplayName": "Predaj Priamy predaj",
+              "Code": "Predaj",
+              "Name": "Priamy predaj",
+              "Firm_ID": null
+            }
+          ]
+        },
+        {
+          "test": "list_skip",
+          "path": "busprojects?take=3&skip=3",
+          "ok": true,
+          "status": 200,
+          "count": 1,
+          "elapsedMs": 21
+        },
+        {
+          "test": "filter_firm",
+          "path": "busprojects?where=Firm_ID eq '3000000101'",
+          "ok": true,
+          "status": 200,
+          "count": 0,
+          "elapsedMs": 18,
+          "sample": []
+        },
+        {
+          "test": "search_displayname",
+          "path": "busprojects?where=DisplayName like '*…*'",
+          "ok": false,
+          "status": 400,
+          "count": 0,
+          "elapsedMs": 15,
+          "sample": []
+        },
+        {
+          "test": "detail_by_id",
+          "path": "busprojects/2000000101",
+          "ok": true,
+          "status": 200,
+          "fields": {
+            "ID": "2000000101",
+            "DisplayName": "Dealer Sprostredkovanie predaja",
+            "Code": "Dealer",
+            "Name": "Sprostredkovanie predaja",
+            "Firm_ID": null
+          }
+        }
+      ]
+    }
+  ],
+  "activityScenarios": [
+    {
+      "label": "business_case_only",
+      "dims": {
+        "BusTransaction_ID": "3000000101"
+      },
+      "validateStatus": 200,
+      "validateErrors": 0,
+      "commitStatus": 201,
+      "commitErrors": 0,
+      "activityId": "U110000101",
+      "persisted": {
+        "bustransaction_id": null,
+        "busorder_id": null,
+        "busproject_id": null
+      },
+      "ok": true
+    },
+    {
+      "label": "work_order_only",
+      "dims": {
+        "BusOrder_ID": "A000000101"
+      },
+      "validateStatus": 200,
+      "validateErrors": 0,
+      "commitStatus": 201,
+      "commitErrors": 0,
+      "activityId": "W110000101",
+      "persisted": {
+        "bustransaction_id": null,
+        "busorder_id": null,
+        "busproject_id": null
+      },
+      "ok": true
+    },
+    {
+      "label": "project_only",
+      "dims": {
+        "BusProject_ID": "2000000101"
+      },
+      "validateStatus": 200,
+      "validateErrors": 0,
+      "commitStatus": 201,
+      "commitErrors": 0,
+      "activityId": "Y110000101",
+      "persisted": {
+        "bustransaction_id": null,
+        "busorder_id": null,
+        "busproject_id": null
+      },
+      "ok": true
+    },
+    {
+      "label": "all_three",
+      "dims": {
+        "BusTransaction_ID": "3000000101",
+        "BusOrder_ID": "A000000101",
+        "BusProject_ID": "2000000101"
+      },
+      "validateStatus": 200,
+      "validateErrors": 0,
+      "commitStatus": 201,
+      "commitErrors": 0,
+      "activityId": "0210000101",
+      "persisted": {
+        "bustransaction_id": null,
+        "busorder_id": null,
+        "busproject_id": null
+      },
+      "ok": true
+    },
+    {
+      "label": "none",
+      "dims": {},
+      "validateStatus": 200,
+      "validateErrors": 0,
+      "commitStatus": 201,
+      "commitErrors": 0,
+      "activityId": "2210000101",
+      "persisted": {
+        "bustransaction_id": null,
+        "busorder_id": null,
+        "busproject_id": null
+      },
+      "ok": true
+    }
+  ],
+  "lifecycle": {
+    "sourceId": "0210000101",
+    "steps": [
+      {
+        "name": "update_dimensions",
+        "ok": true,
+        "status": 200,
+        "persisted": {
+          "bustransaction_id": "3000000101",
+          "busorder_id": "A000000101",
+          "busproject_id": "2000000101"
+        }
+      },
+      {
+        "name": "complete",
+        "ok": false,
+        "status": 409,
+        "dimsAfterComplete": {
+          "bustransaction_id": "3000000101",
+          "busorder_id": "A000000101",
+          "busproject_id": "2000000101"
+        }
+      },
+      {
+        "name": "handover_create",
+        "ok": "4210000101",
+        "status": 201,
+        "validateStatus": 200,
+        "childId": "4210000101",
+        "sourceDims": {
+          "bustransaction_id": "3000000101",
+          "busorder_id": "A000000101",
+          "busproject_id": "2000000101"
+        },
+        "childDims": {
+          "bustransaction_id": "3000000101",
+          "busorder_id": "A000000101",
+          "busproject_id": "2000000101"
+        },
+        "inheritedMatch": true
+      }
+    ]
+  },
+  "firmFilterSurvey": {
+    "bustransactions": {
+      "3000000101": {
+        "globalTake100": 2,
+        "rowsWithFirmIdInSample": 0,
+        "firmFilterCount": 0,
+        "sampleFirmIds": []
+      },
+      "3300000101": {
+        "globalTake100": 2,
+        "rowsWithFirmIdInSample": 0,
+        "firmFilterCount": 0,
+        "sampleFirmIds": []
+      }
+    },
+    "busorders": {
+      "3000000101": {
+        "globalTake100": 3,
+        "rowsWithFirmIdInSample": 0,
+        "firmFilterCount": 0,
+        "sampleFirmIds": []
+      },
+      "3300000101": {
+        "globalTake100": 3,
+        "rowsWithFirmIdInSample": 0,
+        "firmFilterCount": 0,
+        "sampleFirmIds": []
+      }
+    },
+    "busprojects": {
+      "3000000101": {
+        "globalTake100": 4,
+        "rowsWithFirmIdInSample": 0,
+        "firmFilterCount": 0,
+        "sampleFirmIds": []
+      },
+      "3300000101": {
+        "globalTake100": 4,
+        "rowsWithFirmIdInSample": 0,
+        "firmFilterCount": 0,
+        "sampleFirmIds": []
+      }
+    }
+  },
+  "activityTypeFlags": {
+    "status": 200,
+    "flags": {
+      "ID": "2000000101",
+      "BusOrderReq": 0,
+      "BusProjectReq": 0,
+      "BusTransactionReq": 0
+    }
+  }
+}
