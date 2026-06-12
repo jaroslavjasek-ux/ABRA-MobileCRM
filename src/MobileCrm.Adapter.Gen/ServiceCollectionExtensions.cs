@@ -14,6 +14,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IActivityCreateService, ActivityCreateService>();
         services.AddScoped<IReferenceDefaultsService, ReferenceDefaultsService>();
         services.AddScoped<IUserLookupService, UserLookupService>();
+        services.AddScoped<IDimensionLookupService, DimensionLookupService>();
+        services.AddScoped<IClassificationLookupService, ClassificationLookupService>();
         return services;
     }
 }

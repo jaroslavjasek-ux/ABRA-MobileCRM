@@ -1,0 +1,313 @@
+{
+  "at": "2026-06-11T13:34:09.781423+00:00",
+  "spike": "sprint-4-2b-2-period-resolution",
+  "periodListProbes": [
+    {
+      "path": "accountingperiods?take=20",
+      "status": 404,
+      "count": 0,
+      "sample": {
+        "title": "Error processing api request",
+        "description": "The path http://localhost/demo/accountingperiods could not be found",
+        "error_code": 0,
+        "exception_class": "eu.abra.apiserver.api.ApiException$NotFound"
+      }
+    },
+    {
+      "path": "accountingperiods?select=ID,Code,Name,DisplayName,Year,StartDate,EndDate&take=50",
+      "status": 404,
+      "count": 0,
+      "sample": {
+        "title": "Error processing api request",
+        "description": "The path http://localhost/demo/accountingperiods could not be found",
+        "error_code": 0,
+        "exception_class": "eu.abra.apiserver.api.ApiException$NotFound"
+      }
+    },
+    {
+      "path": "periods?take=20",
+      "status": 200,
+      "count": 20,
+      "sample": [
+        {
+          "beginnings": false,
+          "closing": true,
+          "code": "0000",
+          "datefrom$date": "1999-12-31T23:00:00.000Z",
+          "dateto$date": "2005-12-31T23:00:00.000Z",
+          "id": "2000000101",
+          "name": "Nulté obdobie",
+          "objversion": 8,
+          "sequencenumber": 1
+        },
+        {
+          "beginnings": true,
+          "closing": false,
+          "code": "2006",
+          "datefrom$date": "2005-12-31T23:00:00.000Z",
+          "dateto$date": "2006-12-31T23:00:00.000Z",
+          "id": "4000000101",
+          "name": "Účtovné obdobie 2006",
+          "objversion": 8,
+          "sequencenumber": 2
+        },
+        {
+          "beginnings": false,
+          "closing": false,
+          "code": "2007",
+          "datefrom$date": "2006-12-31T23:00:00.000Z",
+          "dateto$date": "2007-12-31T23:00:00.000Z",
+          "id": "5000000101",
+          "name": "Účtovné obdobie 2007",
+          "objversion": 1,
+          "sequencenumber": 3
+        },
+        {
+          "beginnings": false,
+          "closing": false,
+          "code": "2008",
+          "datefrom$date": "2007-12-31T23:00:00.000Z",
+          "dateto$date": "2008-12-31T23:00:00.000Z",
+          "id": "6000000101",
+          "name": "Účtovné obdobie 2008",
+          "objversion": 1,
+          "sequencenumber": 4
+        },
+        {
+          "beginnings": false,
+          "closing": false,
+          "code": "2009",
+          "datefrom$date": "2008-12-31T23:00:00.000Z",
+          "dateto$date": "2009-12-31T23:00:00.000Z",
+          "id": "2200000101",
+          "name": "Účtovné obdobie 2009",
+          "objversion": 1,
+          "sequencenumber": 5
+        }
+      ]
+    },
+    {
+      "path": "crmperiods?take=20",
+      "status": 404,
+      "count": 0,
+      "sample": {
+        "title": "Error processing api request",
+        "description": "The path http://localhost/demo/crmperiods could not be found",
+        "error_code": 0,
+        "exception_class": "eu.abra.apiserver.api.ApiException$NotFound"
+      }
+    }
+  ],
+  "periodDetail_4000000101": {
+    "status": 200,
+    "body": {
+      "beginnings": true,
+      "classid": "CAQPAYUOXVCL3ACL03KIU0CLP4",
+      "closing": false,
+      "code": "2006",
+      "datefrom$date": "2005-12-31T23:00:00.000Z",
+      "dateto$date": "2006-12-31T23:00:00.000Z",
+      "displayname": "2006 Účtovné obdobie 2006",
+      "externalids": [],
+      "id": "4000000101",
+      "name": "Účtovné obdobie 2006",
+      "objversion": 8,
+      "sequencenumber": 2
+    }
+  },
+  "periodDetail_3F80000101": {
+    "status": 200,
+    "body": {
+      "beginnings": false,
+      "classid": "CAQPAYUOXVCL3ACL03KIU0CLP4",
+      "closing": false,
+      "code": "2026",
+      "datefrom$date": "2025-12-31T23:00:00.000Z",
+      "dateto$date": "2026-12-31T23:00:00.000Z",
+      "displayname": "2026 Účtovné obdobie 2026",
+      "externalids": [],
+      "id": "3F80000101",
+      "name": "Účtovné obdobie 2026",
+      "objversion": 1,
+      "sequencenumber": 22
+    }
+  },
+  "activity_E120000101": {
+    "displayname": "NP-25/2026",
+    "period_id": "3F80000101",
+    "sheduledstart": "2026-06-11T10:46:00.000Z"
+  },
+  "mobileLikeActivities2006": [],
+  "activities2026Display": [],
+  "scenarios": [
+    {
+      "name": "mobile_config_period_validate_only",
+      "requestBody": {
+        "Subject": "4.2B.2 period probe mobile payload",
+        "Firm_ID": "4000000101",
+        "ActivityType_ID": "2000000101",
+        "SheduledStart$DATE": "2026-06-11T15:40:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "ActQueue_ID": "2000000101",
+        "Period_ID": "4000000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "2000000101"
+      },
+      "validateStatus": 200,
+      "validateErrors": {
+        "count": 0,
+        "values": []
+      },
+      "validatePeriodId": "4000000101",
+      "validateDisplayName": "Bez čísla"
+    },
+    {
+      "name": "mobile_config_period_commit",
+      "requestBody": {
+        "Subject": "4.2B.2 period probe mobile payload",
+        "Firm_ID": "4000000101",
+        "ActivityType_ID": "2000000101",
+        "SheduledStart$DATE": "2026-06-11T15:40:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "ActQueue_ID": "2000000101",
+        "Period_ID": "4000000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "2000000101"
+      },
+      "validateStatus": 200,
+      "validateErrors": {
+        "count": 0,
+        "values": []
+      },
+      "validatePeriodId": "4000000101",
+      "validateDisplayName": "Bez čísla",
+      "commitStatus": 201,
+      "commitErrors": {
+        "count": 0,
+        "values": []
+      },
+      "persisted": {
+        "id": "5320000101",
+        "displayname": "PrHo-64/2006",
+        "period_id": "4000000101",
+        "sheduledstart": "2026-06-11T15:40:00.000Z"
+      }
+    },
+    {
+      "name": "no_period_validate",
+      "requestBody": {
+        "Subject": "4.2B.2 period probe mobile payload",
+        "Firm_ID": "4000000101",
+        "ActivityType_ID": "2000000101",
+        "SheduledStart$DATE": "2026-06-11T15:40:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "ActQueue_ID": "2000000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "2000000101"
+      },
+      "validateStatus": 200,
+      "validateErrors": {
+        "count": 0,
+        "values": []
+      },
+      "validatePeriodId": "3F80000101",
+      "validateDisplayName": "Bez čísla"
+    },
+    {
+      "name": "validate_merge_then_commit",
+      "requestBody": {
+        "Subject": "4.2B.2 period probe mobile payload",
+        "Firm_ID": "4000000101",
+        "ActivityType_ID": "2000000101",
+        "SheduledStart$DATE": "2026-06-11T15:40:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "ActQueue_ID": "2000000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "2000000101",
+        "Period_ID": "3F80000101"
+      },
+      "validateStatus": 200,
+      "validateErrors": {
+        "count": 0,
+        "values": []
+      },
+      "validatePeriodId": "3F80000101",
+      "validateDisplayName": "Bez čísla",
+      "commitStatus": 201,
+      "commitErrors": {
+        "count": 0,
+        "values": []
+      },
+      "persisted": {
+        "id": "9320000101",
+        "displayname": "PrHo-24/2026",
+        "period_id": "3F80000101",
+        "sheduledstart": "2026-06-11T15:40:00.000Z"
+      }
+    },
+    {
+      "name": "desktop_period_commit",
+      "requestBody": {
+        "Subject": "4.2B.2 period probe mobile payload",
+        "Firm_ID": "4000000101",
+        "ActivityType_ID": "2000000101",
+        "SheduledStart$DATE": "2026-06-11T15:40:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "ActQueue_ID": "2000000101",
+        "Period_ID": "3F80000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "2000000101"
+      },
+      "validateStatus": 200,
+      "validateErrors": {
+        "count": 0,
+        "values": []
+      },
+      "validatePeriodId": "3F80000101",
+      "validateDisplayName": "Bez čísla",
+      "commitStatus": 201,
+      "commitErrors": {
+        "count": 0,
+        "values": []
+      },
+      "persisted": {
+        "id": "B320000101",
+        "displayname": "PrHo-25/2026",
+        "period_id": "3F80000101",
+        "sheduledstart": "2026-06-11T15:40:00.000Z"
+      }
+    },
+    {
+      "name": "no_period_no_config_period",
+      "requestBody": {
+        "Subject": "4.2B.2 date only probe",
+        "Firm_ID": "4000000101",
+        "ActivityType_ID": "2000000101",
+        "SheduledStart$DATE": "2026-06-11T15:40:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "ActQueue_ID": "2000000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "2000000101"
+      },
+      "validateStatus": 200,
+      "validateErrors": {
+        "count": 0,
+        "values": []
+      },
+      "validatePeriodId": "3F80000101",
+      "validateDisplayName": "Bez čísla"
+    }
+  ]
+}

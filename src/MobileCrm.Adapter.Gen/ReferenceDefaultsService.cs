@@ -11,9 +11,18 @@ public sealed record ActivityReferenceDefaults(
     string ActivityAreaId,
     string ActivityTypeId);
 
+public sealed record StandaloneActivityDefaults(
+    string DivisionId,
+    string SolverRoleId,
+    string? ActQueueId,
+    string? ActivityAreaId,
+    string? ActivityTypeId);
+
 public interface IReferenceDefaultsService
 {
     bool TryGetConfiguredDefaults(out ActivityReferenceDefaults defaults);
+
+    bool TryGetStandaloneDefaults(out StandaloneActivityDefaults defaults);
 
     void ApplyConfiguredDefaults(Dictionary<string, object?> body, ActivityReferenceDefaults defaults);
 
@@ -64,6 +73,25 @@ public sealed class ReferenceDefaultsService : IReferenceDefaultsService
         return true;
     }
 
+    public bool TryGetStandaloneDefaults(out StandaloneActivityDefaults defaults)
+    {
+        var configured = _options.ReferenceDefaults;
+        if (string.IsNullOrWhiteSpace(configured.DivisionId)
+            || string.IsNullOrWhiteSpace(configured.SolverRoleId))
+        {
+            defaults = default!;
+            return false;
+        }
+
+        defaults = new StandaloneActivityDefaults(
+            configured.DivisionId.Trim(),
+            configured.SolverRoleId.Trim(),
+            NullIfWhiteSpace(configured.ActQueueId),
+            NullIfWhiteSpace(configured.ActivityAreaId),
+            NullIfWhiteSpace(configured.ActivityTypeId));
+        return true;
+    }
+
     public void ApplyConfiguredDefaults(Dictionary<string, object?> body, ActivityReferenceDefaults defaults)
     {
         body["ActQueue_ID"] = defaults.ActQueueId;
@@ -85,4 +113,7 @@ public sealed class ReferenceDefaultsService : IReferenceDefaultsService
             }
         }
     }
+
+    private static string? NullIfWhiteSpace(string? value) =>
+        string.IsNullOrWhiteSpace(value) ? null : value.Trim();
 }

@@ -6,8 +6,36 @@ export type SalesRepresentative = {
   employeeNumber?: string;
 };
 
+export type ActivityDimensionFeatures = {
+  businessCase: boolean;
+  workOrder: boolean;
+  project: boolean;
+};
+
+export type ActivityClassificationFeatures = {
+  area: boolean;
+  type: boolean;
+  queue: boolean;
+  process: boolean;
+  autoHideSingleValue: boolean;
+};
+
 export type ActivityFeatures = {
   createActivity: boolean;
+  dimensions?: ActivityDimensionFeatures;
+  classification?: ActivityClassificationFeatures;
+};
+
+export type DimensionSummary = {
+  id: string;
+  displayName: string;
+};
+
+export type ClassificationSummary = {
+  id: string;
+  code: string;
+  name: string;
+  displayName: string;
 };
 
 export type SessionResponse = {
@@ -162,6 +190,12 @@ export type CreateStandaloneActivityRequest = {
   contactPersonId?: string;
   description?: string;
   assignedUserId?: string;
+  businessCaseId?: string;
+  workOrderId?: string;
+  projectId?: string;
+  activityAreaId?: string;
+  activityTypeId?: string;
+  actQueueId?: string;
 };
 
 export type ActivityDetailResponse = {

@@ -15,17 +15,23 @@ public sealed class SessionController : ControllerBase
     private readonly IRepresentativeService _representatives;
     private readonly IGenApiClient _gen;
     private readonly ActivityFeatureOptions _activityFeatures;
+    private readonly ActivityDimensionOptions _activityDimensions;
+    private readonly ActivityClassificationOptions _activityClassification;
 
     public SessionController(
         ISessionStore sessions,
         IRepresentativeService representatives,
         IGenApiClient gen,
-        IOptions<ActivityFeatureOptions> activityFeatures)
+        IOptions<ActivityFeatureOptions> activityFeatures,
+        IOptions<ActivityDimensionOptions> activityDimensions,
+        IOptions<ActivityClassificationOptions> activityClassification)
     {
         _sessions = sessions;
         _representatives = representatives;
         _gen = gen;
         _activityFeatures = activityFeatures.Value;
+        _activityDimensions = activityDimensions.Value;
+        _activityClassification = activityClassification.Value;
     }
 
     [HttpPost]
@@ -91,6 +97,20 @@ public sealed class SessionController : ControllerBase
         ActivityFeatures = new ActivityFeaturesDto
         {
             CreateActivity = _activityFeatures.CreateActivity,
+            Dimensions = new ActivityDimensionFeaturesDto
+            {
+                BusinessCase = _activityDimensions.BusinessCase,
+                WorkOrder = _activityDimensions.WorkOrder,
+                Project = _activityDimensions.Project,
+            },
+            Classification = new ActivityClassificationFeaturesDto
+            {
+                Area = _activityClassification.Area,
+                Type = _activityClassification.Type,
+                Queue = _activityClassification.Queue,
+                Process = _activityClassification.Process,
+                AutoHideSingleValue = _activityClassification.AutoHideSingleValue,
+            },
         },
         Provider = new BackendProviderDto { Name = "abra-gen", Version = "demo" },
     };

@@ -2,6 +2,16 @@ import { FormEvent, useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { createStandaloneActivity } from "@/api/activities";
+import {
+  searchActivityAreas,
+  searchActivityQueues,
+  searchActivityTypes,
+} from "@/api/classification";
+import {
+  searchBusinessCases,
+  searchProjects,
+  searchWorkOrders,
+} from "@/api/dimensions";
 import { getFirmDetail, searchFirms } from "@/api/firms";
 import { getSession } from "@/api/session";
 import { searchUsers } from "@/api/users";
@@ -13,6 +23,8 @@ import {
   followUpScheduleToIso,
   isFollowUpScheduleComplete,
 } from "@/features/activities/followUpDefaults";
+import { CatalogSelectField } from "@/components/CatalogSelectField";
+import { useAbraCatalogSelector } from "@/hooks/useAbraCatalogSelector";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 import { ApiError, isServiceUnavailable, isUnauthorized } from "@/lib/errors";
 import { activityDetailPath } from "@/lib/navigation";
@@ -37,12 +49,17 @@ export function CreateActivityPage() {
   const [scheduleTime, setScheduleTime] = useState(() => defaultFollowUpSchedule().time);
   const [description, setDescription] = useState("");
   const [assignedUserId, setAssignedUserId] = useState("");
+  const [businessCaseId, setBusinessCaseId] = useState("");
+  const [workOrderId, setWorkOrderId] = useState("");
+  const [projectId, setProjectId] = useState("");
 
   const [subjectError, setSubjectError] = useState<string | null>(null);
   const [firmError, setFirmError] = useState<string | null>(null);
   const [scheduleError, setScheduleError] = useState<string | null>(null);
   const [assignedUserError, setAssignedUserError] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
+  const [activityTypeError, setActivityTypeError] = useState<string | null>(null);
+  const [activityQueueError, setActivityQueueError] = useState<string | null>(null);
 
   const debouncedFirmQ = useDebouncedValue(firmQuery.trim(), 300);
   const canSearchFirms = debouncedFirmQ.length >= 2 && !selectedFirm;
@@ -64,6 +81,71 @@ export function CreateActivityPage() {
     queryFn: () => searchUsers(undefined, 50),
     staleTime: 60_000,
   });
+
+  const dimensionFlags = sessionQuery.data?.activityFeatures?.dimensions;
+  const showBusinessCase = dimensionFlags?.businessCase ?? false;
+  const showWorkOrder = dimensionFlags?.workOrder ?? false;
+  const showProject = dimensionFlags?.project ?? false;
+  const showDimensionsSection = showBusinessCase || showWorkOrder || showProject;
+  const firmIdForDimensions = selectedFirm?.id;
+
+  const businessCasesQuery = useQuery({
+    queryKey: queryKeys.businessCases(firmIdForDimensions),
+    queryFn: () => searchBusinessCases(undefined, firmIdForDimensions, 50),
+    enabled: showBusinessCase && Boolean(firmIdForDimensions),
+    staleTime: 60_000,
+  });
+
+  const workOrdersQuery = useQuery({
+    queryKey: queryKeys.workOrders(firmIdForDimensions),
+    queryFn: () => searchWorkOrders(undefined, firmIdForDimensions, 50),
+    enabled: showWorkOrder && Boolean(firmIdForDimensions),
+    staleTime: 60_000,
+  });
+
+  const projectsQuery = useQuery({
+    queryKey: queryKeys.projects(firmIdForDimensions),
+    queryFn: () => searchProjects(undefined, firmIdForDimensions, 50),
+    enabled: showProject && Boolean(firmIdForDimensions),
+    staleTime: 60_000,
+  });
+
+  const classificationFlags = sessionQuery.data?.activityFeatures?.classification;
+  const showActivityArea = classificationFlags?.area ?? false;
+  const showActivityType = classificationFlags?.type ?? false;
+  const showActivityQueue = classificationFlags?.queue ?? false;
+  const autoHideSingleValue = classificationFlags?.autoHideSingleValue ?? true;
+  const showClassificationSection =
+    showActivityArea || showActivityType || showActivityQueue;
+
+  const areaSelector = useAbraCatalogSelector({
+    enabled: showActivityArea,
+    required: false,
+    autoHideSingleValue,
+    queryKey: queryKeys.activityAreas(),
+    queryFn: () => searchActivityAreas(undefined, 50),
+  });
+
+  const typeSelector = useAbraCatalogSelector({
+    enabled: showActivityType,
+    required: true,
+    autoHideSingleValue,
+    queryKey: queryKeys.activityTypes(),
+    queryFn: () => searchActivityTypes(undefined, 50),
+  });
+
+  const queueSelector = useAbraCatalogSelector({
+    enabled: showActivityQueue,
+    required: true,
+    autoHideSingleValue,
+    queryKey: queryKeys.activityQueues(),
+    queryFn: () => searchActivityQueues(undefined, 50),
+  });
+
+  const classificationConfigurationError =
+    (showActivityArea && areaSelector.isConfigurationError)
+    || (showActivityType && typeSelector.isConfigurationError)
+    || (showActivityQueue && queueSelector.isConfigurationError);
 
   useEffect(() => {
     const repId =
@@ -131,6 +213,12 @@ export function CreateActivityPage() {
           } else if (field === "assigneduserid") {
             setAssignedUserError(detail.message);
             hasFieldError = true;
+          } else if (field === "activitytypeid") {
+            setActivityTypeError(detail.message);
+            hasFieldError = true;
+          } else if (field === "actqueueid") {
+            setActivityQueueError(detail.message);
+            hasFieldError = true;
           }
         }
         if (!hasFieldError) {
@@ -147,12 +235,18 @@ export function CreateActivityPage() {
     setFirmQuery(firm.name);
     setFirmError(null);
     setContactPersonId("");
+    setBusinessCaseId("");
+    setWorkOrderId("");
+    setProjectId("");
   };
 
   const handleClearFirm = () => {
     setSelectedFirm(null);
     setFirmQuery("");
     setContactPersonId("");
+    setBusinessCaseId("");
+    setWorkOrderId("");
+    setProjectId("");
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -162,6 +256,8 @@ export function CreateActivityPage() {
     setFirmError(null);
     setScheduleError(null);
     setAssignedUserError(null);
+    setActivityTypeError(null);
+    setActivityQueueError(null);
 
     let valid = true;
     if (!subject.trim()) {
@@ -180,6 +276,18 @@ export function CreateActivityPage() {
       setAssignedUserError(t("createActivity.assignedUserRequired"));
       valid = false;
     }
+    if (classificationConfigurationError) {
+      setFormError(t("createActivity.classificationConfigurationError"));
+      valid = false;
+    }
+    if (showActivityType && typeSelector.isSelectionMissing) {
+      setActivityTypeError(t("createActivity.activityTypeRequired"));
+      valid = false;
+    }
+    if (showActivityQueue && queueSelector.isSelectionMissing) {
+      setActivityQueueError(t("createActivity.activityQueueRequired"));
+      valid = false;
+    }
     if (!valid) {
       return;
     }
@@ -191,6 +299,12 @@ export function CreateActivityPage() {
       contactPersonId: contactPersonId.trim() || undefined,
       description: description.trim() || undefined,
       assignedUserId: assignedUserId.trim(),
+      businessCaseId: businessCaseId.trim() || undefined,
+      workOrderId: workOrderId.trim() || undefined,
+      projectId: projectId.trim() || undefined,
+      activityAreaId: showActivityArea ? areaSelector.value.trim() || undefined : undefined,
+      activityTypeId: showActivityType ? typeSelector.value.trim() || undefined : undefined,
+      actQueueId: showActivityQueue ? queueSelector.value.trim() || undefined : undefined,
     });
   };
 
@@ -204,7 +318,7 @@ export function CreateActivityPage() {
         <h1>{t("createActivity.title")}</h1>
       </header>
 
-      <form className="create-activity-form" onSubmit={handleSubmit}>
+      <form className="form create-activity-form" onSubmit={handleSubmit}>
         <label className="field">
           <span>{t("createActivity.subject")} *</span>
           <input
@@ -249,7 +363,7 @@ export function CreateActivityPage() {
           {selectedFirm && (
             <button
               type="button"
-              className="btn-text create-activity-clear-firm"
+              className="btn-clear create-activity-clear-firm"
               onClick={handleClearFirm}
               disabled={busy}
             >
@@ -308,6 +422,127 @@ export function CreateActivityPage() {
               ))}
             </select>
           </label>
+        )}
+
+        {selectedFirm && showDimensionsSection && (
+          <section className="form-section" aria-labelledby="create-activity-dimensions-title">
+            <h2 id="create-activity-dimensions-title" className="form-section__title">
+              {t("createActivity.dimensionsSection")}
+            </h2>
+
+            {showBusinessCase && (
+              <label className="field">
+                <span>{t("createActivity.businessCase")}</span>
+                <select
+                  value={businessCaseId}
+                  onChange={(e) => setBusinessCaseId(e.target.value)}
+                  disabled={busy || businessCasesQuery.isLoading}
+                >
+                  <option value="">{t("createActivity.dimensionNone")}</option>
+                  {(businessCasesQuery.data?.items ?? []).map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.displayName}
+                    </option>
+                  ))}
+                </select>
+                {businessCasesQuery.isLoading && (
+                  <p className="hint">{t("createActivity.loadingDimensions")}</p>
+                )}
+              </label>
+            )}
+
+            {showWorkOrder && (
+              <label className="field">
+                <span>{t("createActivity.workOrder")}</span>
+                <select
+                  value={workOrderId}
+                  onChange={(e) => setWorkOrderId(e.target.value)}
+                  disabled={busy || workOrdersQuery.isLoading}
+                >
+                  <option value="">{t("createActivity.dimensionNone")}</option>
+                  {(workOrdersQuery.data?.items ?? []).map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.displayName}
+                    </option>
+                  ))}
+                </select>
+                {workOrdersQuery.isLoading && (
+                  <p className="hint">{t("createActivity.loadingDimensions")}</p>
+                )}
+              </label>
+            )}
+
+            {showProject && (
+              <label className="field">
+                <span>{t("createActivity.project")}</span>
+                <select
+                  value={projectId}
+                  onChange={(e) => setProjectId(e.target.value)}
+                  disabled={busy || projectsQuery.isLoading}
+                >
+                  <option value="">{t("createActivity.dimensionNone")}</option>
+                  {(projectsQuery.data?.items ?? []).map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.displayName}
+                    </option>
+                  ))}
+                </select>
+                {projectsQuery.isLoading && (
+                  <p className="hint">{t("createActivity.loadingDimensions")}</p>
+                )}
+              </label>
+            )}
+          </section>
+        )}
+
+        {selectedFirm && showClassificationSection && (
+          <section className="form-section" aria-labelledby="create-activity-classification-title">
+            <h2 id="create-activity-classification-title" className="form-section__title">
+              {t("createActivity.classificationSection")}
+            </h2>
+
+            {showActivityArea && (
+              <CatalogSelectField
+                label={t("createActivity.activityArea")}
+                selector={areaSelector}
+                busy={busy}
+                noneLabel={t("createActivity.classificationNone")}
+                loadingLabel={t("createActivity.loadingClassification")}
+                requiredErrorLabel={t("createActivity.classificationRequired")}
+                configurationErrorLabel={t("createActivity.classificationConfigurationError")}
+              />
+            )}
+
+            {showActivityType && (
+              <CatalogSelectField
+                label={t("createActivity.activityType")}
+                required
+                selector={typeSelector}
+                busy={busy}
+                noneLabel={t("createActivity.classificationNone")}
+                loadingLabel={t("createActivity.loadingClassification")}
+                requiredErrorLabel={t("createActivity.activityTypeRequired")}
+                configurationErrorLabel={t("createActivity.classificationConfigurationError")}
+                error={activityTypeError}
+                onClearError={() => setActivityTypeError(null)}
+              />
+            )}
+
+            {showActivityQueue && (
+              <CatalogSelectField
+                label={t("createActivity.activityQueue")}
+                required
+                selector={queueSelector}
+                busy={busy}
+                noneLabel={t("createActivity.classificationNone")}
+                loadingLabel={t("createActivity.loadingClassification")}
+                requiredErrorLabel={t("createActivity.activityQueueRequired")}
+                configurationErrorLabel={t("createActivity.classificationConfigurationError")}
+                error={activityQueueError}
+                onClearError={() => setActivityQueueError(null)}
+              />
+            )}
+          </section>
         )}
 
         <div className="field">
@@ -407,7 +642,11 @@ export function CreateActivityPage() {
           </p>
         )}
 
-        <button type="submit" className="btn-primary create-activity-submit" disabled={busy}>
+        <button
+          type="submit"
+          className="btn-primary create-activity-submit"
+          disabled={busy || classificationConfigurationError}
+        >
           {busy ? t("createActivity.creating") : t("createActivity.submit")}
         </button>
       </form>

@@ -7,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<GenOptions>(builder.Configuration.GetSection(GenOptions.SectionName));
 builder.Services.Configure<ActivityFeatureOptions>(
     builder.Configuration.GetSection(ActivityFeatureOptions.SectionName));
+builder.Services.Configure<ActivityDimensionOptions>(
+    builder.Configuration.GetSection(ActivityDimensionOptions.SectionName));
+builder.Services.Configure<ActivityClassificationOptions>(
+    builder.Configuration.GetSection(ActivityClassificationOptions.SectionName));
 builder.Services.AddSingleton<ISessionStore, InMemorySessionStore>();
 builder.Services.AddHttpClient<IGenApiClient, GenApiClient>((sp, client) =>
 {

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using MobileCrm.Adapter.Auth;
 using MobileCrm.Adapter.Gen;
 using MobileCrm.Adapter.Models;
@@ -17,6 +18,7 @@ public sealed class ActivitiesController : ControllerBase
     private readonly IFirmService _firms;
     private readonly IRepresentativeService _representatives;
     private readonly IUserLookupService _users;
+    private readonly ActivityClassificationOptions _activityClassification;
     private readonly ILogger<ActivitiesController> _logger;
 
     public ActivitiesController(
@@ -25,6 +27,7 @@ public sealed class ActivitiesController : ControllerBase
         IFirmService firms,
         IRepresentativeService representatives,
         IUserLookupService users,
+        IOptions<ActivityClassificationOptions> activityClassification,
         ILogger<ActivitiesController> logger)
     {
         _activities = activities;
@@ -32,6 +35,7 @@ public sealed class ActivitiesController : ControllerBase
         _firms = firms;
         _representatives = representatives;
         _users = users;
+        _activityClassification = activityClassification.Value;
         _logger = logger;
     }
 
@@ -161,7 +165,13 @@ public sealed class ActivitiesController : ControllerBase
                 request.FirmId.Trim(),
                 string.IsNullOrWhiteSpace(request.ContactPersonId) ? null : request.ContactPersonId.Trim(),
                 string.IsNullOrWhiteSpace(request.Description) ? null : request.Description.Trim(),
-                resolvedAssignedUserId),
+                resolvedAssignedUserId,
+                string.IsNullOrWhiteSpace(request.BusinessCaseId) ? null : request.BusinessCaseId.Trim(),
+                string.IsNullOrWhiteSpace(request.WorkOrderId) ? null : request.WorkOrderId.Trim(),
+                string.IsNullOrWhiteSpace(request.ProjectId) ? null : request.ProjectId.Trim(),
+                string.IsNullOrWhiteSpace(request.ActivityAreaId) ? null : request.ActivityAreaId.Trim(),
+                string.IsNullOrWhiteSpace(request.ActivityTypeId) ? null : request.ActivityTypeId.Trim(),
+                string.IsNullOrWhiteSpace(request.ActQueueId) ? null : request.ActQueueId.Trim()),
             ct);
 
         return MapOperationResult(result);
@@ -536,6 +546,24 @@ public sealed class ActivitiesController : ControllerBase
             {
                 Field = "scheduledStart",
                 Message = "Scheduled start must be a valid ISO-8601 date/time.",
+            });
+        }
+
+        if (_activityClassification.Type && string.IsNullOrWhiteSpace(request.ActivityTypeId))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "activityTypeId",
+                Message = "Activity type is required.",
+            });
+        }
+
+        if (_activityClassification.Queue && string.IsNullOrWhiteSpace(request.ActQueueId))
+        {
+            details.Add(new ApiErrorDetailDto
+            {
+                Field = "actQueueId",
+                Message = "Activity queue is required.",
             });
         }
 

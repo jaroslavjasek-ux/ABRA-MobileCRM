@@ -381,7 +381,7 @@ export function ActivityDetailPage() {
                   {t("activity.addNote")}
                 </button>
               ) : (
-                <form className="activity-note-form" onSubmit={handleAddNote}>
+                <form className="form activity-note-form" onSubmit={handleAddNote}>
                   <label className="field">
                     <span>{t("activity.noteLabel")}</span>
                     <textarea
@@ -462,7 +462,7 @@ export function ActivityDetailPage() {
 
           {isActionableStatus(data.status) && data.canComplete && (
             <section className="activity-actions">
-              <form className="activity-complete-form" onSubmit={handleComplete}>
+              <form className="form activity-complete-form" onSubmit={handleComplete}>
                 <label className="field">
                   <span>
                     {scheduleFollowUp

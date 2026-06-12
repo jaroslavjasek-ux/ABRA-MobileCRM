@@ -151,4 +151,18 @@ public static class ApiMapping
         IsPrimary = contact.IsPrimary,
         Notes = contact.Notes,
     };
+
+    public static DimensionSummaryDto ToDto(Gen.GenDimensionRow row) => new()
+    {
+        Id = row.Id,
+        DisplayName = row.DisplayName,
+    };
+
+    public static ClassificationSummaryDto ToDto(Gen.GenClassificationRow row) => new()
+    {
+        Id = row.Id,
+        Code = row.Code,
+        Name = row.Name,
+        DisplayName = row.DisplayName,
+    };
 }

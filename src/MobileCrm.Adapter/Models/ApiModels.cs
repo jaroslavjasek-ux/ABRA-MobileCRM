@@ -28,6 +28,50 @@ public sealed class SessionResponseDto
 public sealed class ActivityFeaturesDto
 {
     public bool CreateActivity { get; init; }
+
+    public ActivityDimensionFeaturesDto? Dimensions { get; init; }
+
+    public ActivityClassificationFeaturesDto? Classification { get; init; }
+}
+
+public sealed class ActivityDimensionFeaturesDto
+{
+    public bool BusinessCase { get; init; }
+
+    public bool WorkOrder { get; init; }
+
+    public bool Project { get; init; }
+}
+
+public sealed class DimensionSummaryDto
+{
+    public required string Id { get; init; }
+
+    public required string DisplayName { get; init; }
+}
+
+public sealed class ActivityClassificationFeaturesDto
+{
+    public bool Area { get; init; }
+
+    public bool Type { get; init; }
+
+    public bool Queue { get; init; }
+
+    public bool Process { get; init; }
+
+    public bool AutoHideSingleValue { get; init; }
+}
+
+public sealed class ClassificationSummaryDto
+{
+    public required string Id { get; init; }
+
+    public required string Code { get; init; }
+
+    public required string Name { get; init; }
+
+    public required string DisplayName { get; init; }
 }
 
 public sealed class LoginRequestDto
@@ -235,6 +279,24 @@ public sealed class StandaloneCreateActivityRequestDto
 
     /// <summary>Gen securityuser id for SolverUser_ID and ResponsibleUser_ID. Defaults to session rep.</summary>
     public string? AssignedUserId { get; init; }
+
+    /// <summary>Gen bustransactions id (BusTransaction_ID).</summary>
+    public string? BusinessCaseId { get; init; }
+
+    /// <summary>Gen busorders id (BusOrder_ID).</summary>
+    public string? WorkOrderId { get; init; }
+
+    /// <summary>Gen busprojects id (BusProject_ID).</summary>
+    public string? ProjectId { get; init; }
+
+    /// <summary>Gen crmactivityareas id (ActivityArea_ID).</summary>
+    public string? ActivityAreaId { get; init; }
+
+    /// <summary>Gen crmactivitytypes id (ActivityType_ID).</summary>
+    public string? ActivityTypeId { get; init; }
+
+    /// <summary>Gen crmactivityqueues id (ActQueue_ID).</summary>
+    public string? ActQueueId { get; init; }
 }
 
 public sealed class ActivityDetailResponseDto

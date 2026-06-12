@@ -53,7 +53,7 @@ export function LoginPage() {
 
   return (
     <div className="page-center">
-      <form className="card login-card" onSubmit={handleSubmit}>
+      <form className="card login-card form" onSubmit={handleSubmit}>
         <h1>{t("app.brand")}</h1>
         <p className="muted">{t("login.subtitle")}</p>
 

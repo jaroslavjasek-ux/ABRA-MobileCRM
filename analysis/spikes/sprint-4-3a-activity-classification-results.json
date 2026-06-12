@@ -1,0 +1,757 @@
+{
+  "at": "2026-06-11T16:17:41.303098+00:00",
+  "spike": "sprint-4-3a-activity-classification",
+  "catalogs": {
+    "areas": {
+      "endpoint": "crmactivityareas",
+      "status": 200,
+      "count": 1,
+      "items": [
+        {
+          "ID": "2000000101",
+          "Code": "Sp",
+          "Name": "Spoločná",
+          "DisplayName": "Sp Spoločná"
+        }
+      ]
+    },
+    "types": {
+      "endpoint": "crmactivitytypes",
+      "status": 400,
+      "count": 0,
+      "items": []
+    },
+    "queues": {
+      "endpoint": "crmactivityqueues",
+      "status": 200,
+      "count": 5,
+      "items": [
+        {
+          "ID": "2000000101",
+          "Code": "PrHo",
+          "Name": "Prichádzajúci hovor",
+          "DisplayName": "PrHo - Prichádzajúci hovor"
+        },
+        {
+          "ID": "3000000101",
+          "Code": "OdHo",
+          "Name": "Odchádzajúci hovor",
+          "DisplayName": "OdHo - Odchádzajúci hovor"
+        },
+        {
+          "ID": "4000000101",
+          "Code": "NP",
+          "Name": "Nový predaj",
+          "DisplayName": "NP - Nový predaj"
+        },
+        {
+          "ID": "5000000101",
+          "Code": "PS",
+          "Name": "Pozáručný servis",
+          "DisplayName": "PS - Pozáručný servis"
+        },
+        {
+          "ID": "6000000101",
+          "Code": "RK",
+          "Name": "Reklamačné konanie",
+          "DisplayName": "RK - Reklamačné konanie"
+        }
+      ]
+    },
+    "processes": {
+      "endpoint": "crmactivityprocesses",
+      "status": 200,
+      "count": 10,
+      "items": [
+        {
+          "ID": "2000000101",
+          "Code": "100",
+          "Name": "Nový kontakt",
+          "DisplayName": "100 Nový kontakt"
+        },
+        {
+          "ID": "3000000101",
+          "Code": "200",
+          "Name": "Poslané propagačné materiály",
+          "DisplayName": "200 Poslané propagačné materiály"
+        },
+        {
+          "ID": "4000000101",
+          "Code": "300",
+          "Name": "Návrh na osobnú schôdzku a prezentáciu",
+          "DisplayName": "300 Návrh na osobnú schôdzku a prezentáciu"
+        },
+        {
+          "ID": "5000000101",
+          "Code": "400",
+          "Name": "Uskutočnená prezentácia",
+          "DisplayName": "400 Uskutočnená prezentácia"
+        },
+        {
+          "ID": "6000000101",
+          "Code": "500",
+          "Name": "Poslanie návrhu zmluvy",
+          "DisplayName": "500 Poslanie návrhu zmluvy"
+        },
+        {
+          "ID": "7000000101",
+          "Code": "600",
+          "Name": "Akceptovanie zmluvy",
+          "DisplayName": "600 Akceptovanie zmluvy"
+        },
+        {
+          "ID": "8000000101",
+          "Code": "700",
+          "Name": "Podpis zmluvy",
+          "DisplayName": "700 Podpis zmluvy"
+        },
+        {
+          "ID": "9000000101",
+          "Code": "800",
+          "Name": "Zaplatené",
+          "DisplayName": "800 Zaplatené"
+        },
+        {
+          "ID": "A000000101",
+          "Code": "900",
+          "Name": "Odovzdané kontrole kvality",
+          "DisplayName": "900 Odovzdané kontrole kvality"
+        },
+        {
+          "ID": "B000000101",
+          "Code": "999",
+          "Name": "Neúspech",
+          "DisplayName": "999 Neúspech"
+        }
+      ]
+    }
+  },
+  "detail_crmactivityareas_2000000101": {
+    "status": 200,
+    "body": {
+      "classid": "N53352D4AKB43AMHHSYG1UKFVW",
+      "code": "Sp",
+      "description": "",
+      "displayname": "Sp Spoločná",
+      "externalids": [],
+      "hidden": false,
+      "id": "2000000101",
+      "name": "Spoločná",
+      "objversion": 1
+    }
+  },
+  "detail_crmactivitytypes_2000000101": {
+    "status": 200,
+    "body": {
+      "activityprocess_id": null,
+      "busdivisionreq": 1,
+      "businessrelationship": false,
+      "busorder_id": null,
+      "busorderreq": 0,
+      "busproject_id": null,
+      "busprojectreq": 0,
+      "bustransaction_id": null,
+      "bustransactionreq": 0,
+      "classid": "SMOEDRFJASV4P4XCFPYBZ1UYYO",
+      "code": "Tel",
+      "description": "",
+      "displayname": "Tel Telefón",
+      "division_id": null,
+      "duration$date": null,
+      "externalids": [],
+      "firm_id": null,
+      "firmreq": 0,
+      "generateissueddoc": false,
+      "hidden": false,
+      "id": "2000000101",
+      "isprivate": false,
+      "isroleprotected": false,
+      "issheduled": false,
+      "name": "Telefón",
+      "nocollisioncheck": false,
+      "objversion": 2,
+      "offset$date": null,
+      "passsolverrole": false,
+      "person_id": null,
+      "personreq": 0,
+      "priority": 0,
+      "processisrequired": false,
+      "product_id": null,
+      "productreq": 0,
+      "solverrole_id": null,
+      "solveruser_id": null,
+      "status": 0,
+      "subject": "",
+      "usecontacts": false
+    }
+  },
+  "detail_crmactivitytypes_3000000101": {
+    "status": 200,
+    "body": {
+      "activityprocess_id": null,
+      "busdivisionreq": 1,
+      "businessrelationship": false,
+      "busorder_id": null,
+      "busorderreq": 0,
+      "busproject_id": null,
+      "busprojectreq": 0,
+      "bustransaction_id": null,
+      "bustransactionreq": 0,
+      "classid": "SMOEDRFJASV4P4XCFPYBZ1UYYO",
+      "code": "Obch",
+      "description": "",
+      "displayname": "Obch Obchodný prípad",
+      "division_id": null,
+      "duration$date": null,
+      "externalids": [],
+      "firm_id": null,
+      "firmreq": 1,
+      "generateissueddoc": false,
+      "hidden": false,
+      "id": "3000000101",
+      "isprivate": false,
+      "isroleprotected": false,
+      "issheduled": true,
+      "name": "Obchodný prípad",
+      "nocollisioncheck": false,
+      "objversion": 2,
+      "offset$date": null,
+      "passsolverrole": false,
+      "person_id": null,
+      "personreq": 0,
+      "priority": 0,
+      "processisrequired": false,
+      "product_id": null,
+      "productreq": 0,
+      "solverrole_id": null,
+      "solveruser_id": null,
+      "status": 0,
+      "subject": "",
+      "usecontacts": false
+    }
+  },
+  "detail_crmactivityqueues_2000000101": {
+    "status": 200,
+    "body": {
+      "autofillhole": false,
+      "classid": "V4ZWII12WD3O3IRJZW04M00DMK",
+      "code": "PrHo",
+      "displayname": "PrHo - Prichádzajúci hovor",
+      "externalids": [],
+      "firstopenperiod_id": "2000000101",
+      "hidden": false,
+      "id": "2000000101",
+      "lastnumbers": [
+        {
+          "classid": "SIZFKCWHZHK4JHZ5AINQD0SRBO",
+          "displayname": "Prichádzajúci hovor PrHo/2006",
+          "docqueue_id": "2000000101",
+          "externalids": [],
+          "id": "1000000101",
+          "lastnumber": 65,
+          "objversion": 66,
+          "period_id": "4000000101"
+        },
+        {
+          "classid": "SIZFKCWHZHK4JHZ5AINQD0SRBO",
+          "displayname": "Prichádzajúci hovor PrHo/2026",
+          "docqueue_id": "2000000101",
+          "externalids": [],
+          "id": "4000000101",
+          "lastnumber": 27,
+          "objversion": 28,
+          "period_id": "3F80000101"
+        }
+      ],
+      "name": "Prichádzajúci hovor",
+      "note": "",
+      "objversion": 4
+    }
+  },
+  "detail_crmactivityqueues_4000000101": {
+    "status": 200,
+    "body": {
+      "autofillhole": false,
+      "classid": "V4ZWII12WD3O3IRJZW04M00DMK",
+      "code": "NP",
+      "displayname": "NP - Nový predaj",
+      "externalids": [],
+      "firstopenperiod_id": "2000000101",
+      "hidden": false,
+      "id": "4000000101",
+      "lastnumbers": [
+        {
+          "classid": "SIZFKCWHZHK4JHZ5AINQD0SRBO",
+          "displayname": "Nový predaj NP/2006",
+          "docqueue_id": "4000000101",
+          "externalids": [],
+          "id": "2000000101",
+          "lastnumber": 12,
+          "objversion": 13,
+          "period_id": "4000000101"
+        },
+        {
+          "classid": "SIZFKCWHZHK4JHZ5AINQD0SRBO",
+          "displayname": "Nový predaj NP/2026",
+          "docqueue_id": "4000000101",
+          "externalids": [],
+          "id": "3000000101",
+          "lastnumber": 26,
+          "objversion": 27,
+          "period_id": "3F80000101"
+        }
+      ],
+      "name": "Nový predaj",
+      "note": "",
+      "objversion": 4
+    }
+  },
+  "referenceActivity_E120000101": {
+    "ID": "E120000101",
+    "DisplayName": "NP-25/2026",
+    "activityarea_id": "2000000101",
+    "activitytype_id": "3000000101",
+    "actqueue_id": "4000000101",
+    "activityprocess_id": null,
+    "processisrequired": false
+  },
+  "referenceActivity_5320000101": {
+    "ID": "5320000101",
+    "DisplayName": "PrHo-64/2006",
+    "activityarea_id": "2000000101",
+    "activitytype_id": "2000000101",
+    "actqueue_id": "2000000101",
+    "activityprocess_id": null,
+    "processisrequired": false
+  },
+  "activitySurvey": {
+    "sampleSize": 0,
+    "withProcess": 0,
+    "uniqueAreas": [],
+    "uniqueTypes": [],
+    "uniqueQueues": [],
+    "samples": []
+  },
+  "validateProbes": [
+    {
+      "name": "minimal_user_only",
+      "request": {
+        "Subject": "4.3A classification probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-11T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityType_ID": "2000000101"
+      },
+      "status": 200,
+      "errors": {
+        "count": 2,
+        "values": [
+          {
+            "actqueue_id": {
+              "@description": "Chyba v zadaní položky Rad aktivít",
+              "@code": 800,
+              "@displaylabel": "Rad aktivít",
+              "@clsid": "V4ZWII12WD3O3IRJZW04M00DMK"
+            }
+          },
+          {
+            "period_id": {
+              "@description": "exception when validating: NxError -> Objekt \"Rad aktivít\" nemá identitu",
+              "@code": 801,
+              "@displaylabel": "Obdobie",
+              "@clsid": "CAQPAYUOXVCL3ACL03KIU0CLP4"
+            }
+          }
+        ]
+      },
+      "errorFields": [
+        "actqueue_id",
+        "period_id"
+      ],
+      "resolved": {
+        "activityarea_id": "2000000101",
+        "activitytype_id": "2000000101",
+        "actqueue_id": null,
+        "activityprocess_id": null,
+        "period_id": "3F80000101",
+        "division_id": "2000000101",
+        "solverrole_id": "1000000101",
+        "displayname": "Bez čísla"
+      }
+    },
+    {
+      "name": "no_classification_refs",
+      "request": {
+        "Subject": "4.3A classification probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-11T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101"
+      },
+      "status": 200,
+      "errors": {
+        "count": 5,
+        "values": [
+          {
+            "actqueue_id": {
+              "@description": "Chyba v zadaní položky Rad aktivít",
+              "@code": 800,
+              "@displaylabel": "Rad aktivít",
+              "@clsid": "V4ZWII12WD3O3IRJZW04M00DMK"
+            }
+          },
+          {
+            "period_id": {
+              "@description": "exception when validating: NxError -> Objekt \"Rad aktivít\" nemá identitu",
+              "@code": 801,
+              "@displaylabel": "Obdobie",
+              "@clsid": "CAQPAYUOXVCL3ACL03KIU0CLP4"
+            }
+          },
+          {
+            "activitytype_id": {
+              "@description": "Chyba v zadaní položky Typ aktivity",
+              "@code": 803,
+              "@displaylabel": "Typ aktivity",
+              "@clsid": "SMOEDRFJASV4P4XCFPYBZ1UYYO"
+            }
+          },
+          {
+            "nextcontact$date": {
+              "@description": "Položka Dátum ďalšieho kontaktu musí byť vyplnená platným dátumom.",
+              "@code": 846,
+              "@displaylabel": "Dátum ďalšieho kontaktu"
+            }
+          },
+          {
+            "tradedate$date": {
+              "@description": "Položka Plánovaný dátum uzavr. obchodu musí byť vyplnená platným dátumom.",
+              "@code": 849,
+              "@displaylabel": "Plánovaný dátum uzavr. obchodu"
+            }
+          }
+        ]
+      },
+      "errorFields": [
+        "actqueue_id",
+        "period_id",
+        "activitytype_id",
+        "nextcontact$date",
+        "tradedate$date"
+      ],
+      "resolved": {
+        "activityarea_id": "2000000101",
+        "activitytype_id": null,
+        "actqueue_id": null,
+        "activityprocess_id": null,
+        "period_id": "3F80000101",
+        "division_id": "2000000101",
+        "solverrole_id": "1000000101",
+        "displayname": "Bez čísla"
+      }
+    },
+    {
+      "name": "full_config_defaults",
+      "request": {
+        "Subject": "4.3A classification probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-11T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActQueue_ID": "2000000101",
+        "ActivityArea_ID": "2000000101",
+        "ActivityType_ID": "2000000101"
+      },
+      "status": 200,
+      "errors": {
+        "count": 0,
+        "values": []
+      },
+      "errorFields": [],
+      "resolved": {
+        "activityarea_id": "2000000101",
+        "activitytype_id": "2000000101",
+        "actqueue_id": "2000000101",
+        "activityprocess_id": null,
+        "period_id": "3F80000101",
+        "division_id": "2000000101",
+        "solverrole_id": "1000000101",
+        "displayname": "Bez čísla"
+      }
+    },
+    {
+      "name": "type_obch_no_queue",
+      "request": {
+        "Subject": "4.3A classification probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-11T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityType_ID": "3000000101",
+        "ActivityArea_ID": "2000000101"
+      },
+      "status": 200,
+      "errors": {
+        "count": 2,
+        "values": [
+          {
+            "actqueue_id": {
+              "@description": "Chyba v zadaní položky Rad aktivít",
+              "@code": 800,
+              "@displaylabel": "Rad aktivít",
+              "@clsid": "V4ZWII12WD3O3IRJZW04M00DMK"
+            }
+          },
+          {
+            "period_id": {
+              "@description": "exception when validating: NxError -> Objekt \"Rad aktivít\" nemá identitu",
+              "@code": 801,
+              "@displaylabel": "Obdobie",
+              "@clsid": "CAQPAYUOXVCL3ACL03KIU0CLP4"
+            }
+          }
+        ]
+      },
+      "errorFields": [
+        "actqueue_id",
+        "period_id"
+      ],
+      "resolved": {
+        "activityarea_id": "2000000101",
+        "activitytype_id": "3000000101",
+        "actqueue_id": null,
+        "activityprocess_id": null,
+        "period_id": "3F80000101",
+        "division_id": "2000000101",
+        "solverrole_id": "1000000101",
+        "displayname": "Bez čísla"
+      }
+    },
+    {
+      "name": "queue_np_only",
+      "request": {
+        "Subject": "4.3A classification probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-11T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActQueue_ID": "4000000101",
+        "ActivityType_ID": "3000000101",
+        "ActivityArea_ID": "2000000101"
+      },
+      "status": 200,
+      "errors": {
+        "count": 0,
+        "values": []
+      },
+      "errorFields": [],
+      "resolved": {
+        "activityarea_id": "2000000101",
+        "activitytype_id": "3000000101",
+        "actqueue_id": "4000000101",
+        "activityprocess_id": null,
+        "period_id": "3F80000101",
+        "division_id": "2000000101",
+        "solverrole_id": "1000000101",
+        "displayname": "Bez čísla"
+      }
+    },
+    {
+      "name": "queue_prho_only",
+      "request": {
+        "Subject": "4.3A classification probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-11T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActQueue_ID": "2000000101",
+        "ActivityType_ID": "2000000101",
+        "ActivityArea_ID": "2000000101"
+      },
+      "status": 200,
+      "errors": {
+        "count": 0,
+        "values": []
+      },
+      "errorFields": [],
+      "resolved": {
+        "activityarea_id": "2000000101",
+        "activitytype_id": "2000000101",
+        "actqueue_id": "2000000101",
+        "activityprocess_id": null,
+        "period_id": "3F80000101",
+        "division_id": "2000000101",
+        "solverrole_id": "1000000101",
+        "displayname": "Bez čísla"
+      }
+    },
+    {
+      "name": "omit_area",
+      "request": {
+        "Subject": "4.3A classification probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-11T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityType_ID": "2000000101",
+        "ActQueue_ID": "2000000101"
+      },
+      "status": 200,
+      "errors": {
+        "count": 0,
+        "values": []
+      },
+      "errorFields": [],
+      "resolved": {
+        "activityarea_id": "2000000101",
+        "activitytype_id": "2000000101",
+        "actqueue_id": "2000000101",
+        "activityprocess_id": null,
+        "period_id": "3F80000101",
+        "division_id": "2000000101",
+        "solverrole_id": "1000000101",
+        "displayname": "Bez čísla"
+      }
+    },
+    {
+      "name": "omit_type",
+      "request": {
+        "Subject": "4.3A classification probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-11T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "2000000101",
+        "ActQueue_ID": "2000000101"
+      },
+      "status": 200,
+      "errors": {
+        "count": 3,
+        "values": [
+          {
+            "activitytype_id": {
+              "@description": "Chyba v zadaní položky Typ aktivity",
+              "@code": 803,
+              "@displaylabel": "Typ aktivity",
+              "@clsid": "SMOEDRFJASV4P4XCFPYBZ1UYYO"
+            }
+          },
+          {
+            "nextcontact$date": {
+              "@description": "Položka Dátum ďalšieho kontaktu musí byť vyplnená platným dátumom.",
+              "@code": 846,
+              "@displaylabel": "Dátum ďalšieho kontaktu"
+            }
+          },
+          {
+            "tradedate$date": {
+              "@description": "Položka Plánovaný dátum uzavr. obchodu musí byť vyplnená platným dátumom.",
+              "@code": 849,
+              "@displaylabel": "Plánovaný dátum uzavr. obchodu"
+            }
+          }
+        ]
+      },
+      "errorFields": [
+        "activitytype_id",
+        "nextcontact$date",
+        "tradedate$date"
+      ],
+      "resolved": {
+        "activityarea_id": "2000000101",
+        "activitytype_id": null,
+        "actqueue_id": "2000000101",
+        "activityprocess_id": null,
+        "period_id": "3F80000101",
+        "division_id": "2000000101",
+        "solverrole_id": "1000000101",
+        "displayname": "Bez čísla"
+      }
+    },
+    {
+      "name": "omit_queue",
+      "request": {
+        "Subject": "4.3A classification probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-11T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityType_ID": "2000000101",
+        "ActivityArea_ID": "2000000101"
+      },
+      "status": 200,
+      "errors": {
+        "count": 2,
+        "values": [
+          {
+            "actqueue_id": {
+              "@description": "Chyba v zadaní položky Rad aktivít",
+              "@code": 800,
+              "@displaylabel": "Rad aktivít",
+              "@clsid": "V4ZWII12WD3O3IRJZW04M00DMK"
+            }
+          },
+          {
+            "period_id": {
+              "@description": "exception when validating: NxError -> Objekt \"Rad aktivít\" nemá identitu",
+              "@code": 801,
+              "@displaylabel": "Obdobie",
+              "@clsid": "CAQPAYUOXVCL3ACL03KIU0CLP4"
+            }
+          }
+        ]
+      },
+      "errorFields": [
+        "actqueue_id",
+        "period_id"
+      ],
+      "resolved": {
+        "activityarea_id": "2000000101",
+        "activitytype_id": "2000000101",
+        "actqueue_id": null,
+        "activityprocess_id": null,
+        "period_id": "3F80000101",
+        "division_id": "2000000101",
+        "solverrole_id": "1000000101",
+        "displayname": "Bez čísla"
+      }
+    }
+  ],
+  "commitTests": [
+    {
+      "label": "np_queue",
+      "queueId": "4000000101",
+      "typeId": "3000000101",
+      "commitStatus": 201,
+      "activityId": "U320000101",
+      "displayName": "NP-27/2026"
+    },
+    {
+      "label": "prho_queue",
+      "queueId": "2000000101",
+      "typeId": "2000000101",
+      "commitStatus": 201,
+      "activityId": "W320000101",
+      "displayName": "PrHo-28/2026"
+    }
+  ]
+}

@@ -1,0 +1,629 @@
+{
+  "at": "2026-06-11T11:02:57.940235+00:00",
+  "spike": "sprint-4-2a-1-business-dimensions-validation",
+  "galenit_search": {
+    "count": 1,
+    "items": [
+      {
+        "ID": "4000000101",
+        "Name": "Galenit a.s.",
+        "Code": "00003",
+        "DisplayName": "00003 Galenit a.s."
+      }
+    ]
+  },
+  "reference_dimensions": {
+    "bustransactions": {
+      "ID": "5000000101",
+      "DisplayName": "Výstavy Výstavy",
+      "Code": "Výstavy",
+      "Name": "Výstavy",
+      "Firm_ID": null
+    },
+    "busorders": {
+      "ID": "A000000101",
+      "DisplayName": "S Služby",
+      "Code": "S",
+      "Name": "Služby",
+      "Firm_ID": null
+    },
+    "busprojects": {
+      "ID": "2000000101",
+      "DisplayName": "Dealer Sprostredkovanie predaja",
+      "Code": "Dealer",
+      "Name": "Sprostredkovanie predaja",
+      "Firm_ID": null
+    }
+  },
+  "firmIdSurvey": {
+    "bustransactions": {
+      "total": 2,
+      "withFirmId": 0,
+      "sampleFirmIds": [],
+      "allRows": [
+        {
+          "ID": "3000000101",
+          "DisplayName": "Zľavy Zľavové akcie",
+          "Code": "Zľavy",
+          "Name": "Zľavové akcie",
+          "Firm_ID": null
+        },
+        {
+          "ID": "5000000101",
+          "DisplayName": "Výstavy Výstavy",
+          "Code": "Výstavy",
+          "Name": "Výstavy",
+          "Firm_ID": null
+        }
+      ]
+    },
+    "busorders": {
+      "total": 3,
+      "withFirmId": 0,
+      "sampleFirmIds": [],
+      "allRows": [
+        {
+          "ID": "A000000101",
+          "DisplayName": "S Služby",
+          "Code": "S",
+          "Name": "Služby",
+          "Firm_ID": null
+        },
+        {
+          "ID": "B000000101",
+          "DisplayName": "SH Hot-line",
+          "Code": "SH",
+          "Name": "Hot-line",
+          "Firm_ID": null
+        },
+        {
+          "ID": "C000000101",
+          "DisplayName": "SS Školenie",
+          "Code": "SS",
+          "Name": "Školenie",
+          "Firm_ID": null
+        }
+      ]
+    },
+    "busprojects": {
+      "total": 4,
+      "withFirmId": 0,
+      "sampleFirmIds": [],
+      "allRows": [
+        {
+          "ID": "2000000101",
+          "DisplayName": "Dealer Sprostredkovanie predaja",
+          "Code": "Dealer",
+          "Name": "Sprostredkovanie predaja",
+          "Firm_ID": null
+        },
+        {
+          "ID": "3000000101",
+          "DisplayName": "Predaj Priamy predaj",
+          "Code": "Predaj",
+          "Name": "Priamy predaj",
+          "Firm_ID": null
+        },
+        {
+          "ID": "4000000101",
+          "DisplayName": "Zákazky Predaj riešení na zákazku",
+          "Code": "Zákazky",
+          "Name": "Predaj riešení na zákazku",
+          "Firm_ID": null
+        },
+        {
+          "ID": "5000000101",
+          "DisplayName": "Štandard Predaj štandardných riešení",
+          "Code": "Štandard",
+          "Name": "Predaj štandardných riešení",
+          "Firm_ID": null
+        }
+      ]
+    }
+  },
+  "galenitActivities": [
+    {
+      "ID": "3000000101",
+      "Subject": "otázka na cenu pri skladovej karte s kódom KEYBSK",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": null,
+      "busorder_id": null,
+      "busproject_id": null,
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "4000000101",
+      "Subject": "otázka na cenu skl. karty MB100",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": null,
+      "busorder_id": null,
+      "busproject_id": null,
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "A110000101",
+      "Subject": "ešte raz test vytvorenia novej aktivity",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": null,
+      "busorder_id": null,
+      "busproject_id": null,
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "D120000101",
+      "Subject": "test po oprave",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": null,
+      "busorder_id": null,
+      "busproject_id": null,
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "E120000101",
+      "Subject": "Test Zákazka, Obchodný prípad a Projekt",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "U120000101",
+      "Subject": "4.2A.1 validation probe",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "0220000101",
+      "Subject": "4.2A.1 handover explicit copy",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "Y120000101",
+      "Subject": "4.2A.1 handover source only",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": null,
+      "busorder_id": null,
+      "busproject_id": null,
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "5220000101",
+      "Subject": "4.2A.1 validation probe",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "B220000101",
+      "Subject": "4.2A.1 handover explicit copy",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "9220000101",
+      "Subject": "4.2A.1 handover source only",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": null,
+      "busorder_id": null,
+      "busproject_id": null,
+      "division_id": "2000000101"
+    }
+  ],
+  "galenitActivitiesWithDimensions": [
+    {
+      "id": "E120000101",
+      "subject": "Test Zákazka, Obchodný prípad a Projekt",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101"
+    },
+    {
+      "id": "U120000101",
+      "subject": "4.2A.1 validation probe",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101"
+    },
+    {
+      "id": "0220000101",
+      "subject": "4.2A.1 handover explicit copy",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101"
+    },
+    {
+      "id": "5220000101",
+      "subject": "4.2A.1 validation probe",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101"
+    },
+    {
+      "id": "B220000101",
+      "subject": "4.2A.1 handover explicit copy",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101"
+    }
+  ],
+  "activitiesBy_bustransaction_id": [
+    {
+      "ID": "E120000101",
+      "Subject": "Test Zákazka, Obchodný prípad a Projekt",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "U120000101",
+      "Subject": "4.2A.1 validation probe",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "W120000101",
+      "Subject": "4.2A.1 validation probe",
+      "Firm_ID": "3000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "0220000101",
+      "Subject": "4.2A.1 handover explicit copy",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "5220000101",
+      "Subject": "4.2A.1 validation probe",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "7220000101",
+      "Subject": "4.2A.1 validation probe",
+      "Firm_ID": "3000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    {
+      "ID": "B220000101",
+      "Subject": "4.2A.1 handover explicit copy",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    }
+  ],
+  "referenceActivity": {
+    "listRow": {
+      "ID": "E120000101",
+      "Subject": "Test Zákazka, Obchodný prípad a Projekt",
+      "Firm_ID": "4000000101",
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "division_id": "2000000101"
+    },
+    "fullGet": {
+      "activityarea_id": "2000000101",
+      "activityprocess_id": null,
+      "activitytype_id": "3000000101",
+      "actqueue_id": "4000000101",
+      "answer": "",
+      "blockactivityarea": false,
+      "blockactivitytype": false,
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101",
+      "bustransaction_id": "5000000101",
+      "classid": "AVV1JYV5AVNOZHQCK0D4CJFUCS",
+      "contactnote": "",
+      "contacts": [],
+      "correctedat$date": null,
+      "correctedby_id": null,
+      "createdat$date": "2026-06-11T10:47:00.000Z",
+      "createdby_id": "1200000101",
+      "description": "",
+      "displayname": "NP-25/2026",
+      "division_id": "2000000101",
+      "externalids": [],
+      "financialvolume": 0,
+      "firm_id": "4000000101",
+      "firmoffice_id": "4000000101",
+      "id": "E120000101",
+      "isprivate": false,
+      "newrelateddocument_id": "",
+      "newrelatedtype": 0,
+      "nextcontact$date": null,
+      "objversion": 1,
+      "ordnumber": 25,
+      "participants": [],
+      "period_id": "3F80000101",
+      "person_id": null,
+      "picture_id": null,
+      "pictures": [],
+      "pipelinestatus_id": null,
+      "pmstate_id": "CADEF00000",
+      "priority": 0,
+      "processisrequired": false,
+      "product_id": null,
+      "progress_id": null,
+      "realduration$date": null,
+      "realend$date": "2026-06-11T10:46:00.000Z",
+      "realovertime": 0,
+      "realstart$date": "2026-06-11T10:46:00.000Z",
+      "realtotalworkingtime": 0,
+      "realworkingtimeinhours": 0,
+      "resolvedby_id": null,
+      "responsiblerole_id": null,
+      "responsibleuser_id": null,
+      "scheduledovertime": 0,
+      "scheduledtotalworkingtime": 0,
+      "scheduledworkingtimeinhours": 0,
+      "sheduledduration$date": null,
+      "sheduledend$date": "2026-06-11T10:46:00.000Z",
+      "sheduledstart$date": "2026-06-11T10:46:00.000Z",
+      "solverrole_id": "6000000101",
+      "solveruser_id": null,
+      "source_id": null,
+      "status": 0,
+      "subject": "Test Zákazka, Obchodný prípad a Projekt",
+      "timerecords": [],
+      "tradedate$date": null
+    }
+  },
+  "referenceActivityFirm": {
+    "ID": "4000000101",
+    "Name": "Galenit a.s.",
+    "Code": "00003"
+  },
+  "requiredFieldValidation": {
+    "missing_firm": {
+      "status": 200,
+      "errors": {
+        "count": 0,
+        "values": []
+      }
+    },
+    "missing_division": {
+      "status": 200,
+      "errors": {
+        "count": 0,
+        "values": []
+      }
+    },
+    "missing_both": {
+      "status": 200,
+      "errors": {
+        "count": 4,
+        "values": [
+          {
+            "actqueue_id": {
+              "@description": "Chyba v zadaní položky Rad aktivít",
+              "@code": 800,
+              "@displaylabel": "Rad aktivít",
+              "@clsid": "V4ZWII12WD3O3IRJZW04M00DMK"
+            }
+          },
+          {
+            "period_id": {
+              "@description": "exception when validating: NxError -> Objekt \"Rad aktivít\" nemá identitu",
+              "@code": 801,
+              "@displaylabel": "Obdobie",
+              "@clsid": "CAQPAYUOXVCL3ACL03KIU0CLP4"
+            }
+          },
+          {
+            "solverrole_id": {
+              "@description": "Chyba v zadaní položky Rola riešiteľa",
+              "@code": 810,
+              "@displaylabel": "Rola riešiteľa",
+              "@clsid": "QRDGQ1DV2CU4D3TOUMORZ0LWIW"
+            }
+          },
+          {
+            "division_id": {
+              "@description": "Chyba v zadaní položky Stredisko",
+              "@code": 824,
+              "@displaylabel": "Stredisko",
+              "@clsid": "O1X54EUXPZCL35CH000ILPWJF4"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "dimensionWithFirmTests": [
+    {
+      "label": "galenit_firm",
+      "firmId": "4000000101",
+      "validate": {
+        "status": 200,
+        "errors": {
+          "count": 0,
+          "values": []
+        }
+      },
+      "create": {
+        "status": 201,
+        "errors": {
+          "count": 0,
+          "values": []
+        },
+        "activityId": "G220000101"
+      },
+      "persisted": {
+        "bustransaction_id": "5000000101",
+        "busorder_id": "A000000101",
+        "busproject_id": "2000000101"
+      }
+    },
+    {
+      "label": "other_firm",
+      "firmId": "3000000101",
+      "validate": {
+        "status": 200,
+        "errors": {
+          "count": 0,
+          "values": []
+        }
+      },
+      "create": {
+        "status": 201,
+        "errors": {
+          "count": 0,
+          "values": []
+        },
+        "activityId": "I220000101"
+      },
+      "persisted": {
+        "bustransaction_id": "5000000101",
+        "busorder_id": "A000000101",
+        "busproject_id": "2000000101"
+      }
+    }
+  ],
+  "handoverSourceOnly": {
+    "sourceId": "G220000101",
+    "sourceDims": {
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101"
+    },
+    "validate": {
+      "status": 200,
+      "errors": {
+        "count": 0,
+        "values": []
+      }
+    },
+    "create": {
+      "status": 201,
+      "activityId": "K220000101"
+    },
+    "childDims": {
+      "bustransaction_id": null,
+      "busorder_id": null,
+      "busproject_id": null
+    },
+    "genAutoInherited": false
+  },
+  "handoverExplicitCopy": {
+    "validate": {
+      "status": 200,
+      "errors": {
+        "count": 0,
+        "values": []
+      }
+    },
+    "create": {
+      "status": 201,
+      "activityId": "M220000101"
+    },
+    "childDims": {
+      "bustransaction_id": "5000000101",
+      "busorder_id": "A000000101",
+      "busproject_id": "2000000101"
+    }
+  },
+  "firmFilterTests": [
+    {
+      "bo": "bustransactions",
+      "firmId": "4000000101",
+      "status": 200,
+      "count": 0,
+      "items": []
+    },
+    {
+      "bo": "bustransactions",
+      "firmId": "4000000101",
+      "status": 200,
+      "count": 0,
+      "items": []
+    },
+    {
+      "bo": "bustransactions",
+      "firmId": "3000000101",
+      "status": 200,
+      "count": 0,
+      "items": []
+    },
+    {
+      "bo": "busorders",
+      "firmId": "4000000101",
+      "status": 200,
+      "count": 0,
+      "items": []
+    },
+    {
+      "bo": "busorders",
+      "firmId": "4000000101",
+      "status": 200,
+      "count": 0,
+      "items": []
+    },
+    {
+      "bo": "busorders",
+      "firmId": "3000000101",
+      "status": 200,
+      "count": 0,
+      "items": []
+    },
+    {
+      "bo": "busprojects",
+      "firmId": "4000000101",
+      "status": 200,
+      "count": 0,
+      "items": []
+    },
+    {
+      "bo": "busprojects",
+      "firmId": "4000000101",
+      "status": 200,
+      "count": 0,
+      "items": []
+    },
+    {
+      "bo": "busprojects",
+      "firmId": "3000000101",
+      "status": 200,
+      "count": 0,
+      "items": []
+    }
+  ],
+  "activityTypeRequirements": {
+    "title": "Error processing api request",
+    "description": "The path http://localhost/demo/activitytypes/2000000101 could not be found",
+    "error_code": 0,
+    "exception_class": "eu.abra.apiserver.api.ApiException$NotFound"
+  }
+}

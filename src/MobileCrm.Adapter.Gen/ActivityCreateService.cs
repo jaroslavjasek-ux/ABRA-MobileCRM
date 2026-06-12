@@ -18,7 +18,13 @@ public sealed record StandaloneCreateActivityCommand(
     string FirmId,
     string? ContactPersonId,
     string? Description,
-    string AssignedUserId);
+    string AssignedUserId,
+    string? BusinessCaseId = null,
+    string? WorkOrderId = null,
+    string? ProjectId = null,
+    string? ActivityAreaId = null,
+    string? ActivityTypeId = null,
+    string? ActQueueId = null);
 
 public interface IActivityCreateService
 {
@@ -135,7 +141,7 @@ public sealed class ActivityCreateService : IActivityCreateService
             command.FirmId,
             repUserId);
 
-        if (!_referenceDefaults.TryGetConfiguredDefaults(out var defaults))
+        if (!_referenceDefaults.TryGetStandaloneDefaults(out var defaults))
         {
             return ActivityOperationResult<GenActivityDetail>.Fail(
                 ActivityOperationErrorCode.MissingReferenceFields,
@@ -182,10 +188,19 @@ public sealed class ActivityCreateService : IActivityCreateService
 
     private static Dictionary<string, object?> BuildStandaloneGenPayload(
         StandaloneCreateActivityCommand command,
-        ActivityReferenceDefaults defaults)
+        StandaloneActivityDefaults defaults)
     {
         // AssignedUserId is pre-resolved in ActivitiesController (explicit pick or session rep).
         var assigneeId = command.AssignedUserId.Trim();
+        var actQueueId = FirstNonEmpty(command.ActQueueId, defaults.ActQueueId);
+        var activityTypeId = FirstNonEmpty(command.ActivityTypeId, defaults.ActivityTypeId);
+        var activityAreaId = FirstNonEmpty(command.ActivityAreaId, defaults.ActivityAreaId);
+
+        if (string.IsNullOrWhiteSpace(actQueueId) || string.IsNullOrWhiteSpace(activityTypeId))
+        {
+            throw new InvalidOperationException(
+                "Standalone create requires ActQueue_ID and ActivityType_ID from the request or tenant defaults.");
+        }
 
         var body = new Dictionary<string, object?>
         {
@@ -194,13 +209,16 @@ public sealed class ActivityCreateService : IActivityCreateService
             ["SheduledStart$DATE"] = command.ScheduledStart.ToString("o"),
             ["ResponsibleUser_ID"] = assigneeId,
             ["SolverUser_ID"] = assigneeId,
-            ["ActQueue_ID"] = defaults.ActQueueId,
-            ["Period_ID"] = defaults.PeriodId,
+            ["ActQueue_ID"] = actQueueId,
             ["Division_ID"] = defaults.DivisionId,
             ["SolverRole_ID"] = defaults.SolverRoleId,
-            ["ActivityArea_ID"] = defaults.ActivityAreaId,
-            ["ActivityType_ID"] = defaults.ActivityTypeId,
+            ["ActivityType_ID"] = activityTypeId,
         };
+
+        if (!string.IsNullOrWhiteSpace(activityAreaId))
+        {
+            body["ActivityArea_ID"] = activityAreaId;
+        }
 
         if (!string.IsNullOrWhiteSpace(command.Description))
         {
@@ -212,8 +230,28 @@ public sealed class ActivityCreateService : IActivityCreateService
             body["Person_ID"] = command.ContactPersonId!.Trim();
         }
 
+        if (!string.IsNullOrWhiteSpace(command.BusinessCaseId))
+        {
+            body["BusTransaction_ID"] = command.BusinessCaseId.Trim();
+        }
+
+        if (!string.IsNullOrWhiteSpace(command.WorkOrderId))
+        {
+            body["BusOrder_ID"] = command.WorkOrderId.Trim();
+        }
+
+        if (!string.IsNullOrWhiteSpace(command.ProjectId))
+        {
+            body["BusProject_ID"] = command.ProjectId.Trim();
+        }
+
         return body;
     }
+
+    private static string FirstNonEmpty(string? primary, string? fallback) =>
+        !string.IsNullOrWhiteSpace(primary) ? primary.Trim()
+        : !string.IsNullOrWhiteSpace(fallback) ? fallback.Trim()
+        : "";
 
     private static Dictionary<string, object?> BuildFollowUpGenPayload(
         CreateActivityCommand command,
@@ -387,6 +425,11 @@ public sealed class ActivityCreateService : IActivityCreateService
 
             if (validateErrorCount == 0)
             {
+                if (mergeFromValidate)
+                {
+                    _referenceDefaults.MergeFromValidateResponse(body, validateResponse);
+                }
+
                 break;
             }
 
