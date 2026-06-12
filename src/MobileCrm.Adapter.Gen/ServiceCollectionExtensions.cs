@@ -16,6 +16,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IUserLookupService, UserLookupService>();
         services.AddScoped<IDimensionLookupService, DimensionLookupService>();
         services.AddScoped<IClassificationLookupService, ClassificationLookupService>();
+        services.AddScoped<IClassificationValidateProbeService, ClassificationValidateProbeService>();
         return services;
     }
 }

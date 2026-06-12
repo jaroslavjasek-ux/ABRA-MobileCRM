@@ -126,26 +126,35 @@ export function CreateActivityPage() {
     queryFn: () => searchActivityAreas(undefined, 50),
   });
 
+  const resolvedAreaId = showActivityArea ? areaSelector.value.trim() : "";
+  const areaReady = !showActivityArea || Boolean(resolvedAreaId);
+
   const typeSelector = useAbraCatalogSelector({
-    enabled: showActivityType,
+    enabled: showActivityType && Boolean(selectedFirm) && areaReady,
     required: true,
     autoHideSingleValue,
-    queryKey: queryKeys.activityTypes(),
-    queryFn: () => searchActivityTypes(undefined, 50),
+    parentKey: resolvedAreaId,
+    queryKey: queryKeys.activityTypes(resolvedAreaId || undefined),
+    queryFn: () => searchActivityTypes(undefined, resolvedAreaId || undefined, 50),
   });
 
+  const resolvedTypeId = typeSelector.value.trim();
+  const typeReady = typeSelector.isReady && !typeSelector.isConfigurationError;
+
   const queueSelector = useAbraCatalogSelector({
-    enabled: showActivityQueue,
+    enabled: showActivityQueue && Boolean(selectedFirm) && areaReady && Boolean(resolvedTypeId) && typeReady,
     required: true,
     autoHideSingleValue,
-    queryKey: queryKeys.activityQueues(),
-    queryFn: () => searchActivityQueues(undefined, 50),
+    parentKey: `${resolvedAreaId}:${resolvedTypeId}`,
+    queryKey: queryKeys.activityQueues(resolvedAreaId || undefined, resolvedTypeId || undefined),
+    queryFn: () =>
+      searchActivityQueues(undefined, resolvedAreaId || undefined, resolvedTypeId || undefined, 50),
   });
 
   const classificationConfigurationError =
     (showActivityArea && areaSelector.isConfigurationError)
-    || (showActivityType && typeSelector.isConfigurationError)
-    || (showActivityQueue && queueSelector.isConfigurationError);
+    || (showActivityType && areaReady && typeSelector.isConfigurationError)
+    || (showActivityQueue && typeReady && Boolean(resolvedTypeId) && queueSelector.isConfigurationError);
 
   useEffect(() => {
     const repId =
@@ -195,6 +204,10 @@ export function CreateActivityPage() {
           replace: true,
           state: { from: "/app/activities/new" },
         });
+        return;
+      }
+      if (err instanceof ApiError && err.code === "CLASSIFICATION_INVALID") {
+        setFormError(t("createActivity.classificationInvalid"));
         return;
       }
       if (err instanceof ApiError && err.body?.details?.length) {
@@ -276,8 +289,19 @@ export function CreateActivityPage() {
       setAssignedUserError(t("createActivity.assignedUserRequired"));
       valid = false;
     }
-    if (classificationConfigurationError) {
+    if (showActivityArea && areaSelector.isConfigurationError) {
       setFormError(t("createActivity.classificationConfigurationError"));
+      valid = false;
+    } else if (showActivityType && areaReady && typeSelector.isConfigurationError) {
+      setFormError(t("createActivity.classificationNoTypesForArea"));
+      valid = false;
+    } else if (
+      showActivityQueue
+      && typeReady
+      && Boolean(resolvedTypeId)
+      && queueSelector.isConfigurationError
+    ) {
+      setFormError(t("createActivity.classificationNoQueuesForAreaType"));
       valid = false;
     }
     if (showActivityType && typeSelector.isSelectionMissing) {
@@ -522,7 +546,7 @@ export function CreateActivityPage() {
                 noneLabel={t("createActivity.classificationNone")}
                 loadingLabel={t("createActivity.loadingClassification")}
                 requiredErrorLabel={t("createActivity.activityTypeRequired")}
-                configurationErrorLabel={t("createActivity.classificationConfigurationError")}
+                configurationErrorLabel={t("createActivity.classificationNoTypesForArea")}
                 error={activityTypeError}
                 onClearError={() => setActivityTypeError(null)}
               />
@@ -537,7 +561,7 @@ export function CreateActivityPage() {
                 noneLabel={t("createActivity.classificationNone")}
                 loadingLabel={t("createActivity.loadingClassification")}
                 requiredErrorLabel={t("createActivity.activityQueueRequired")}
-                configurationErrorLabel={t("createActivity.classificationConfigurationError")}
+                configurationErrorLabel={t("createActivity.classificationNoQueuesForAreaType")}
                 error={activityQueueError}
                 onClearError={() => setActivityQueueError(null)}
               />
@@ -637,7 +661,7 @@ export function CreateActivityPage() {
         </label>
 
         {formError && (
-          <p className="error" role="alert">
+          <p className="error create-activity-form-error" role="alert">
             {formError}
           </p>
         )}

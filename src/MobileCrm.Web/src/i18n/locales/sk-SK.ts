@@ -192,8 +192,14 @@ export const skSK: TranslationTree = {
     loadingClassification: "Načítavam…",
     classificationRequired: "Výber je povinný.",
     classificationConfigurationError: "Chyba konfigurácie — nie sú dostupné žiadne hodnoty.",
+    classificationNoTypesForArea:
+      "Pre vybranú oblasť aktivity nie sú v ABRA nakonfigurované žiadne typy aktivít.",
+    classificationNoQueuesForAreaType:
+      "Pre vybranú kombináciu oblasti a typu aktivity nie sú v ABRA nakonfigurované žiadne rady aktivít.",
     activityTypeRequired: "Vyberte typ aktivity.",
     activityQueueRequired: "Vyberte rad aktivity.",
+    classificationInvalid:
+      "Vybraná klasifikácia aktivity nie je platná.\n\nSkontrolujte konfiguráciu:\n• Oblasť aktivity\n• Typ aktivity\n• Rad aktivity\n\nAk problém pretrváva, kontaktujte administrátora ABRA.",
   },
   commercialStatus: {
     active: "Aktívny",

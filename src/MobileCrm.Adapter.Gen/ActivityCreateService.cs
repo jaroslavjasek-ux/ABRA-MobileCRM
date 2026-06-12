@@ -162,7 +162,7 @@ public sealed class ActivityCreateService : IActivityCreateService
         var (createError, createdId) = await PostCreateAsync(credentials, body, mergeFromValidate, ct);
         if (createError is not null)
         {
-            return MapPostError(createError.Value);
+            return MapPostError(createError.Error, createError.FailedResponse);
         }
 
         if (string.IsNullOrEmpty(createdId))
@@ -389,7 +389,9 @@ public sealed class ActivityCreateService : IActivityCreateService
         }
     }
 
-    private async Task<(ActivityOperationErrorCode? Error, string? CreatedId)> PostCreateAsync(
+    private sealed record PostCreateFailure(ActivityOperationErrorCode Error, JsonElement? FailedResponse);
+
+    private async Task<(PostCreateFailure? Error, string? CreatedId)> PostCreateAsync(
         GenCredentials credentials,
         Dictionary<string, object?> body,
         bool mergeFromValidate,
@@ -414,7 +416,7 @@ public sealed class ActivityCreateService : IActivityCreateService
                     ex,
                     "PostCreateAsync Gen validate HTTP {Status}",
                     ex.StatusCode);
-                return (ActivityOperationErrorCode.GenValidationFailed, null);
+                return (ResolveGenFailure(ex.Body), null);
             }
 
             validateErrorCount = GenValidation.GetErrorCount(validateResponse);
@@ -435,7 +437,7 @@ public sealed class ActivityCreateService : IActivityCreateService
 
             if (!mergeFromValidate || round >= MaxValidateRounds - 1)
             {
-                return (ActivityOperationErrorCode.GenValidationFailed, null);
+                return (ResolveValidationFailure(validateResponse), null);
             }
 
             _referenceDefaults.MergeFromValidateResponse(body, validateResponse);
@@ -443,7 +445,7 @@ public sealed class ActivityCreateService : IActivityCreateService
 
         if (validateErrorCount > 0)
         {
-            return (ActivityOperationErrorCode.GenValidationFailed, null);
+            return (ResolveValidationFailure(validateResponse), null);
         }
 
         JsonElement commitResponse;
@@ -457,7 +459,7 @@ public sealed class ActivityCreateService : IActivityCreateService
                 ex,
                 "PostCreateAsync Gen commit HTTP {Status}",
                 ex.StatusCode);
-            return (ActivityOperationErrorCode.GenValidationFailed, null);
+            return (ResolveGenFailure(ex.Body), null);
         }
 
         var commitErrorCount = GenValidation.GetErrorCount(commitResponse);
@@ -466,17 +468,36 @@ public sealed class ActivityCreateService : IActivityCreateService
             _logger.LogWarning(
                 "PostCreateAsync Gen commit validation errorCount={ErrorCount}",
                 commitErrorCount);
-            return (ActivityOperationErrorCode.GenValidationFailed, null);
+            return (ResolveValidationFailure(commitResponse), null);
         }
 
         return (null, ActivityMapper.GetCanonicalId(commitResponse));
     }
 
-    private static ActivityOperationResult<GenActivityDetail> MapPostError(ActivityOperationErrorCode code) =>
+    private static PostCreateFailure ResolveValidationFailure(JsonElement response) =>
+        GenValidation.HasClassificationErrors(response)
+            ? new PostCreateFailure(ActivityOperationErrorCode.ClassificationValidationFailed, response)
+            : new PostCreateFailure(ActivityOperationErrorCode.GenValidationFailed, response);
+
+    private static PostCreateFailure ResolveGenFailure(string? body)
+    {
+        if (GenValidation.TryParseResponseBody(body, out var root) && GenValidation.HasClassificationErrors(root))
+        {
+            return new PostCreateFailure(ActivityOperationErrorCode.ClassificationValidationFailed, root);
+        }
+
+        return new PostCreateFailure(ActivityOperationErrorCode.GenValidationFailed, null);
+    }
+
+    private static ActivityOperationResult<GenActivityDetail> MapPostError(
+        ActivityOperationErrorCode code,
+        JsonElement? _ = null) =>
         ActivityOperationResult<GenActivityDetail>.Fail(
             code,
             code switch
             {
+                ActivityOperationErrorCode.ClassificationValidationFailed =>
+                    "Selected activity classification is not valid for this tenant configuration.",
                 ActivityOperationErrorCode.GenValidationFailed => "Gen rejected the activity create.",
                 ActivityOperationErrorCode.MissingReferenceFields =>
                     "Activity reference defaults are not configured for this tenant.",

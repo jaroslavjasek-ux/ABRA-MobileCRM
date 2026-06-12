@@ -1,0 +1,249 @@
+{
+  "at": "2026-06-12T14:50:17.507465+00:00",
+  "spike": "sprint-4-3b-1-classification-validation",
+  "catalogs": {
+    "areas": [
+      {
+        "id": "2000000101",
+        "code": "Sp"
+      },
+      {
+        "id": "3000000101",
+        "code": "TT"
+      }
+    ]
+  },
+  "probes": [
+    {
+      "name": "valid_sp_tel_prho",
+      "request": {
+        "Subject": "4.3B.1 classification validation probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-15T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "2000000101",
+        "ActivityType_ID": "2000000101",
+        "ActQueue_ID": "2000000101"
+      },
+      "status": 200,
+      "errorCount": 0,
+      "errors": [],
+      "classificationErrors": []
+    },
+    {
+      "name": "tt_area_with_sp_type_queue",
+      "request": {
+        "Subject": "4.3B.1 classification validation probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-15T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "3000000101",
+        "ActivityType_ID": "2000000101",
+        "ActQueue_ID": "2000000101"
+      },
+      "status": 200,
+      "errorCount": 3,
+      "errors": [
+        {
+          "field": "activitytype_id",
+          "code": 803,
+          "message": "Chyba v zadaní položky Typ aktivity",
+          "displayLabel": "Typ aktivity",
+          "clsid": "SMOEDRFJASV4P4XCFPYBZ1UYYO"
+        },
+        {
+          "field": "nextcontact$date",
+          "code": 846,
+          "message": "Položka Dátum ďalšieho kontaktu musí byť vyplnená platným dátumom.",
+          "displayLabel": "Dátum ďalšieho kontaktu",
+          "clsid": null
+        },
+        {
+          "field": "tradedate$date",
+          "code": 849,
+          "message": "Položka Plánovaný dátum uzavr. obchodu musí byť vyplnená platným dátumom.",
+          "displayLabel": "Plánovaný dátum uzavr. obchodu",
+          "clsid": null
+        }
+      ],
+      "classificationErrors": [
+        {
+          "field": "activitytype_id",
+          "code": 803,
+          "message": "Chyba v zadaní položky Typ aktivity",
+          "displayLabel": "Typ aktivity",
+          "clsid": "SMOEDRFJASV4P4XCFPYBZ1UYYO"
+        }
+      ]
+    },
+    {
+      "name": "tt_area_obch_np",
+      "request": {
+        "Subject": "4.3B.1 classification validation probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-15T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "3000000101",
+        "ActivityType_ID": "3000000101",
+        "ActQueue_ID": "4000000101",
+        "NextContact$DATE": "2026-07-01T10:00:00.000Z",
+        "TradeDate$DATE": "2026-08-01T10:00:00.000Z"
+      },
+      "status": 200,
+      "errorCount": 1,
+      "errors": [
+        {
+          "field": "activitytype_id",
+          "code": 803,
+          "message": "Chyba v zadaní položky Typ aktivity",
+          "displayLabel": "Typ aktivity",
+          "clsid": "SMOEDRFJASV4P4XCFPYBZ1UYYO"
+        }
+      ],
+      "classificationErrors": [
+        {
+          "field": "activitytype_id",
+          "code": 803,
+          "message": "Chyba v zadaní položky Typ aktivity",
+          "displayLabel": "Typ aktivity",
+          "clsid": "SMOEDRFJASV4P4XCFPYBZ1UYYO"
+        }
+      ]
+    },
+    {
+      "name": "omit_type_with_tt_area",
+      "request": {
+        "Subject": "4.3B.1 classification validation probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-15T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "3000000101",
+        "ActQueue_ID": "2000000101"
+      },
+      "status": 200,
+      "errorCount": 3,
+      "errors": [
+        {
+          "field": "activitytype_id",
+          "code": 803,
+          "message": "Chyba v zadaní položky Typ aktivity",
+          "displayLabel": "Typ aktivity",
+          "clsid": "SMOEDRFJASV4P4XCFPYBZ1UYYO"
+        },
+        {
+          "field": "nextcontact$date",
+          "code": 846,
+          "message": "Položka Dátum ďalšieho kontaktu musí byť vyplnená platným dátumom.",
+          "displayLabel": "Dátum ďalšieho kontaktu",
+          "clsid": null
+        },
+        {
+          "field": "tradedate$date",
+          "code": 849,
+          "message": "Položka Plánovaný dátum uzavr. obchodu musí byť vyplnená platným dátumom.",
+          "displayLabel": "Plánovaný dátum uzavr. obchodu",
+          "clsid": null
+        }
+      ],
+      "classificationErrors": [
+        {
+          "field": "activitytype_id",
+          "code": 803,
+          "message": "Chyba v zadaní položky Typ aktivity",
+          "displayLabel": "Typ aktivity",
+          "clsid": "SMOEDRFJASV4P4XCFPYBZ1UYYO"
+        }
+      ]
+    },
+    {
+      "name": "omit_queue",
+      "request": {
+        "Subject": "4.3B.1 classification validation probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-15T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "2000000101",
+        "ActivityType_ID": "2000000101"
+      },
+      "status": 200,
+      "errorCount": 2,
+      "errors": [
+        {
+          "field": "actqueue_id",
+          "code": 800,
+          "message": "Chyba v zadaní položky Rad aktivít",
+          "displayLabel": "Rad aktivít",
+          "clsid": "V4ZWII12WD3O3IRJZW04M00DMK"
+        },
+        {
+          "field": "period_id",
+          "code": 801,
+          "message": "exception when validating: NxError -> Objekt \"Rad aktivít\" nemá identitu",
+          "displayLabel": "Obdobie",
+          "clsid": "CAQPAYUOXVCL3ACL03KIU0CLP4"
+        }
+      ],
+      "classificationErrors": [
+        {
+          "field": "actqueue_id",
+          "code": 800,
+          "message": "Chyba v zadaní položky Rad aktivít",
+          "displayLabel": "Rad aktivít",
+          "clsid": "V4ZWII12WD3O3IRJZW04M00DMK"
+        },
+        {
+          "field": "period_id",
+          "code": 801,
+          "message": "exception when validating: NxError -> Objekt \"Rad aktivít\" nemá identitu",
+          "displayLabel": "Obdobie",
+          "clsid": "CAQPAYUOXVCL3ACL03KIU0CLP4"
+        }
+      ]
+    },
+    {
+      "name": "invalid_type_id",
+      "request": {
+        "Subject": "4.3B.1 classification validation probe",
+        "Firm_ID": "4000000101",
+        "SheduledStart$DATE": "2026-06-15T10:00:00.000Z",
+        "ResponsibleUser_ID": "2610000101",
+        "SolverUser_ID": "2610000101",
+        "Division_ID": "2000000101",
+        "SolverRole_ID": "1000000101",
+        "ActivityArea_ID": "2000000101",
+        "ActivityType_ID": "9999999901",
+        "ActQueue_ID": "2000000101"
+      },
+      "status": 400,
+      "errorCount": 0,
+      "errors": [],
+      "classificationErrors": []
+    }
+  ],
+  "commitProbe": {
+    "name": "commit_tt_area_tel_prho",
+    "status": 400,
+    "errorCount": 0,
+    "errors": []
+  },
+  "errorCodeSummary": {
+    "800": "Rad aktivít (actqueue_id)",
+    "801": "Obdobie / period (often queue-related)",
+    "803": "Typ aktivity (activitytype_id)"
+  }
+}

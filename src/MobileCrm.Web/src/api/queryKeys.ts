@@ -12,6 +12,8 @@ export const queryKeys = {
   workOrders: (firmId?: string, q?: string) => ["workOrders", firmId ?? "", q ?? ""] as const,
   projects: (firmId?: string, q?: string) => ["projects", firmId ?? "", q ?? ""] as const,
   activityAreas: (q?: string) => ["activityAreas", q ?? ""] as const,
-  activityTypes: (q?: string) => ["activityTypes", q ?? ""] as const,
-  activityQueues: (q?: string) => ["activityQueues", q ?? ""] as const,
+  activityTypes: (areaId?: string, q?: string) =>
+    ["activityTypes", areaId ?? "", q ?? ""] as const,
+  activityQueues: (areaId?: string, activityTypeId?: string, q?: string) =>
+    ["activityQueues", areaId ?? "", activityTypeId ?? "", q ?? ""] as const,
 };

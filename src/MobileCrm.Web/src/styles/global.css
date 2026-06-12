@@ -897,6 +897,10 @@ body {
   min-width: 8rem;
 }
 
+.create-activity-form-error {
+  white-space: pre-line;
+}
+
 .create-activity-form {
   display: flex;
   flex-direction: column;

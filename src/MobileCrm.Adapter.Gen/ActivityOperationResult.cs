@@ -7,6 +7,7 @@ public enum ActivityOperationErrorCode
     MissingFirm,
     MissingReferenceFields,
     GenValidationFailed,
+    ClassificationValidationFailed,
 }
 
 public sealed record ActivityOperationResult<T>(T? Value, ActivityOperationErrorCode? Error, string? Message)

@@ -24,6 +24,9 @@ public sealed class GenOptions
 
     /// <summary>Tenant defaults for standalone activity create (ActQueue, Period, Division, …).</summary>
     public ActivityReferenceDefaultsOptions ReferenceDefaults { get; set; } = new();
+
+    /// <summary>Firm used for Gen validate-probe classification filtering (DEMO: Galenit).</summary>
+    public string? ClassificationProbeFirmId { get; set; }
 }
 
 public sealed class ActivityReferenceDefaultsOptions

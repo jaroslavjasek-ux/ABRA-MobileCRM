@@ -425,6 +425,15 @@ public sealed class ActivitiesController : ControllerBase
                     TraceId = HttpContext.TraceIdentifier,
                 },
             }),
+            ActivityOperationErrorCode.ClassificationValidationFailed => UnprocessableEntity(new ApiErrorDto
+            {
+                Error = new ApiErrorBodyDto
+                {
+                    Code = "CLASSIFICATION_INVALID",
+                    Message = result.Message ?? "Selected activity classification is not valid.",
+                    TraceId = HttpContext.TraceIdentifier,
+                },
+            }),
             ActivityOperationErrorCode.GenValidationFailed => UnprocessableEntity(new ApiErrorDto
             {
                 Error = new ApiErrorBodyDto

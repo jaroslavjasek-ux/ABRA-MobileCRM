@@ -31,8 +31,14 @@ export function useAbraCatalogSelector<T extends CatalogItem>(config: {
   autoHideSingleValue: boolean;
   queryKey: readonly unknown[];
   queryFn: () => Promise<PagedResult<T>>;
+  /** When this changes, the selected value is cleared (cascade reset). */
+  parentKey?: string;
 }): AbraCatalogSelectorResult {
   const [value, setValue] = useState("");
+
+  useEffect(() => {
+    setValue("");
+  }, [config.parentKey]);
 
   const query = useQuery({
     queryKey: config.queryKey,

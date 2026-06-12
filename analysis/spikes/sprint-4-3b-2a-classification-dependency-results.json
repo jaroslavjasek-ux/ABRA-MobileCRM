@@ -1,0 +1,1088 @@
+{
+  "at": "2026-06-12T15:20:20.456839+00:00",
+  "spike": "sprint-4-3b-2a-classification-dependency",
+  "catalogs": {
+    "areas": {
+      "endpoint": "crmactivityareas?select=ID%2CCode%2CName%2CDisplayName&take=50",
+      "status": 200,
+      "count": 2,
+      "items": [
+        {
+          "ID": "2000000101",
+          "Code": "Sp",
+          "Name": "Spoločná",
+          "DisplayName": "Sp Spoločná"
+        },
+        {
+          "ID": "3000000101",
+          "Code": "TT",
+          "Name": "Test",
+          "DisplayName": "TT Test"
+        }
+      ],
+      "raw": null
+    },
+    "types_global": {
+      "endpoint": "crmactivitytypes?select=ID%2CCode%2CName%2CDisplayName&take=50",
+      "status": 200,
+      "count": 3,
+      "items": [
+        {
+          "ID": "2000000101",
+          "Code": "Tel",
+          "Name": "Telefón",
+          "DisplayName": "Tel Telefón"
+        },
+        {
+          "ID": "3000000101",
+          "Code": "Obch",
+          "Name": "Obchodný prípad",
+          "DisplayName": "Obch Obchodný prípad"
+        },
+        {
+          "ID": "4000000101",
+          "Code": "Te",
+          "Name": "Test",
+          "DisplayName": "Te Test"
+        }
+      ],
+      "raw": null
+    },
+    "types_with_area_field": {
+      "endpoint": "crmactivitytypes?select=ID%2CCode%2CName%2CDisplayName%2CActivityArea_ID&take=50",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy SMOEDRFJASV4P4XCFPYBZ1UYYO: ActivityArea_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    },
+    "queues_global": {
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName&take=50",
+      "status": 200,
+      "count": 5,
+      "items": [
+        {
+          "ID": "2000000101",
+          "Code": "PrHo",
+          "Name": "Prichádzajúci hovor",
+          "DisplayName": "PrHo - Prichádzajúci hovor"
+        },
+        {
+          "ID": "3000000101",
+          "Code": "OdHo",
+          "Name": "Odchádzajúci hovor",
+          "DisplayName": "OdHo - Odchádzajúci hovor"
+        },
+        {
+          "ID": "4000000101",
+          "Code": "NP",
+          "Name": "Nový predaj",
+          "DisplayName": "NP - Nový predaj"
+        },
+        {
+          "ID": "5000000101",
+          "Code": "PS",
+          "Name": "Pozáručný servis",
+          "DisplayName": "PS - Pozáručný servis"
+        },
+        {
+          "ID": "6000000101",
+          "Code": "RK",
+          "Name": "Reklamačné konanie",
+          "DisplayName": "RK - Reklamačné konanie"
+        }
+      ],
+      "raw": null
+    },
+    "queues_with_type_field": {
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName%2CActivityType_ID&take=50",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy V4ZWII12WD3O3IRJZW04M00DMK: ActivityType_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    }
+  },
+  "areaToTypeQueries": [
+    {
+      "area": "Sp",
+      "areaId": "2000000101",
+      "endpoint": "crmactivitytypes?select=ID%2CCode%2CName%2CDisplayName%2CActivityArea_ID&take=50&where=ActivityArea_ID%20eq%20%272000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy SMOEDRFJASV4P4XCFPYBZ1UYYO: ActivityArea_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    },
+    {
+      "area": "Sp",
+      "areaId": "2000000101",
+      "endpoint": "crmactivitytypes?select=ID%2CCode%2CName%2CDisplayName%2CActivityArea_ID&take=50&where=activityarea_id%20eq%20%272000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy SMOEDRFJASV4P4XCFPYBZ1UYYO: ActivityArea_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    },
+    {
+      "area": "Sp",
+      "areaId": "2000000101",
+      "endpoint": "crmactivitytypes?select=ID%2CCode%2CName%2CDisplayName%2CActivityArea_ID&take=50&where=ActivityArea_ID.ID%20eq%20%272000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy SMOEDRFJASV4P4XCFPYBZ1UYYO: ActivityArea_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    },
+    {
+      "area": "TT",
+      "areaId": "3000000101",
+      "endpoint": "crmactivitytypes?select=ID%2CCode%2CName%2CDisplayName%2CActivityArea_ID&take=50&where=ActivityArea_ID%20eq%20%273000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy SMOEDRFJASV4P4XCFPYBZ1UYYO: ActivityArea_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    },
+    {
+      "area": "TT",
+      "areaId": "3000000101",
+      "endpoint": "crmactivitytypes?select=ID%2CCode%2CName%2CDisplayName%2CActivityArea_ID&take=50&where=activityarea_id%20eq%20%273000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy SMOEDRFJASV4P4XCFPYBZ1UYYO: ActivityArea_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    },
+    {
+      "area": "TT",
+      "areaId": "3000000101",
+      "endpoint": "crmactivitytypes?select=ID%2CCode%2CName%2CDisplayName%2CActivityArea_ID&take=50&where=ActivityArea_ID.ID%20eq%20%273000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy SMOEDRFJASV4P4XCFPYBZ1UYYO: ActivityArea_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    }
+  ],
+  "areaDetails": {
+    "Sp": {
+      "path": "crmactivityareas/2000000101",
+      "status": 200,
+      "body": {
+        "classid": "N53352D4AKB43AMHHSYG1UKFVW",
+        "code": "Sp",
+        "description": "",
+        "displayname": "Sp Spoločná",
+        "externalids": [],
+        "hidden": false,
+        "id": "2000000101",
+        "name": "Spoločná",
+        "objversion": 1
+      }
+    },
+    "TT": {
+      "path": "crmactivityareas/3000000101",
+      "status": 200,
+      "body": {
+        "classid": "N53352D4AKB43AMHHSYG1UKFVW",
+        "code": "TT",
+        "description": "",
+        "displayname": "TT Test",
+        "externalids": [],
+        "hidden": false,
+        "id": "3000000101",
+        "name": "Test",
+        "objversion": 1
+      }
+    }
+  },
+  "typeDetails": {
+    "Tel": {
+      "path": "crmactivitytypes/2000000101",
+      "status": 200,
+      "body": {
+        "activityprocess_id": null,
+        "busdivisionreq": 1,
+        "businessrelationship": false,
+        "busorder_id": null,
+        "busorderreq": 0,
+        "busproject_id": null,
+        "busprojectreq": 0,
+        "bustransaction_id": null,
+        "bustransactionreq": 0,
+        "classid": "SMOEDRFJASV4P4XCFPYBZ1UYYO",
+        "code": "Tel",
+        "description": "",
+        "displayname": "Tel Telefón",
+        "division_id": null,
+        "duration$date": null,
+        "externalids": [],
+        "firm_id": null,
+        "firmreq": 0,
+        "generateissueddoc": false,
+        "hidden": false,
+        "id": "2000000101",
+        "isprivate": false,
+        "isroleprotected": false,
+        "issheduled": false,
+        "name": "Telefón",
+        "nocollisioncheck": false,
+        "objversion": 2,
+        "offset$date": null,
+        "passsolverrole": false,
+        "person_id": null,
+        "personreq": 0,
+        "priority": 0,
+        "processisrequired": false,
+        "product_id": null,
+        "productreq": 0,
+        "solverrole_id": null,
+        "solveruser_id": null,
+        "status": 0,
+        "subject": "",
+        "usecontacts": false
+      }
+    },
+    "Obch": {
+      "path": "crmactivitytypes/3000000101",
+      "status": 200,
+      "body": {
+        "activityprocess_id": null,
+        "busdivisionreq": 1,
+        "businessrelationship": false,
+        "busorder_id": null,
+        "busorderreq": 0,
+        "busproject_id": null,
+        "busprojectreq": 0,
+        "bustransaction_id": null,
+        "bustransactionreq": 0,
+        "classid": "SMOEDRFJASV4P4XCFPYBZ1UYYO",
+        "code": "Obch",
+        "description": "",
+        "displayname": "Obch Obchodný prípad",
+        "division_id": null,
+        "duration$date": null,
+        "externalids": [],
+        "firm_id": null,
+        "firmreq": 1,
+        "generateissueddoc": false,
+        "hidden": false,
+        "id": "3000000101",
+        "isprivate": false,
+        "isroleprotected": false,
+        "issheduled": true,
+        "name": "Obchodný prípad",
+        "nocollisioncheck": false,
+        "objversion": 2,
+        "offset$date": null,
+        "passsolverrole": false,
+        "person_id": null,
+        "personreq": 0,
+        "priority": 0,
+        "processisrequired": false,
+        "product_id": null,
+        "productreq": 0,
+        "solverrole_id": null,
+        "solveruser_id": null,
+        "status": 0,
+        "subject": "",
+        "usecontacts": false
+      }
+    },
+    "Te": {
+      "path": "crmactivitytypes/4000000101",
+      "status": 200,
+      "body": {
+        "activityprocess_id": null,
+        "busdivisionreq": 0,
+        "businessrelationship": false,
+        "busorder_id": null,
+        "busorderreq": 0,
+        "busproject_id": null,
+        "busprojectreq": 0,
+        "bustransaction_id": null,
+        "bustransactionreq": 0,
+        "classid": "SMOEDRFJASV4P4XCFPYBZ1UYYO",
+        "code": "Te",
+        "description": "",
+        "displayname": "Te Test",
+        "division_id": null,
+        "duration$date": null,
+        "externalids": [],
+        "firm_id": null,
+        "firmreq": 0,
+        "generateissueddoc": false,
+        "hidden": false,
+        "id": "4000000101",
+        "isprivate": false,
+        "isroleprotected": false,
+        "issheduled": false,
+        "name": "Test",
+        "nocollisioncheck": false,
+        "objversion": 1,
+        "offset$date": null,
+        "passsolverrole": false,
+        "person_id": null,
+        "personreq": 0,
+        "priority": 0,
+        "processisrequired": false,
+        "product_id": null,
+        "productreq": 0,
+        "solverrole_id": null,
+        "solveruser_id": null,
+        "status": 0,
+        "subject": "",
+        "usecontacts": false
+      }
+    }
+  },
+  "queueDetails": {
+    "PrHo": {
+      "path": "crmactivityqueues/2000000101",
+      "status": 200,
+      "body": {
+        "autofillhole": false,
+        "classid": "V4ZWII12WD3O3IRJZW04M00DMK",
+        "code": "PrHo",
+        "displayname": "PrHo - Prichádzajúci hovor",
+        "externalids": [],
+        "firstopenperiod_id": "2000000101",
+        "hidden": false,
+        "id": "2000000101",
+        "lastnumbers": [
+          {
+            "classid": "SIZFKCWHZHK4JHZ5AINQD0SRBO",
+            "displayname": "Prichádzajúci hovor PrHo/2006",
+            "docqueue_id": "2000000101",
+            "externalids": [],
+            "id": "1000000101",
+            "lastnumber": 65,
+            "objversion": 66,
+            "period_id": "4000000101"
+          },
+          {
+            "classid": "SIZFKCWHZHK4JHZ5AINQD0SRBO",
+            "displayname": "Prichádzajúci hovor PrHo/2026",
+            "docqueue_id": "2000000101",
+            "externalids": [],
+            "id": "4000000101",
+            "lastnumber": 36,
+            "objversion": 37,
+            "period_id": "3F80000101"
+          }
+        ],
+        "name": "Prichádzajúci hovor",
+        "note": "",
+        "objversion": 4
+      }
+    },
+    "NP": {
+      "path": "crmactivityqueues/4000000101",
+      "status": 200,
+      "body": {
+        "autofillhole": false,
+        "classid": "V4ZWII12WD3O3IRJZW04M00DMK",
+        "code": "NP",
+        "displayname": "NP - Nový predaj",
+        "externalids": [],
+        "firstopenperiod_id": "2000000101",
+        "hidden": false,
+        "id": "4000000101",
+        "lastnumbers": [
+          {
+            "classid": "SIZFKCWHZHK4JHZ5AINQD0SRBO",
+            "displayname": "Nový predaj NP/2006",
+            "docqueue_id": "4000000101",
+            "externalids": [],
+            "id": "2000000101",
+            "lastnumber": 12,
+            "objversion": 13,
+            "period_id": "4000000101"
+          },
+          {
+            "classid": "SIZFKCWHZHK4JHZ5AINQD0SRBO",
+            "displayname": "Nový predaj NP/2026",
+            "docqueue_id": "4000000101",
+            "externalids": [],
+            "id": "3000000101",
+            "lastnumber": 29,
+            "objversion": 30,
+            "period_id": "3F80000101"
+          }
+        ],
+        "name": "Nový predaj",
+        "note": "",
+        "objversion": 4
+      }
+    }
+  },
+  "typeToQueueQueries": [
+    {
+      "type": "Tel",
+      "typeId": "2000000101",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName%2CActivityType_ID&take=50&where=ActivityType_ID%20eq%20%272000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy V4ZWII12WD3O3IRJZW04M00DMK: ActivityType_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    },
+    {
+      "type": "Tel",
+      "typeId": "2000000101",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName%2CActivityType_ID&take=50&where=activitytype_id%20eq%20%272000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy V4ZWII12WD3O3IRJZW04M00DMK: ActivityType_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    },
+    {
+      "type": "Obch",
+      "typeId": "3000000101",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName%2CActivityType_ID&take=50&where=ActivityType_ID%20eq%20%273000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy V4ZWII12WD3O3IRJZW04M00DMK: ActivityType_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    },
+    {
+      "type": "Obch",
+      "typeId": "3000000101",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName%2CActivityType_ID&take=50&where=activitytype_id%20eq%20%273000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy V4ZWII12WD3O3IRJZW04M00DMK: ActivityType_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    },
+    {
+      "type": "Te",
+      "typeId": "4000000101",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName%2CActivityType_ID&take=50&where=ActivityType_ID%20eq%20%274000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy V4ZWII12WD3O3IRJZW04M00DMK: ActivityType_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    },
+    {
+      "type": "Te",
+      "typeId": "4000000101",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName%2CActivityType_ID&take=50&where=activitytype_id%20eq%20%274000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Neznáma položka triedy V4ZWII12WD3O3IRJZW04M00DMK: ActivityType_ID",
+        "exception_class": "EWARESTError",
+        "error_code": 0
+      }
+    }
+  ],
+  "areaTypeToQueueQueries": [
+    {
+      "area": "Sp",
+      "type": "Tel",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName&take=50&where=ActivityType_ID%20eq%20%272000000101%27%20and%20ActivityArea_ID%20eq%20%272000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Nesprávna štruktúra alebo príkaz databázy\r\n\"Dynamic SQL Error\r\nSQL error code = -206\r\nColumn unknown\r\nACTIVITYAREA_ID\r\nAt line 3, column 43\r\n\r\nTip: Pre zobrazenie viacerých informácií o chybe je nutné nastaviť firebird.msg podľa metodiky z helpu.\r\n\"\r\nSQL príkaz:\r\nselect first 50 * from (select T_1.ID as ID, T_1.Code as Code, T_1.Name as Name\r\nfrom CRMActivityQueues T_1\r\nwhere (ActivityType_ID = '2000000101' and ActivityArea_ID = '2000000101') and (not (T_1.Hidden = 'A')))\r\n",
+        "exception_class": "NxError",
+        "error_code": 15
+      }
+    },
+    {
+      "area": "Sp",
+      "type": "Tel",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName&take=50&where=ActivityArea_ID%20eq%20%272000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Nesprávna štruktúra alebo príkaz databázy\r\n\"Dynamic SQL Error\r\nSQL error code = -206\r\nColumn unknown\r\nACTIVITYAREA_ID\r\nAt line 3, column 8\r\n\r\nTip: Pre zobrazenie viacerých informácií o chybe je nutné nastaviť firebird.msg podľa metodiky z helpu.\r\n\"\r\nSQL príkaz:\r\nselect first 50 * from (select T_1.ID as ID, T_1.Code as Code, T_1.Name as Name\r\nfrom CRMActivityQueues T_1\r\nwhere (ActivityArea_ID = '2000000101') and (not (T_1.Hidden = 'A')))\r\n",
+        "exception_class": "NxError",
+        "error_code": 15
+      }
+    },
+    {
+      "area": "Sp",
+      "type": "Obch",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName&take=50&where=ActivityType_ID%20eq%20%273000000101%27%20and%20ActivityArea_ID%20eq%20%272000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Nesprávna štruktúra alebo príkaz databázy\r\n\"Dynamic SQL Error\r\nSQL error code = -206\r\nColumn unknown\r\nACTIVITYAREA_ID\r\nAt line 3, column 43\r\n\r\nTip: Pre zobrazenie viacerých informácií o chybe je nutné nastaviť firebird.msg podľa metodiky z helpu.\r\n\"\r\nSQL príkaz:\r\nselect first 50 * from (select T_1.ID as ID, T_1.Code as Code, T_1.Name as Name\r\nfrom CRMActivityQueues T_1\r\nwhere (ActivityType_ID = '3000000101' and ActivityArea_ID = '2000000101') and (not (T_1.Hidden = 'A')))\r\n",
+        "exception_class": "NxError",
+        "error_code": 15
+      }
+    },
+    {
+      "area": "Sp",
+      "type": "Obch",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName&take=50&where=ActivityArea_ID%20eq%20%272000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Nesprávna štruktúra alebo príkaz databázy\r\n\"Dynamic SQL Error\r\nSQL error code = -206\r\nColumn unknown\r\nACTIVITYAREA_ID\r\nAt line 3, column 8\r\n\r\nTip: Pre zobrazenie viacerých informácií o chybe je nutné nastaviť firebird.msg podľa metodiky z helpu.\r\n\"\r\nSQL príkaz:\r\nselect first 50 * from (select T_1.ID as ID, T_1.Code as Code, T_1.Name as Name\r\nfrom CRMActivityQueues T_1\r\nwhere (ActivityArea_ID = '2000000101') and (not (T_1.Hidden = 'A')))\r\n",
+        "exception_class": "NxError",
+        "error_code": 15
+      }
+    },
+    {
+      "area": "TT",
+      "type": "Te",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName&take=50&where=ActivityType_ID%20eq%20%274000000101%27%20and%20ActivityArea_ID%20eq%20%273000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Nesprávna štruktúra alebo príkaz databázy\r\n\"Dynamic SQL Error\r\nSQL error code = -206\r\nColumn unknown\r\nACTIVITYAREA_ID\r\nAt line 3, column 43\r\n\r\nTip: Pre zobrazenie viacerých informácií o chybe je nutné nastaviť firebird.msg podľa metodiky z helpu.\r\n\"\r\nSQL príkaz:\r\nselect first 50 * from (select T_1.ID as ID, T_1.Code as Code, T_1.Name as Name\r\nfrom CRMActivityQueues T_1\r\nwhere (ActivityType_ID = '4000000101' and ActivityArea_ID = '3000000101') and (not (T_1.Hidden = 'A')))\r\n",
+        "exception_class": "NxError",
+        "error_code": 15
+      }
+    },
+    {
+      "area": "TT",
+      "type": "Te",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName&take=50&where=ActivityArea_ID%20eq%20%273000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Nesprávna štruktúra alebo príkaz databázy\r\n\"Dynamic SQL Error\r\nSQL error code = -206\r\nColumn unknown\r\nACTIVITYAREA_ID\r\nAt line 3, column 8\r\n\r\nTip: Pre zobrazenie viacerých informácií o chybe je nutné nastaviť firebird.msg podľa metodiky z helpu.\r\n\"\r\nSQL príkaz:\r\nselect first 50 * from (select T_1.ID as ID, T_1.Code as Code, T_1.Name as Name\r\nfrom CRMActivityQueues T_1\r\nwhere (ActivityArea_ID = '3000000101') and (not (T_1.Hidden = 'A')))\r\n",
+        "exception_class": "NxError",
+        "error_code": 15
+      }
+    },
+    {
+      "area": "TT",
+      "type": "Tel",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName&take=50&where=ActivityType_ID%20eq%20%272000000101%27%20and%20ActivityArea_ID%20eq%20%273000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Nesprávna štruktúra alebo príkaz databázy\r\n\"Dynamic SQL Error\r\nSQL error code = -206\r\nColumn unknown\r\nACTIVITYAREA_ID\r\nAt line 3, column 43\r\n\r\nTip: Pre zobrazenie viacerých informácií o chybe je nutné nastaviť firebird.msg podľa metodiky z helpu.\r\n\"\r\nSQL príkaz:\r\nselect first 50 * from (select T_1.ID as ID, T_1.Code as Code, T_1.Name as Name\r\nfrom CRMActivityQueues T_1\r\nwhere (ActivityType_ID = '2000000101' and ActivityArea_ID = '3000000101') and (not (T_1.Hidden = 'A')))\r\n",
+        "exception_class": "NxError",
+        "error_code": 15
+      }
+    },
+    {
+      "area": "TT",
+      "type": "Tel",
+      "endpoint": "crmactivityqueues?select=ID%2CCode%2CName%2CDisplayName&take=50&where=ActivityArea_ID%20eq%20%273000000101%27",
+      "status": 400,
+      "count": 0,
+      "items": [],
+      "raw": {
+        "title": "Chyba pri spracovaní api dopytu",
+        "description": "Nesprávna štruktúra alebo príkaz databázy\r\n\"Dynamic SQL Error\r\nSQL error code = -206\r\nColumn unknown\r\nACTIVITYAREA_ID\r\nAt line 3, column 8\r\n\r\nTip: Pre zobrazenie viacerých informácií o chybe je nutné nastaviť firebird.msg podľa metodiky z helpu.\r\n\"\r\nSQL príkaz:\r\nselect first 50 * from (select T_1.ID as ID, T_1.Code as Code, T_1.Name as Name\r\nfrom CRMActivityQueues T_1\r\nwhere (ActivityArea_ID = '3000000101') and (not (T_1.Hidden = 'A')))\r\n",
+        "exception_class": "NxError",
+        "error_code": 15
+      }
+    }
+  ],
+  "validateMatrix": [
+    {
+      "name": "sp_tel_prho",
+      "status": 200,
+      "errorCount": 0,
+      "errors": [],
+      "resolved": {
+        "activityarea_id": "2000000101",
+        "activitytype_id": "2000000101",
+        "actqueue_id": "2000000101"
+      }
+    },
+    {
+      "name": "sp_obch_np",
+      "status": 200,
+      "errorCount": 0,
+      "errors": [],
+      "resolved": {
+        "activityarea_id": "2000000101",
+        "activitytype_id": "3000000101",
+        "actqueue_id": "4000000101"
+      }
+    },
+    {
+      "name": "tt_te_prho",
+      "status": 200,
+      "errorCount": 2,
+      "errors": [
+        {
+          "field": "actqueue_id",
+          "code": 800,
+          "message": "Chyba v zadaní položky Rad aktivít"
+        },
+        {
+          "field": "period_id",
+          "code": 801,
+          "message": "exception when validating: NxError -> Objekt \"Rad aktivít\" nemá identitu"
+        }
+      ],
+      "resolved": {
+        "activityarea_id": "3000000101",
+        "activitytype_id": "4000000101",
+        "actqueue_id": null
+      }
+    },
+    {
+      "name": "tt_tel_prho",
+      "status": 200,
+      "errorCount": 2,
+      "errors": [
+        {
+          "field": "actqueue_id",
+          "code": 800,
+          "message": "Chyba v zadaní položky Rad aktivít"
+        },
+        {
+          "field": "period_id",
+          "code": 801,
+          "message": "exception when validating: NxError -> Objekt \"Rad aktivít\" nemá identitu"
+        }
+      ],
+      "resolved": {
+        "activityarea_id": "3000000101",
+        "activitytype_id": "4000000101",
+        "actqueue_id": null
+      }
+    },
+    {
+      "name": "tt_te_np",
+      "status": 200,
+      "errorCount": 2,
+      "errors": [
+        {
+          "field": "actqueue_id",
+          "code": 800,
+          "message": "Chyba v zadaní položky Rad aktivít"
+        },
+        {
+          "field": "period_id",
+          "code": 801,
+          "message": "exception when validating: NxError -> Objekt \"Rad aktivít\" nemá identitu"
+        }
+      ],
+      "resolved": {
+        "activityarea_id": "3000000101",
+        "activitytype_id": "4000000101",
+        "actqueue_id": null
+      }
+    }
+  ],
+  "sampleActivities_Sp": {
+    "status": 500,
+    "items": []
+  },
+  "sampleActivities_TT": {
+    "status": 500,
+    "items": []
+  },
+  "validateAreaOnly_Sp": {
+    "resolved": {
+      "activityarea_id": "2000000101",
+      "activitytype_id": null,
+      "actqueue_id": null
+    },
+    "errors": [
+      {
+        "field": "actqueue_id",
+        "code": 800
+      },
+      {
+        "field": "period_id",
+        "code": 801
+      },
+      {
+        "field": "activitytype_id",
+        "code": 803
+      },
+      {
+        "field": "nextcontact$date",
+        "code": 846
+      },
+      {
+        "field": "tradedate$date",
+        "code": 849
+      }
+    ]
+  },
+  "validateAreaOnly_TT": {
+    "resolved": {
+      "activityarea_id": "3000000101",
+      "activitytype_id": "4000000101",
+      "actqueue_id": null
+    },
+    "errors": [
+      {
+        "field": "actqueue_id",
+        "code": 800
+      },
+      {
+        "field": "period_id",
+        "code": 801
+      }
+    ]
+  },
+  "typeCompatibility_Sp": {
+    "Tel": {
+      "requestedType": "2000000101",
+      "resolvedType": "2000000101",
+      "typeError": false,
+      "queueError": false,
+      "errors": []
+    },
+    "Obch": {
+      "requestedType": "3000000101",
+      "resolvedType": "3000000101",
+      "typeError": false,
+      "queueError": true,
+      "errors": [
+        {
+          "field": "actqueue_id",
+          "code": 800
+        },
+        {
+          "field": "period_id",
+          "code": 801
+        }
+      ]
+    },
+    "Te": {
+      "requestedType": "4000000101",
+      "resolvedType": null,
+      "typeError": true,
+      "queueError": true,
+      "errors": [
+        {
+          "field": "actqueue_id",
+          "code": 800
+        },
+        {
+          "field": "period_id",
+          "code": 801
+        },
+        {
+          "field": "activitytype_id",
+          "code": 803
+        },
+        {
+          "field": "nextcontact$date",
+          "code": 846
+        },
+        {
+          "field": "tradedate$date",
+          "code": 849
+        }
+      ]
+    }
+  },
+  "typeCompatibility_TT": {
+    "Tel": {
+      "requestedType": "2000000101",
+      "resolvedType": "4000000101",
+      "typeError": false,
+      "queueError": true,
+      "errors": [
+        {
+          "field": "actqueue_id",
+          "code": 800
+        },
+        {
+          "field": "period_id",
+          "code": 801
+        }
+      ]
+    },
+    "Obch": {
+      "requestedType": "3000000101",
+      "resolvedType": "4000000101",
+      "typeError": false,
+      "queueError": true,
+      "errors": [
+        {
+          "field": "actqueue_id",
+          "code": 800
+        },
+        {
+          "field": "period_id",
+          "code": 801
+        }
+      ]
+    },
+    "Te": {
+      "requestedType": "4000000101",
+      "resolvedType": "4000000101",
+      "typeError": false,
+      "queueError": true,
+      "errors": [
+        {
+          "field": "actqueue_id",
+          "code": 800
+        },
+        {
+          "field": "period_id",
+          "code": 801
+        }
+      ]
+    }
+  },
+  "queueCompatibility": {
+    "Sp_Tel": {
+      "PrHo": {
+        "queue": "2000000101",
+        "errorCount": 0,
+        "errors": [],
+        "resolvedQueue": "2000000101"
+      },
+      "OdHo": {
+        "queue": "3000000101",
+        "errorCount": 0,
+        "errors": [],
+        "resolvedQueue": "3000000101"
+      },
+      "NP": {
+        "queue": "4000000101",
+        "errorCount": 2,
+        "errors": [
+          {
+            "field": "actqueue_id",
+            "code": 800
+          },
+          {
+            "field": "period_id",
+            "code": 801
+          }
+        ],
+        "resolvedQueue": null
+      },
+      "PS": {
+        "queue": "5000000101",
+        "errorCount": 2,
+        "errors": [
+          {
+            "field": "actqueue_id",
+            "code": 800
+          },
+          {
+            "field": "period_id",
+            "code": 801
+          }
+        ],
+        "resolvedQueue": null
+      },
+      "RK": {
+        "queue": "6000000101",
+        "errorCount": 2,
+        "errors": [
+          {
+            "field": "actqueue_id",
+            "code": 800
+          },
+          {
+            "field": "period_id",
+            "code": 801
+          }
+        ],
+        "resolvedQueue": null
+      }
+    },
+    "Sp_Obch": {
+      "PrHo": {
+        "queue": "2000000101",
+        "errorCount": 2,
+        "errors": [
+          {
+            "field": "actqueue_id",
+            "code": 800
+          },
+          {
+            "field": "period_id",
+            "code": 801
+          }
+        ],
+        "resolvedQueue": null
+      },
+      "OdHo": {
+        "queue": "3000000101",
+        "errorCount": 2,
+        "errors": [
+          {
+            "field": "actqueue_id",
+            "code": 800
+          },
+          {
+            "field": "period_id",
+            "code": 801
+          }
+        ],
+        "resolvedQueue": null
+      },
+      "NP": {
+        "queue": "4000000101",
+        "errorCount": 0,
+        "errors": [],
+        "resolvedQueue": "4000000101"
+      },
+      "PS": {
+        "queue": "5000000101",
+        "errorCount": 0,
+        "errors": [],
+        "resolvedQueue": "5000000101"
+      },
+      "RK": {
+        "queue": "6000000101",
+        "errorCount": 0,
+        "errors": [],
+        "resolvedQueue": "6000000101"
+      }
+    },
+    "TT_Te": {
+      "PrHo": {
+        "queue": "2000000101",
+        "errorCount": 2,
+        "errors": [
+          {
+            "field": "actqueue_id",
+            "code": 800
+          },
+          {
+            "field": "period_id",
+            "code": 801
+          }
+        ],
+        "resolvedQueue": null
+      },
+      "OdHo": {
+        "queue": "3000000101",
+        "errorCount": 2,
+        "errors": [
+          {
+            "field": "actqueue_id",
+            "code": 800
+          },
+          {
+            "field": "period_id",
+            "code": 801
+          }
+        ],
+        "resolvedQueue": null
+      },
+      "NP": {
+        "queue": "4000000101",
+        "errorCount": 2,
+        "errors": [
+          {
+            "field": "actqueue_id",
+            "code": 800
+          },
+          {
+            "field": "period_id",
+            "code": 801
+          }
+        ],
+        "resolvedQueue": null
+      },
+      "PS": {
+        "queue": "5000000101",
+        "errorCount": 2,
+        "errors": [
+          {
+            "field": "actqueue_id",
+            "code": 800
+          },
+          {
+            "field": "period_id",
+            "code": 801
+          }
+        ],
+        "resolvedQueue": null
+      },
+      "RK": {
+        "queue": "6000000101",
+        "errorCount": 2,
+        "errors": [
+          {
+            "field": "actqueue_id",
+            "code": 800
+          },
+          {
+            "field": "period_id",
+            "code": 801
+          }
+        ],
+        "resolvedQueue": null
+      }
+    }
+  },
+  "crmmenuitems_sample": []
+}

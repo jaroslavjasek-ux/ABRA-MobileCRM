@@ -55,12 +55,20 @@ public sealed class ActivityAreasController : ControllerBase
 public sealed class ActivityTypesController : ControllerBase
 {
     private readonly IClassificationLookupService _classification;
+    private readonly IClassificationValidateProbeService _probe;
 
-    public ActivityTypesController(IClassificationLookupService classification) => _classification = classification;
+    public ActivityTypesController(
+        IClassificationLookupService classification,
+        IClassificationValidateProbeService probe)
+    {
+        _classification = classification;
+        _probe = probe;
+    }
 
     [HttpGet]
     public async Task<ActionResult<PagedResultDto<ClassificationSummaryDto>>> Search(
         [FromQuery] string? q,
+        [FromQuery] string? areaId,
         [FromQuery] int take = 30,
         [FromQuery] int skip = 0,
         CancellationToken ct = default)
@@ -69,13 +77,28 @@ public sealed class ActivityTypesController : ControllerBase
         take = Math.Clamp(take, 1, 50);
         skip = Math.Max(0, skip);
 
-        var result = await _classification.SearchAsync(
-            session.Credentials,
-            ClassificationKind.Type,
-            q,
-            take,
-            skip,
-            ct);
+        GenClassificationSearchResult result;
+        if (!string.IsNullOrWhiteSpace(areaId))
+        {
+            result = await _probe.FilterTypesForAreaAsync(
+                session.Credentials,
+                session.RepUserId,
+                areaId.Trim(),
+                q,
+                take,
+                skip,
+                ct);
+        }
+        else
+        {
+            result = await _classification.SearchAsync(
+                session.Credentials,
+                ClassificationKind.Type,
+                q,
+                take,
+                skip,
+                ct);
+        }
 
         return Ok(new PagedResultDto<ClassificationSummaryDto>
         {
@@ -95,12 +118,21 @@ public sealed class ActivityTypesController : ControllerBase
 public sealed class ActivityQueuesController : ControllerBase
 {
     private readonly IClassificationLookupService _classification;
+    private readonly IClassificationValidateProbeService _probe;
 
-    public ActivityQueuesController(IClassificationLookupService classification) => _classification = classification;
+    public ActivityQueuesController(
+        IClassificationLookupService classification,
+        IClassificationValidateProbeService probe)
+    {
+        _classification = classification;
+        _probe = probe;
+    }
 
     [HttpGet]
     public async Task<ActionResult<PagedResultDto<ClassificationSummaryDto>>> Search(
         [FromQuery] string? q,
+        [FromQuery] string? areaId,
+        [FromQuery] string? activityTypeId,
         [FromQuery] int take = 30,
         [FromQuery] int skip = 0,
         CancellationToken ct = default)
@@ -109,13 +141,29 @@ public sealed class ActivityQueuesController : ControllerBase
         take = Math.Clamp(take, 1, 50);
         skip = Math.Max(0, skip);
 
-        var result = await _classification.SearchAsync(
-            session.Credentials,
-            ClassificationKind.Queue,
-            q,
-            take,
-            skip,
-            ct);
+        GenClassificationSearchResult result;
+        if (!string.IsNullOrWhiteSpace(areaId) && !string.IsNullOrWhiteSpace(activityTypeId))
+        {
+            result = await _probe.FilterQueuesForAreaAndTypeAsync(
+                session.Credentials,
+                session.RepUserId,
+                areaId.Trim(),
+                activityTypeId.Trim(),
+                q,
+                take,
+                skip,
+                ct);
+        }
+        else
+        {
+            result = await _classification.SearchAsync(
+                session.Credentials,
+                ClassificationKind.Queue,
+                q,
+                take,
+                skip,
+                ct);
+        }
 
         return Ok(new PagedResultDto<ClassificationSummaryDto>
         {
